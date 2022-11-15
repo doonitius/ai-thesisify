@@ -1,0 +1,29 @@
+Thesis Title         A Synthetic Minority Based on Probabilistic Distribution (SyMProD) Oversampling for Imbalanced Datasets 
+Thesis Credits     12 
+Candidate            Mr. Intouch Kunakorntum 
+Thesis Advisor    Asst. Prof. Phond Phunchongharn, Ph.D.  
+Program              Master of Engineering 
+Field of Study     Computer Engineering 
+Department         Computer Engineering 
+Faculty                Engineering 
+Academic Year   2019 
+Abstract 
+Handling an imbalanced class problem is a challenging task in real-world applications. 
+This problem affects various prediction models that predict only the majority classes and 
+fail to identify the minority classes because of the skewed data. The oversampling 
+technique is one of the exciting solutions that handles the imbalanced class problem. 
+However, several existing oversampling methods do not consider the distribution of the 
+target variable and cause an overlapping class problem. Therefore, this study introduces 
+a new oversampling technique, namely Synthetic Minority Based on Probabilistic 
+Distribution (SyMProD), to handle skewed datasets. Our method normalizes data using a 
+Z-score and removes noisy data. Then, the proposed method selects minority samples 
+based on the probability distribution of both classes. The synthetic instances are generated 
+from the selected points and several minority nearest neighbors. Our technique aims to 
+create synthetic instances that cover the minority class distribution, avoid the noise 
+generation, and reduce the possibilities of overlapping classes and overgeneralization 
+problems. Our proposed technique is validated using 17 benchmark datasets and three 
+classifiers. Moreover, this study compares the performance of the method with other eight 
+conventional oversampling algorithms. The empirical results show that our method 
+achieves better performance than other oversampling techniques. 
+Keywords:    
+Classification, Imbalanced_Dataset, Machine_Learning, Oversampling, Probabilistic_Distribution  

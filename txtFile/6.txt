@@ -1,0 +1,34 @@
+Thesis Title Acoustic-to-Articulatory Inversion Using Deep Learning Approach  
+Thesis Credits  12 
+Candidate Mr. Thanat Lapthawan Thesis Advisors  
+Asst. Prof. Dr. Santitham Prom-on 
+Program Master of Engineering   
+Field of Study Computer Engineering Department
+Computer Engineering 
+Faculty Engineering 
+Academic Year 2019  
+Abstract  
+This thesis proposed a speech production acquisition model using a self-learning 
+strategy. The model presented the underlying articulatory target of vowels from
+speech features, using a deep learning model. The model was trained with a 
+synthetic dataset interpolating from the predefined speakers and vowel configurations 
+provided in a VocalTractLab - a 3D articulatory synthesizer. Proposed data generating 
+methods interpolated articulatory targets and simulated speakers’ vocal tract models. 
+This method was designed to maximize possible speech variations. Post-processing 
+data augmentation, e.g., noise injection and pitch shifting, was applied to the 
+synthetic dataset. The study compared different model architectures, e.g., fully 
+connected model, convolutional model, and recurrent model. The bidirectional long 
+short-term memory recurrent neural network outperformed other models, having five 
+bidirectional layers with 128 units and 50% dropout in each layer. Recorded speech 
+from 12 native Thai speakers was used to numerically evaluate the model's effectiveness 
+and generalizability. Each recorded utterance contained Thai disyllabic vowel sequences, 
+which was a combination of /a:/, /i:/, /u:/, /e:/, /ɛ:/, /ɯ:/, /ɤ:/, /o:/, and /ɔ:/. Thus, 
+there were 81 utterances per speaker. The proposed model accurately estimated articulatory 
+targets from the recorded Thai vowel utterances. The study further analyzed the model’s 
+estimation, using a vowel identification model. While this model was perfectly identifying ฃ
+the vowel from a given speech, the estimation result from the acoustic-to-articulatory 
+inversion (AAI) model was not perfect. The result showed that the inversion speech from the 
+estimated target articulatory was accurate, having 82.6% matching between the original 
+recorded speech and the synthetic speech from the AAI model.  
+Keywords:
+Acoustic-to-Articulatory_Inversion, Deep_Learning,  Speech_Production_Acquisition_Model   

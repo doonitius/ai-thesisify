@@ -1,0 +1,34 @@
+Thesis Title Risk-Sensitive Portfolio Management by using Distributional Reinforcement Learning 
+Thesis Credits  12 
+Candidate  Mr. Thammasorn Harnpadungkij 
+Thesis Advisor Asst. Prof. Dr. Phond Phunchongharn 
+Program  Master of Engineering  
+Field of Study  Computer Engineering 
+Department  Computer Engineering 
+Faculty   Engineering 
+Academic Year 2019 
+Abstract  
+The financial problem is a challenging task for many investors and researchers.
+ In the last decade, many pieces of research adopted deep learning to build an 
+ autonomous trading system. Most researches applied the variance of 
+ supervised-learning techniques to forecast the stock prices and to build the 
+ trading systems based on the predicted results. Another widely used paradigm 
+ is reinforcement learning due to its ability to straightforwardly discover the 
+ relation between the market regime with the optimal trading signals. However, 
+ it is still unclear how to build risk-averse reinforcement learning to trade 
+ in the financial market. Many of previous works combined the moving average of 
+ the variance of the returns to the reward function to make the reinforcement 
+ learning to be risk-sensitive. Alternatively, this research proposed a novel 
+ methodology to build the risk-sensitive reinforcement learning by embedding 
+ the risk aversion into the policy rather than combining the risk to the reward 
+ function. To this end, this work utilized the categorical reinforcement 
+ learning (C51 algorithm) with an action selection method based on the Sharpe 
+ ratio to build the risk-averse trading system. The approach name was C21-SR 
+ because it used 21-bin categorical reinforcement learning with the Sharpe 
+ ratio policy. The empirical results in this work revealed that using the 
+ Sharpe ratio policy could gain more wealth than using the profit policy by 
+ average. This work also presented the comparative study to examine the effects 
+ of the exploration strategy methods and the separated neural network techniques 
+ on the performance of our proposed method.  
+Keywords: 
+Deep_Learning, Distributional_Reinforcement_Learning, Portfolio_Management       

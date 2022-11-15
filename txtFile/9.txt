@@ -1,0 +1,37 @@
+Thesis Title Coreference Resolution and Entity's Action in Legislative Corpus 
+Thesis Credits 12 
+Candidate Mr. Surawat Pothong 
+Thesis Advisor Asst. Prof. Dr. Nuttanart Facundes 
+Program Master of Engineering 
+Field of Study Computer Engineering 
+Department Computer Engineering  
+Faculty Engineering Academic Year 2021  
+Abstract  
+Understanding and interpretation of legislative corpus has problems 
+related to unclear entity actions and coreference. Coreference is a 
+linguistic expression in the corpus that refers to the same object, 
+and entity's activities represent semantic meaning on what has been 
+done to whom. This research addresses coreference resolution and 
+meaning representation in legislative corpora using an integrated 
+algorithm including Span Bidirectional Encoder Representation 
+Transformer (SpanBERT) for coreference resolution and Abstract Meaning 
+Representation (AMR) for meaning representation. Five-step frameworks 
+are conducted: legal text preprocessing, coreference resolution, AMR, 
+evaluation for meaning preservation, and complexity reduction. Smatch 
+evaluation tool and Bilingual Evaluation Understudy (BLEU) scores were 
+applied to evaluate overlapped meaning between resolved and unresolved 
+coreference sentences. The AMR performance was evaluated by Smatch score 
+with 12 experiments conducted on AMR nodes. Convention on the Right of 
+the Child (CRC), Convention on the Rights of the Person with Disabilities (CRPD), 
+and Convention and Protocol Relating to the Status of the Refugees (CPRSR) 
+were the datasets. This experiment shows the SpanBERT algorithm's generalization 
+for coreference resolution in the legal area with 72.08%, 78.03%, and 69.19% 
+in CRC, CRPD, and CPRSR respectively. The ambiguity reduction shows the AMR 
+semantic conversion, meaning preservation, and node fluctuation. The AMR nodes 
+are fluctuated according to the complexity of coreference. When applying SpanBERT 
+with AMR parsing, the legal text is simplified, and AMR is a potential tool to
+perform legal text meaning representation. The AMR graphs after complexity being reduced 
+can be applied for further legal text processing tasks with Neural Network such as legal 
+inferencing.
+Keywords: 
+Abstract_Meaning_Representation, BERT, Coreference_Resolution, Legal_Processing, Natural_Language_Processing, Semantic_Meaning_Representations, SpanBERT

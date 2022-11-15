@@ -1,0 +1,28 @@
+Thesis Title   Deep Anomaly Detection System Using System Logs 
+Thesis Credits   12 
+Candidate   Mr. Purimpat Cheansunan  
+Thesis Advisor  Asst. Prof. Phond Phunchongharn, Ph.D. 
+Program   Master of Engineering 
+Field of Study   Computer Engineering 
+Department   Computer Engineering 
+Faculty   Engineering 
+Academic Year 2019 
+Abstract 
+System logs contain the complete information of service operations which is usually 
+written by developers. In recent years, anomaly detection on log messages is popular. 
+Several researchers applied the machine learning techniques to the system logs to detect 
+the anomalous behaviors of the system. At the same time, CERN organization planned to 
+establish a new data center in 2020 to improve the performance of the system. According 
+to the new datacenter, ALICE intends to build a monitoring system for the new system. 
+However, ALICE has been deploying the conventional monitoring system but requires 
+the intervention of administrators. In this work, a novel anomaly detection framework is 
+proposed by using Convolutional Neural Network (CNN) along with Transformer which 
+is popular in machine translation tasks. The proposed framework automatically monitors 
+the service operation logs and detects the anomalous events based on the log messages. 
+The dataset used in the work is HDFS operation logs. To evaluate the model, the 
+measurement metrics include Precision, Recall, F-measure, Miss detection rate, and False 
+alarm rate. Finally, we design the experiments to compare the performance against the 
+existing works which use LSTM (Long-Short Term Memory)-based and CNN-based 
+approaches. 
+Keywords: 
+ALICE, Anomaly_detection, CERN, Convolutional_Neural_Network, Self-Attention, Transformer 
