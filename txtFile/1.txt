@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study  Computer Engineering  
 Department  Computer  Engineering  
 Faculty  Engineering  
-Academic Year  2021 
+Academic Year  2021 Combinatorial_Optimization, Vehicle_Routing_Problem, Hard_Time_Windows, Meta_heuristic,
 Abstract  
 In the logistic management, the cost reduction for delivering the  goods to customer s is crucial 
 to save the budget of the company . Since decades ago, various Vehicle Routing Problems  
@@ -24,4 +24,4 @@ solutions on the R and RC sets. The motivation behind this research is to find a
 specific configurations of GA for VRP TW domain which can have the desirable outputs that 
 can be applied in most of the real -world use cases.  
 Keywords:
-Artificial_Intelligence, Combinatorial_Optimization, Vehicle_Routing_Problem, Hard_Time_Windows, Meta_heuristic, Genetic_Algorithm   
+Artificial_Intelligence, Genetic_Algorithm   

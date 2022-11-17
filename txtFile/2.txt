@@ -6,7 +6,7 @@ Program   Master of  Engineering
 Field of Study   Computer Engineering  
 Department   Computer Engineering  
 Faculty    Engineering  
-Academic Year  2020  
+Academic Year  2020  , Hyper-Parameter_Tuning, Optimization
 Abstract  
 Machine learning and predictive modeling have become widely us ed in many fields. 
 Utilizing algorithm without tuning  hyper -parameter can lead to inefficient performance 
@@ -24,4 +24,4 @@ competitive performance and outperformed the other algorithms in the dataset wit
 dimension while requiring smaller com putation time at the optimum point on the majority 
 of experimental datasets.  
 Keywords:
-Genetic_Algorithm, Gradient_Boosting, Hyper-Parameter_Tuning, Optimization  
+Genetic_Algorithm, Gradient_Boosting  

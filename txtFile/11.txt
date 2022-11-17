@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study  Computer Engineering  
 Department  Computer Engineering  
 Faculty  Engineering  
-Academic Year  2020 
+Academic Year  2020 , Traffic_Model, Queuing_Network, Stochastic_Model  
 Abstract  
 Loss estimation is considerably significant for network planning processes and plays a 
 main role in bandwid th allocation optimization, network design, guaranteeing quality of 
@@ -26,4 +26,4 @@ tasks running on FLPs. Lastly, in order to find the best represented model compa
 the real trace result, we performed model verification and took into account the end-to-
 end packet loss and queue utilization of each task.  
 Keywords:  
-Network_Resource_Planning, Traffic_Model, Queuing_Network, Stochastic_Model  
+Network_Resource_Planning

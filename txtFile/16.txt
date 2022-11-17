@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study  Computer Engineering 
 Department  Computer Engineering 
 Faculty  Engineering 
-Academic Year 2020  
+Academic Year 2020  , Hissing_signal, Machine_learning, Monitoring_beehive  
 Abstract  
 The honeybee is a social insect that communicates with its nestmates when engaging in its various activities. 
 Honeybees normally emit signaling sounds to communicate information such as flight orientation, 
@@ -21,4 +21,4 @@ selected based on two competing objectives: the minimum number of parameters and
 revealed that the one-dimensional neural network trained with the temporal domain spectrogram that consists of 2 hidden 
 layers, 32 nodes for each layer, and a minimum of 3,737 trainable parameters could provide the best accuracy.   
 Keywords: 
-Convolutional_neural_networks, Feature_extraction, Hissing_signal, Machine_learning, Monitoring_beehive  
+Convolutional_neural_networks, Feature_extraction

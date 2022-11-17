@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study Computer Engineering 
 Department Computer Engineering 
 Faculty Engineering 
-Academic Year 2021  
+Academic Year 2021  , Regression, Resource_Estimation, Resource_Planning   
 Abstract  
 Resource estimation is a technique that has many uses. In this research, we examine how it can be 
 used to estimate computing resources of systems based on historical data in order to make them more efficient. 
@@ -24,4 +24,4 @@ Regression, Multiple Linear Regression, and Multi-Layer Perceptron to create mod
 models is measured and compared using the coefficients of determination which are Mean Absolute Error and Mean 
 Square Error.   
 Keywords:
-ALICE, CERN, Regression, Resource_Estimation, Resource_Planning   
+ALICE, CERN

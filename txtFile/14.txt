@@ -6,7 +6,7 @@ Program   Master of Engineering
 Field of Study   Computer Engineering 
 Department   Computer Engineering 
 Faculty   Engineering 
-Academic Year  2020 
+Academic Year  2020 Circuit_Depth, Computing_Wall-Time, 
 Abstract  
 Since a classical computer has a limitation to solve a large size of data and complex 
 problems, researchers have be en trying to find new solutions. Q uantum computing is one 
@@ -29,4 +29,4 @@ only for the 4- qubit position state. The other sizes of position state s return
 the capacity of the quantum computer. Furthermore, the returned measurement results are 
 disturbed by the noise from the operation of the actual quantum computer. 
 Keywords: 
-Circuit_Depth, Computing_Wall-Time, Quantum_Random_Walk, Quantum_Computer_Simulator  
+Quantum_Random_Walk, Quantum_Computer_Simulator  

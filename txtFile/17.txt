@@ -6,8 +6,8 @@ Program   Master of Engineering
 Field of Study   Computer Engineering 
 Department   Computer Engineering 
 Faculty   Engineering 
-Academic Year 2019 
-Abstract 
+Academic Year 2019 Anomaly_detection, CERN, , Self-Attention, Transformer 
+Abstract
 System logs contain the complete information of service operations which is usually 
 written by developers. In recent years, anomaly detection on log messages is popular. 
 Several researchers applied the machine learning techniques to the system logs to detect 
@@ -25,4 +25,4 @@ alarm rate. Finally, we design the experiments to compare the performance agains
 existing works which use LSTM (Long-Short Term Memory)-based and CNN-based 
 approaches. 
 Keywords: 
-ALICE, Anomaly_detection, CERN, Convolutional_Neural_Network, Self-Attention, Transformer 
+ALICE, Convolutional_Neural_Network

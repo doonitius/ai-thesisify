@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study Computer Engineering 
 Department Computer Engineering 
 Faculty  Engineering 
-Academic Year  2021  
+Academic Year  2021  , Thai_Language, Word_Segmentation ,Attention, 
 Abstract  
 Word segmentation is an important pre-processing step in natural language processing 
 applications, particularly in languages with no demarcation indicators including such as 
@@ -19,4 +19,4 @@ two different types of attention mechanisms to determine the effectiveness of wo
 tokenization. The visualization of attention for each attention mechanism is also included 
 as an outcome. 
 Keywords:  
-Attention, Deep_Learning, Thai_Language, Word_Segmentation
+Deep_Learning

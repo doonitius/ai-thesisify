@@ -5,7 +5,7 @@ Thesis Advisor Dr. Unchalisa Taetragool
 Program  Master of Engineering 
 Field of Study Computer Engineering 
 Department Computer Engineering 
-Faculty Engineering Academic Year 2020  
+Faculty Engineering Academic Year 2020  ABC, ANOVA, Classification, Grid_Search, 
 Abstract  
 Hyperparameter Tuning chooses optimal hyperparameters when training a machine 
 learning model. Once an optimization function has been defined, Hyperparameter
@@ -24,4 +24,4 @@ of using ABC were chosen as performance indicators for the comparison of differe
 hyperparameter tuning techniques for different classification algorithms against 
 those from grid search and random search.  
 Keywords: 
-ABC, ANOVA, Classification, Grid_Search, Hyperparameter_Tuning, Random_Search    
+Hyperparameter_Tuning, Random_Search    

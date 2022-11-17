@@ -6,7 +6,7 @@ Program   Master of Engineering
 Field of Study  Computer Engineering 
 Department  Computer Engineering 
 Faculty   Engineering 
-Academic Year  2019   
+Academic Year  2019   , Neural_Language_Model, Natural_Language_Processing  
 Abstract  
 Due to the emerging of Long Short-Term Memory neuron network (LSTM) which is a variation of deep neuron network, 
 it is proven to be essential to the improvement of Natural Language Processing especially Language Modelling. 
@@ -19,4 +19,4 @@ LSTM can improve the performance of Natural Language Modelling (NLM) on Thai dat
 character-word LSTM with dropout value of 0.75 and batch normalization, the perplexity is lower than baseline 
 word-level LSTM up to 21.10%.  
 Keywords:
-Deep_Learning, Long_Short_Term_Memory, Neural_Language_Model, Natural_Language_Processing      
+Deep_Learning, Long_Short_Term_Memory

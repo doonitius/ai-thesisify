@@ -6,7 +6,7 @@ Program              Master of Engineering
 Field of Study     Computer Engineering 
 Department         Computer Engineering 
 Faculty                Engineering 
-Academic Year   2019 
+Academic Year   2019 Imbalanced_Dataset, Machine_Learning, Oversampling, 
 Abstract 
 Handling an imbalanced class problem is a challenging task in real-world applications. 
 This problem affects various prediction models that predict only the majority classes and 
@@ -26,4 +26,4 @@ classifiers. Moreover, this study compares the performance of the method with ot
 conventional oversampling algorithms. The empirical results show that our method 
 achieves better performance than other oversampling techniques. 
 Keywords:    
-Classification, Imbalanced_Dataset, Machine_Learning, Oversampling, Probabilistic_Distribution  
+Classification, Probabilistic_Distribution  

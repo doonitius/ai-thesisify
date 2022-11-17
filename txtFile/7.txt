@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study  Computer  Engineering  
 Department Computer  Engineering  
 Faculty Engineering  
-Academic Year 2021  
+Academic Year 2021  Feature_Extraction, 
 Abstract   
 In recent studies, many NLP tasks could gain better performance by applying the word 
 embedding as the representation of words. In this research , we propose Deep Word -Topic 
@@ -20,4 +20,4 @@ framework , topic diversity , and topic quality  were  used to compare between  
 and LDA.  The experimental result on both Thai and English dataset indicate  that DWT -
 LDA  performs better than LDA on both datasets.   
 Keywords:   
-Feature_Extraction, Natural_Language_Processing, Topic_Modeling   
+Natural_Language_Processing, Topic_Modeling   

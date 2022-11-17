@@ -6,7 +6,7 @@ Program  Master of Engineering
 Field of Study  Computer Engineering  
 Department  Computer Engineering  
 Faculty  Engineering  
-Academic Year  2019 
+Academic Year  2019 , Facial_Movement, Speech_Production, Thai_Language  
 Abstract  
 This thesis  presents a computational study on the relation between the movement of visual 
 facial and acoustic features. Audio -visual corpus on expressive speech production was 
@@ -21,4 +21,4 @@ on the landmark and dynamic features of both visual and audio data were performe
 result provides the relation  of the expressive facial movement together with the acoustic 
 adjustments.  
 Keywords:  
-Audio-synchronization, Facial_Expression, Facial_Movement, Speech_Production, Thai_Language   
+Audio-synchronization, Facial_Expression 
