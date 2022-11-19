@@ -1,13 +1,3 @@
-Thesis Title  A Computational Study on The Effects of Feature Enhancement in Topic Modelling
-Thesis Credits  12  
-Candidate Mr. Siriwat Limwattana  
-Thesis Advisors   Asst. Prof. Dr. Santith am Prom -on 
-Program  Master of Engineering   
-Field of Study  Computer  Engineering  
-Department Computer  Engineering  
-Faculty Engineering  
-Academic Year 2021  Feature_Extraction, 
-Abstract   
 In recent studies, many NLP tasks could gain better performance by applying the word 
 embedding as the representation of words. In this research , we propose Deep Word -Topic 
 Latent Dirichlet  Allocation  (DWT -LDA), a ne w process for training LDA with word  
@@ -19,5 +9,3 @@ Amazon Customer Review . To quantitatively evaluate our model, the  topic cohere
 framework , topic diversity , and topic quality  were  used to compare between  our approach 
 and LDA.  The experimental result on both Thai and English dataset indicate  that DWT -
 LDA  performs better than LDA on both datasets.   
-Keywords:   
-Natural_Language_Processing, Topic_Modeling   

@@ -1,13 +1,3 @@
-Thesis Title   Deep Anomaly Detection System Using System Logs 
-Thesis Credits   12 
-Candidate   Mr. Purimpat Cheansunan  
-Thesis Advisor  Asst. Prof. Phond Phunchongharn, Ph.D. 
-Program   Master of Engineering 
-Field of Study   Computer Engineering 
-Department   Computer Engineering 
-Faculty   Engineering 
-Academic Year 2019 Anomaly_detection, CERN, , Self-Attention, Transformer 
-Abstract
 System logs contain the complete information of service operations which is usually 
 written by developers. In recent years, anomaly detection on log messages is popular. 
 Several researchers applied the machine learning techniques to the system logs to detect 
@@ -24,5 +14,3 @@ measurement metrics include Precision, Recall, F-measure, Miss detection rate, a
 alarm rate. Finally, we design the experiments to compare the performance against the 
 existing works which use LSTM (Long-Short Term Memory)-based and CNN-based 
 approaches. 
-Keywords: 
-ALICE, Convolutional_Neural_Network

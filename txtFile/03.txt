@@ -1,13 +1,3 @@
-Thesis Title Computing Resource Estimation by Using Machine Learning Techniques for ALICE O2 Logging System 
-Thesis Credits 12 
-Candidate  Miss Juthaporn Vipatpakpaiboon 
-Thesis Advisor Asst. Prof. Dr. Khajonpong Akkarajitsakul 
-Program  Master of Engineering 
-Field of Study Computer Engineering 
-Department Computer Engineering 
-Faculty Engineering 
-Academic Year 2021  , Regression, Resource_Estimation, Resource_Planning   
-Abstract  
 Resource estimation is a technique that has many uses. In this research, we examine how it can be 
 used to estimate computing resources of systems based on historical data in order to make them more efficient. 
 Many researchers have applied machine learning to estimate computing resources. The European 
@@ -23,5 +13,3 @@ reliable and adaptable to changes. We applied different machine learning algorit
 Regression, Multiple Linear Regression, and Multi-Layer Perceptron to create models. The efficiency of these 
 models is measured and compared using the coefficients of determination which are Mean Absolute Error and Mean 
 Square Error.   
-Keywords:
-ALICE, CERN

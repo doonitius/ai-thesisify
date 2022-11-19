@@ -1,13 +1,3 @@
-Thesis Title Risk-Sensitive Portfolio Management by using Distributional Reinforcement Learning 
-Thesis Credits  12 
-Candidate  Mr. Thammasorn Harnpadungkij 
-Thesis Advisor Asst. Prof. Dr. Phond Phunchongharn 
-Program  Master of Engineering  
-Field of Study  Computer Engineering 
-Department  Computer Engineering 
-Faculty   Engineering 
-Academic Year 2019 , Portfolio_Management    
-Abstract  
 The financial problem is a challenging task for many investors and researchers.
 In the last decade, many pieces of research adopted deep learning to build an 
 autonomous trading system. Most researches applied the variance of 
@@ -30,5 +20,3 @@ Sharpe ratio policy could gain more wealth than using the profit policy by
 average. This work also presented the comparative study to examine the effects 
 of the exploration strategy methods and the separated neural network techniques 
 on the performance of our proposed method.  
-Keywords: 
-Deep_Learning, Distributional_Reinforcement_Learning   

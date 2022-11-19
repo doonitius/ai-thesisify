@@ -1,12 +1,3 @@
-Thesis Title Automated Hyperparameters Tuning Using the Artificial Bee Colony Algorithm 
-Thesis Credits 12 
-Candidate  Mr. Thitiya Trithipkaiwanpon 
-Thesis Advisor Dr. Unchalisa Taetragool 
-Program  Master of Engineering 
-Field of Study Computer Engineering 
-Department Computer Engineering 
-Faculty Engineering Academic Year 2020  ABC, ANOVA, Classification, Grid_Search, 
-Abstract  
 Hyperparameter Tuning chooses optimal hyperparameters when training a machine 
 learning model. Once an optimization function has been defined, Hyperparameter
 Tuning would sequentially consider many sets of values that define the hyperparameters 
@@ -23,5 +14,3 @@ foraging behavior. Execution time, accuracy, F1-score, and accuracy plus F1-scor
 of using ABC were chosen as performance indicators for the comparison of different 
 hyperparameter tuning techniques for different classification algorithms against 
 those from grid search and random search.  
-Keywords: 
-Hyperparameter_Tuning, Random_Search    

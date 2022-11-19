@@ -1,12 +1,3 @@
-Thesis Title Text Summarization on Covid 19 News 
-Thesis Credits 12 
-Candidate Mr. Chatchawarn Limploypipat 
-Thesis Advisor Asst. Prof. Dr. Nuttanart Facundes 
-Program Master of Science Field of Study Computer Engineering 
-Department Computer Engineering 
-Faculty Engineering 
-Academic Year 2021  coronavirus, natural_language_processing
-Abstract   
 Since the spread of Coronavirus disease or Covid-19 at the end of 2019,
 there has been an extensive amount of news about Covid-19,
 and it takes a long time for humans to read the news,
@@ -28,5 +19,3 @@ that are not perfect or diverse enough. Two Long Short Term Memory (LSTM)
 models, with and without data augmentation, were used to generate summaries. 
 The resulting summaries were analyzed and compared with related work using 
 Recall-Oriented Understudy for Gisting Evaluation (ROUGE) metrics.
-Keywords:
-abstractive_text_summarization, COVID-19

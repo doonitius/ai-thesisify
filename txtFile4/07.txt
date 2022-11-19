@@ -1,0 +1,1156 @@
+ 
+ 
+ 
+A COMPUTATIONAL STUDY ON THE EFFECTS OF FEATURE 
+ENHANCEMENT IN TOPIC MODELLING  
+ 
+          
+ 
+ 
+ 
+ 
+ 
+ 
+MR. SIRIWAT LIMWATTANA  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                   
+A THESIS SUBMITTED IN PARTIAL FULFILLMENT  
+OF THE REQUIREMENTS FOR  
+THE DEGREE OF MASTER OF ENGINEERING  
+(COMPUTER ENGINEERING)   
+FACULTY OF ENGINEERING  
+KING MONGKUT’S UNIVERSITY OF TECHNOLOGY THONBURI  
+2021
+ 
+ 
+ A Computational Study on The Effects of Feature Enhancement in Topic Modelling  
+ 
+ 
+Mr. Siriwat Limwattana B.Eng. (Computer Engineering)  
+ 
+ 
+A Thesis Submitted in Partial Fulfillment  
+of the Requirements for  
+the Degree of Master of Engineering (Computer Engineering)   
+Faculty of Engineering  King Mongkut’s University of Technology Thonburi  
+2021  
+ 
+Thesis Committee   
+ 
+………………………………............................  Chairman of Thesis Committee  
+          (Asst. Prof. Varin  Chouvatut , Ph.D.)   
+ 
+………………………………........................... .  Member and Thesis Advisor  
+       (Asst. Prof. Santitham Prom -on, Ph.D.)   
+ 
+………………………………............................  Member              
+(Asst. Prof. Khajonpong Akkarajitsakul, Ph.D.)   
+ 
+………………………………............................  Member              
+       (Asst. Prof. Kejkaew  Thanasuan , Ph.D.)   
+ 
+………………………………............................  Member  
+        (Lect. Jaturon Harnsomburana, Ph.D.)  
+ 
+ 
+Copyright reserved   ii 
+ 
+Thesis Title        A Computational Study on The Effects of Feature Enhancement in  
+                             Topic Modelling  
+Thesis Credits      12  
+Candidate             Mr. Siriwat Limwattana  
+Thesis Advisors   Asst. Prof. Dr. Santith am Prom -on 
+Program            Master of Engineering   
+Field of Study      Computer  Engineering  
+Department          Computer  Engineering  
+Faculty                 Engine ering  
+Academic Year    2021  
+ 
+Abstract  
+ 
+In recent studies, many NLP tasks could gain better performance by applying the word 
+embedding as the representation of words. In this research , we propose Deep Word -Topic 
+Latent Dirichlet  Allocation  (DWT -LDA), a ne w process for training LDA with word  
+embedding. DWT -LDA  augment s the samp ling process of an original LDA by 
+incorporating  word embedding  technique  to allow the model to capture topics based  
+embedding.  A neural network is applied  to the Collapsed Gibbs Sampling process as 
+another choice for  word topic assignment.  A dataset crawled from Panti p.com  and 
+Amazon Customer Review . To quantitatively evaluate our model, the  topic coherence 
+framework , topic diversity , and topic quality  were  used to compare between  our approach 
+and LDA.  The experimental result on both Thai and English dataset indicate  that DWT -
+LDA  performs better than LDA on both datasets.   
+ 
+Keywords:   Feature Extraction/ Natural Language Processing/ Topic Modeling   iii 
+ 
+ห ั วข ้ อ วิทย าน ิ พ นธ์  กา ร ศ ึ กษ าเช ิ งปร ิ มาณใ นกา ร พ ั ฒน าฟ ี เจ อ ร ์ ส  าห ร ั บก ารส ร ้ า งแบบจ  าล อ งห ั วข ้ อ  
+หน ่ วยกิ ต   12 
+ผ ู ้ เขียน    น า ย ส ิ ร ิ ว ั ท ก ์   ล ิ ้ม ว ั ฒ น า 
+อ าจาร ย ์ ท ี่ ป ร ึ กษ า   ผ ศ. ดร . ส ัน ต ิ ธ ร ร ม   พ ร หม อ ่อ น  
+หล ั กส ู ตร   วิศวกรร ม ศาส ตร มหา บ ั ณฑ ิ ต  
+ส าขาวิชา   วิศวกรร ม ค อ มพ ิว เตอร ์  
+ภาควิชา    วิศวกรร มค อ มพ ิว เตอร ์  
+คณะ    วิศวกรร มศาส ตร ์  
+ป ี กา ร ศ ึ กษ า   2564  
+ 
+บทค ั ดย ่ อ  
+ 
+จ า ก ง า น ว ิจ ั ย เ ม ื่ อ ไ ม ่น า น ม า น ี ้  ง า น ว ิจ ั ย ด ้ า น ก ร ะ ป ร ะ ม ว ล ผ ล ภ า ษ า ธ ร ร ม ช า ต ิ ถ ูก พ ั ฒ น า ป ร ะ ส ิ ท ธ ิ ภ า พ ข ึ ้ น ม า
+จ า ก อ ด ี ต ผ ่ า น ก า ร น  า เ ท ค น ิ ค ก า ร แ ท น ค่ า ข อ ง ค  า ด ้ว ย เ ว ก เ ต อ ร ์ ข น า ด จ  า ก ัด  แ ต ่ ถ ึ ง ก ร ะ น ั ้ น  ก า ร วิ จ ั ย แ ล ะ
+พ ั ฒ น า ด ้ า น แ บ บ จ  า ล อ ง ห ัว ข ้ อ ใ น ภ า ษ า ไ ท ย ย ั ง ม ี ไ ม ่ ม า ก  โ ด ย ง า น ว ิ จ ั ย น ี ้ มุ่ ง ศ ึ ก ษ า  แ ล ะ พ ั ฒ น า แ บ บ จ  า ล อ ง
+ห ั วข ้ อ แบบใ หม่โ ดย ป ร ะย ุ ก ต ์ ใช ้ ก าร แท นค่ าข อ งค  าด ้ วยเ วก เตอ ร ์ ข นา ด จ  าก ั ด เพื่ อ พ ั ฒ นาขี ดค วามส า ม า ร ถ
+ข อ ง แ บ บ จ  า ล อ ง ห ั ว ข ้อ  โ ด ย ต ั ้ ง ช ื่ อ เ ท ค น ิ ค ท ี่ ค ิ ด ค ้น ข ึ ้ น ม า ใ ห ม ่ ว ่ า  Deep Word -Topic Latent Dirichlet 
+Allocation(DWT -LDA) ซ ึ ่ ง  DWT -LDA ถ ู ก พ ั ฒ น า ต่ อ ย อ ด ม า จ า ก  LDA โ ด ย ก า ร เ ป ล ี่ ย น แ ป ล ง
+ก ร ะ บ ว น ก า ร ส ุ่ ม ห ัว ข ้ อ  โ ด ย เ พ ิ่ ม ก า ร ส ุ่ ม ห ัว ข ้ อ จ า ก ก า ร แ ท น ค่ า ข อ ง ค  า ด ้ ว ย เ ว ก เ ต อ ร ์ ข น า ด จ  า ก ั ด ผ ่า น ก า ร
+เ ร ี ย น ร ู ้ ข อ ง เ ค ร ื่ อ ง ด ้ ว ย โ ค ร ง ข่ า ย ป ร ะ ส า ท เ ท ี ย ม เ พื่ อ ท  า ก า ร ก  า ห น ด ก า ร ก ร ะ จ า ย ต ั ว ข อ ง ห ั ว ข ้ อ ภ า ย ใ ต ้ค  า
+น ั ้ น ๆ  ซ ึ ่ ง เ ท ค น ิ ค ด ั ง ก ล ่ า ว ถ ู ก ใ ช ้ เ ป ็ น ต ั ว เ ล ื อ ก ท ี่ ส อ ง ส  า ห ร ั บ ก า ร ส ุ่ ม ห ั ว ข ้อ ใ น ก ร ะ บ ว น ก า ร  Collapsed 
+Gibbs Sampling  ส  า ห ร ั บ ก า ร เ ร ี ย น ร ู ้ แ บ บ จ  า ล อ ง ห ัว ข ้ อ  ใ น ส ่ ว น ข อ ง ข ้ อ มู ล ท ี่ ใ ช ้ ใ น ก า ร ท ด ล อ ง  เ ร า ไ ด ้ ท  า
+ก า ร เ ก็ บ ข ้ อ มู ล จ า ก ก ร ะ ทู ้ ต่ า ง ๆ บ น เ ว ็ บ ไ ซ ต ์  Pantip.com แ ล ะ  ไ ด ้ใ ช ้ ช ุ ด ข ้ อ มู ล ก า ร วิ พ า ก ษ ณ ์ ส ิ น ค ้ า จ า ก
+เ ว ็ บ ไ ซ ต ์  Amazon.com  เ พื่ อ ท ด ส อ บ ป ร ะ ส ิ ท ธ ิ ภ า พ ก า ร เ ร ี ย น ร ู ้ ข อ ง แ บ บ จ  า ล อ ง ใ น ท ั ้ ง ภ า ษ า ไ ท ย  แ ล ะ
+ภ า ษ า อ ั ง ก ฤ ษ  โ ด ย ว ั ด ผ ล จ า ก  1 )  ก า ร ค  า น ว ณ ค ว า ม ส อ ด ค ล ้ อ ง ข อ ง ห ั ว ข ้ อ  2 )  ค ว า ม ก ร ะ จ า ย ข อ ง ห ั ว ข ้ อ  3 )  
+คุ ณ ภ า พ ข อ ง ห ัว ข ้ อ  ซ ึ ่ ง ผ ล ก า ร วิ จ ั ย พ บ ว ่า วิ ธ ี ก า ร ท ี่ ถ ู ก พ ั ฒ น า ข ึ ้ น ใ น ง า น ว ิ จ ั ย น ี ้ ส า ม า ร ถ เ พ ิ่ ม ป ร ะ ส ิ ท ธ ิ ภ า พ
+ของแบบจ  าล อ ง LDA ไ ด ้ ท ั ้ ง ภ า ษ า ไ ท ย  แ ล ะ ภ า ษ า อ ั ง ก ฤ ษ 
+ 
+ค  าส  าค ั ญ  : กา ร ป ร ะม วลผล ภาษา ธ ร ร มชาต ิ  / การสก ั ดคุณล ั กษ ณะ / การสร ้ างแบบจ  าล อ ง ห ั วข ้ อ  
+  iv 
+ 
+ CONTENTS   
+    
+  PAGE  
+    
+ENGLISH ABSTRACT  ii 
+THAI ABSTRACT  iii 
+CONTENTS  iv 
+LIST OF TABLES  vi 
+LIST OF FIGURES  vii 
+LIST OF TECHNICAL VOCABULARY AND ABBREVIATIONS   viii 
+    
+CHAPTER  
+1. INTRODUCTION   1 
+ 1.1 State ment of Problem   1 
+ 1.2 Objectives  2 
+ 1.3 Scopes  2 
+    
+2. LITERATURE REVIEW AND THEORY  4 
+ 2.1 Related Wor k 4 
+ 2.2 Theory  6 
+    
+3. MATERIAL AND METHODOL OGIES  11 
+ 3.1 Dataset  11 
+ 3.2 Exploratory Data Analysis  13 
+ 3.3 Proposed Method  17 
+ 3.4 Experimental Design  20 
+ 3.5 Evaluations  21 
+ 
+  v 
+ 
+CONTENTS (Cont’d)   
+ 
+PAGE  
+ 
+4. EXPERIMENTAL RESULT  23 
+ 4.1 Qualitative Evaluation   23 
+ 4.2 Discovered Topics  26 
+    
+5. CONCLUSION  30 
+ 5.1 Discussion  30 
+ 5.2 Conclusion  30 
+    
+REFERENCE  32 
+    
+CURRICULUM VITAE  35 
+  vi 
+ 
+LIST OF TABLES  
+   
+TABLE    PAGE  
+   
+2.1 Document representation using Bag -of-Word  6 
+4.1 The evaluation o f DWT -LDA  compared to LDA on Pantip dataset  24 
+4.2 The evaluation of DWT -LDA compared to LDA on Amazon dataset  24 
+4.3 The learned topic from Pantip dataset  27 
+4.4 The learned topic from Amazon Customer Review dataset  28 
+ 
+  vii 
+ 
+LIST OF FIGUR ES 
+   
+FIGURE   PAGE  
+   
+2.1 Graphical model representation of PLSA model  4 
+2.2 Graphical model representation of LDA model  7 
+2.3 The schematic image of a neuron.  8 
+2.4 Schematic diagram of a McCulloch -Pitts neuron  9 
+2.5 The multi -layer perceptron with 2 layers.  9 
+2.6 The model architecture of word embedding  10 
+3.1 The distribution of raw document length on Pantip dataset  14 
+3.2 The distribution of final document length on Pantip dataset  14 
+3.3 The distribution of physical topics on Pantip dataset.  15 
+3.4 The distribution of physical topics on Amazon Customer Review dataset.  16 
+3.5 The distribution of raw document length on Amazon dataset  17 
+3.6 The distribution of final document length on Amazon dataset  17 
+3.7 The architecture of neural network -based  word -topic assignment  18 
+3.8 The training procedure of our modified algorithm  20 
+3.9 The evaluation process of on our approach and the baseline algorithm  20 
+3.10 An overview of topic coherence framework  21 
+3.9 Topic coherence between DWT -LDA  and LDA  25 
+3.10 Topic diversity between DWT -LDA and LDA  26 
+3.11 Topic quality between DWT -LDA and LDA  26 
+  viii 
+ 
+LIST OF TECHNICAL VOCABULARY AND ABBREVIATIONS  
+ 
+ 
+BoW  = Bag-of-Word  
+DWT -LDA  = Deep Word -Topic Latent Dirichlet Allocation  
+ETM  = Embedded Topic Model  
+FSL = FastText -based Sentence - Latent Dirichlet 
+Allocation  
+HTML  = Hypertext Markup Language  
+LDA  = Latent Dirictlet Allocation  
+LF-LDA  = Latent Feature - Latent Dirichlet Allocation  
+LSI = Latent Semantic Indexing  
+NLP  = Natural Language Processing  
+NLTK  = Natural Language Toolkit  
+NMF  = Non-negative Matrix Factorization  
+PLSA  = Probabilistic Latent Semantic Analysis  
+PyThaiNLP  = Thai Natural Language Processing in Python  
+ReLU  = Rectified Linear Unit  
+SVD  = Singular Value Decomposition  
+TNG  = Topic N -grams  
+WE-LDA  = Word Embedding - Latent Dirichlet 
+Allocation  
+    
+ 
+CHAPTER 1 INTRODU CTION  
+  
+ 
+1.1 Statement of Problem   
+With  the massive amount of data  existing nowadays , relying on human to read and 
+understand all documents  in order to comprehend all the minutes details in everyday life 
+has become difficult, if not impossible . Finding a way to  systematically  extract 
+information from the textual  data to help identify important information thus become 
+crucial.   
+Natural Language Processing (NLP) is a research area which focus on analyzing human 
+languages to understand the underlying information . With the growth of web technology, 
+it makes social network, blog and discussing forum become a casual in our daily life . 
+Most online popular platforms give no boundary to people to express their thought, ideas, 
+and knowledge that understanding these data is a valuable sou rce of information.  As of 
+2018, there was a report stated that 90 percent of data in the world was generated within 
+the last 2 year [1]. To imagine the fast pace of data, the report also showed that 456,000 
+tweets and 510, 000 Facebook comment s were posted every minutes.  As data grow faster, 
+more data  are generated that NLP will become important in data analytics .  
+Topic modeling is one of the challenging tasks  in NLP  that focus es on processing 
+unstructured t ext data to automatically cluster similar document together  and identify 
+important word clusters known as topics . One of the most successful topic modeling 
+algorithms  is Latent Di richlet Allocation (LDA)  [2]. LDA  is a generative model that 
+learns the representation of documents from frequencies of each word used in that 
+document using the Bag -of-Word representation. It treats one word apart from each other , 
+although some of them may closely rela ted or be a synonym. So, the shortcoming of LDA 
+is that it  discard s the semantic information of words.  Therefore, finding a technique which 
+utilizes word -level information to apply with LDA may improve its performance.   
+After an efficient word embedding technique was proposed by Mokolov et al. in 2013  
+[3], Skip-gram with negative sampling becomes a powerful word representation that uses 
+less training time and able to embe d the semantic and syntactic information of words into 
+embedding space [4]. This technique then has been successfully applied to various NLP 2 
+ 
+applications [5-7]. Thus, it is logical to test whether the incorporation of word embedding 
+could improve the effectiveness of topic modeling or not.   
+This study  aims to  combin e the original topic modeling with the word embedding 
+technique to improve the topic modeling algorithm . A hybrid approach for training a 
+Collapsed Gibbs Sampling based LDA with a neural network was tested . To compare the 
+performance of our method and the original LDA, w e conduct ed an experiment on two 
+datasets, a text corpus from Pantip .com  as a Thai dataset, and Amazon Customer Reviews 
+as an English dataset  [8]. To qualitatively compare the result,  topic coherence, topic 
+diversity and topic quality  were used  for the evaluation . 
+This thesis is organized as follow: Section 1 introduces the thesis objectives and problem 
+statement. Section 2 presents  the related works along with the d iscussion and literature 
+review on the  algorithms involved in this thesis, Section 3 describes our datasets, data 
+preparation process, our modified algorithms  including the experimental design , and the 
+metrics used for evaluation , Section 4 presents the ex perimental results, and Section 5 is 
+the discussion of this research and conclude the experiments of this research . 
+ 
+1.2 Objectives  
+1. To study on the feasibility of improving Latent Dirichlet Allocation algorithm  with 
+word  embedding . 
+2. To study on the feasibility of applying Topic Modeling on  Thai language . 
+ 
+1.3 Scopes    
+1. The experiment will be conducted based on 2 languages which are Thai and English  
+dataset. 1) The Thai dataset will be collected from www.pantip.com  which is a Thai-
+language based  online  discussion forum . We crawled the first thread of posts across 
+all forums  in total of 58,304 posts . 2) The English dataset is sampled from  Amazon 
+Customer Review dataset  [8] which consist of customer reviews on their purchased 
+products  which categories are beauty, clothing shoes and jewelry, grocery and 
+gourmet fo od, sports and outdoor, and video games  in total of 77,749 reviews.  
+2. Experiment on  improving the topic model by adding new features into the modified 
+algorithm . 3 
+ 
+3. Qualitatively compare the result on three metrics which are topic coherence, topic 
+diversity, and topic quality.  
+4. Use Latent Dirichlet Allocation as a baseline model for evaluation.  
+ 
+   
+ 
+CHAPTER 2  LITERATURE REVIEW AND THEORY  
+ 
+ 
+2.1 Related Work   
+A brief history of topic modeling technique [9, 10]  started from Latent Semantic Indexing  
+(LSI) [11], it was proposed  by Deerwester  et al. in 1990. With LS I, a document assumed 
+to be a mixture of latent topics, which  was derived from the frequen cy of words used  in 
+the document by Singular Value  Decomposition (SVD) . SVD decompose s a document -
+term matrix into term-topic, docum ent-topic , and singular value matrix.  The drawback of 
+LSI is that it lacks statistical interpretation of the value from the generated matrix.  
+A later study in 1999 by Thomas Hofmann , Probabilistic Latent Semantic Analysis 
+(PLSA) [12] was introduced to mitigate LSI statistical vulnera bility  by us ing a statistical 
+technique to learn the lower -dimensional representation of documents.  It is a generative 
+model in which a topic  is sampled from the topic distribution over its document and word 
+is then sampled from the topics.  The graphical model of PLSA is illustrated in Figure 2.1. 
+As the probability of a document is a factor , PLSA cannot  handle an unseen document .  
+ 
+Figure 2.1 Graphical model representation of  PLSA  model  [12] 
+To mitigate this problem, Latent Dirich let Allocation  (LDA)  [2] is proposed as a 
+generalization model of PLSA . Instead  of considering a document as a factor , it uses two 
+Dirichlet prior s to model the document -topic and word -topic distribution. This approach 
+enables LDA to hand le the unseen data which led it to become a standard approach for 
+nowadays topic modeling.  Along with the generations of topic modeling, all mentioned 
+technique  only uses Bag -of-Word  as the input of  the model.  
+Later in 2013, word embedding was proposed by Mikolov et al.  [3, 4] . Instead of 
+representing a word as a one -hot encoding vector, it embedded a word into a lower 
+dimension vector. Moreover, it also show ed its success in capturing  the relationship 
+5 
+ 
+between words. Therefore, word embedding  starts a new era in Natural Language 
+Processing includ ing topic modeling.  
+In 2015, Nguyen et al. proposed a latent  feature topic model  (LF-LDA) [5] which  applies 
+word embedding  to the topic -word inference process. The process is improved  by creating 
+latent features for each topic to be used with  word embedding using  a Bernoulli 
+distribution that controls  the sampling process.  The result s howed that their proposed 
+algori thm could achieve a higher NMPI score on all datasets.  
+In 2017, Yao et al. propose d Word Embedding LDA (WE -LDA) [7]. According to the 
+algorithm,  LDA is run as an initializer for discovering topics. Then, the topical words are 
+select ed to  generate a must -link knowledge base on their embeddings.  Finally, they 
+include the must -link into Gibbs Sampling , to generate  more coherent topics. They run 
+their algorithm to compare with multiple algorithm s including LDA  and LF -LDA [5]. 
+The result show ed that their approach could generate more coherent topic , compared to 
+the other seven models.  
+In 2019 , Dieng et al. proposed a  novel Embedded Topic Model  (ETM) [5] that constructs 
+the topic  embedding from the word embedding space , and generates  the document topic 
+mixture using the variational autoencoder  model. This model allows the word embedding 
+to be learned  during the topic modeling training process, and also allows using  a pre -
+trained embedding. The experiment show ed that this  model was more robust to stop 
+words when using a pre -trained  word embedding compared to training the word 
+embedding  during the topic modeling inference process.  
+In 2020, Zhang et al. proposed the FastText -based Sentence -LDA (FSL) [13] model , 
+which does an augmentation during the sampling process. They pre-compute the distance 
+between words with cosine similarity to find the closest word of each word in the 
+dictionary . The closest word is used as an alternative word for drawing words from topics. 
+The switching between the original and the augmented word is controlled by a Bernoulli 
+distribution. According to the literature, their technique could generate higher topic 
+coherence among the other two baseline model s. This approach inspires us the feasibil ity 
+of not considering a certain word, so we decide to do an experiment with raw word 
+embedding . 
+According to our survey, there  is a few topic modeling  in Thai language . Asawaroengchai  
+et al. [14] experiment on comparing the performance between LDA and Topic N -grams 6 
+ 
+model  (TNG) to investigate the feasibility of handling composite word in Thai.  The 
+analysis on perplexity show ed that TNG performs better than LDA.  Another recent 
+research in Thai has been done by Pitichotchokphokhin  et al. [15], they compare d the 
+performance of Non -negative Matrix Factorization  (NMF) and Latent Dirichlet 
+Alloca tion on Thairath dataset with the number of topics from 5 to 35 topics . The result 
+show ed that NMF could achieve better performance over LDA. In the aspects of Thai 
+topic modeling, we found that there is a research gap on experimenting with topic 
+modeling which  is incorporated with word embeddings. Therefore, we conduct this 
+research to examine the feasibility of applying word embedding in Thai topic modeling.  
+ 
+2.2 Theory  
+2.2.1 Bag-of-Word   
+Bag-of-Word  (BoW ) represents  document s using a word -document matrix . It requires a 
+finite set of known words called dictionary or vocabulary  set. Each position  of the matrix  
+stores the number of times that the word is seen in the document , so the sequence  of words 
+are discarded . As shown in Table 2.1 , the word “Program” appears  on Doc 1 and Doc 2 
+for 5 and 2 times respectively  while information of preceding and proceeding word are 
+unknown . 
+ 
+Table 2.1  Document representation using  Bag-of-Word [10] 
+Term  Doc 1  Doc 2  Doc 3  Doc 4  Doc 5  
+Computer  0 3 2 0 1 
+Printer  1 2 8 0 1 
+Program  5 3 0 1 0 
+Unix  0 3 0 0 1 
+Microprocessor  2 0 1 0 3 
+ 
+2.2.2 Latent Dirichlet Allocation   
+Latent Dirichlet Allocation (LDA) is a generative model proposed by Blei et al. [2]. It is 
+designed on an assumption that each document contains a mixture of topic, and each topic 
+contains a mixture of words  which  defines the possibility of words to be in a topic. Each 
+document  𝑀 contains a distribution over 𝑘 topic s as θ with a Dirichlet prior α. Each word 
+𝑤 in a document is randomly drawn from each topic ϕ1..𝑘 with a Dirichlet prior β. For 7 
+ 
+the graphical model of LDA, see Figure  2.2. The generative process for a document is as 
+follows:  
+ For each word 𝑤𝑖𝑗 in document 𝐷𝑗 
+1. Draw topic 𝑧𝑖𝑗∼𝑀𝑢𝑙𝑡𝑖𝑛𝑜𝑚𝑖𝑎𝑙 (𝜃𝑗) 
+2. Draw word 𝑤𝑖𝑗∼𝑀𝑢𝑙𝑡𝑖𝑛𝑜𝑚𝑖𝑎𝑙 (𝜙𝑧𝑖𝑗) 
+ 
+ 
+Figure 2.2 Graphical model representation of  LDA model  [2] 
+ 
+One of the widely used approximation technique s is Collapsed Gibbs Sampling [16]. 
+Instead of inferencing all posterior distributions , it directly samples the topic 𝑧 to the 
+observed word 𝑤 to estimate 𝜃 and 𝜙 as shown in Algorithm  2.1. The approximation of 
+𝜙 of word 𝑤 and topic 𝑘 is shown in Equation 2.1, 𝜃 of topic 𝑘 of 𝑗𝑡ℎ document is shown 
+in Equation 2.2, and the probability of topic to be assigned is shown in Equation 2.3. 
+𝜙𝑤𝑘=𝑁𝑤𝑘+𝛽
+𝑁𝑘+𝑊𝛽 (2.1) 
+𝜃𝑘𝑗=𝑁𝑘𝑗+𝛼
+𝑁𝑗+𝐾𝛼 (2.2) 
+𝑃(𝑧=𝑘|𝑤,𝛼,𝛽)=𝜙𝑤𝑘∗𝜃𝑘𝑗
+∑𝜙𝑤𝑘𝐾
+𝑘=1∗𝜃𝑘𝑗 (2.3) 
+ 
+ 
+8 
+ 
+Algorithm 2.1  Collapsed Gibbs Sampling for Latent Dirichlet Allocation 
+ 
+ 
+2.2.3 Neural Network  
+Neural network is inspired by the mammalian brain  which can perform multiple tasks. 
+The cell s work in a direction that receive s inputs from dendrites, process es the input s in 
+the cell body , and sends the output via synapses as shown in Figure 2.3.  In supervised 
+machine learning, a neuron [17] is defined by the connection strength as weights to the 
+input s, then aggregate the inputs into one value and ship out to another neuron as 
+illustrated in Figure 2.4 
+ 
+Figure 2.3 The schematic image of a neuron.  [18] 
+9 
+ 
+ 
+Figure 2.4  Schematic diagram of a McCulloch -Pitts neuron.  [18] 
+ 
+Rosenblatt [19]  suggests that the neuron should be connected into layer s as a feed -forward  
+neural network . It only process es data from the preceding layer and send s the output to 
+the proceeding layer without connection within the same layer. As a single layer, the 
+matrix operation of a single layer is defined on Equation 2.4 where ϕ is the activation 
+function , x is the inputs from the preceding layer, w is the weights to the specific 
+preceding node, and b is the bias . To solve complex problem s, the feed -forward n etwork 
+is stacked into multiple layer s which are referred as Multi -Layer s Perceptron as illustrated 
+in Figure 2.5. To handle the nonlinear problem, an activation function can be put at the 
+output of a neuron which act s as a post -process of data within a neuron. For example, a 
+Rectified Linear Unit or ReLU can be used as an on and off switch for the output that 
+negative value will be set to 0 while there is no effect on the positive value. To perform 
+a classification tas k, a Softmax  activation is used to map the n dimensional output vector 
+into probability vector [20]. Each position of the vector represents th e probability of that 
+class.  
+𝑦=ϕ(𝑧)=ϕ(𝑤𝑇𝑥+𝑏) (2.4) 
+ 
+Figure 2.5 The multi -layer perceptron with 2 layers . [18] 
+10 
+ 
+The key success of a neural network is the ability to automatically learn the input  which 
+adapts with errors and adjust the weight into a strong machine learning model. The 
+backward propagation process is used to adjust the weight of the input s. Once the 
+forwarding path is finished , the actual label of the data is compared with the output and 
+compute the loss function and perform the backward propagation to reduce the loss. 
+Stochastic gradient descent is one of the basic techniques  do the task. It performs making 
+subsets of the training data into batches  for training .  
+ 
+2.2.4 Word Embedding  
+The finding of word embedding by Mikolov et al. in 2003 [3, 4]  is a big step  in Natural 
+Language processing. The embedding is learned b y giving nearby word s to predict the 
+central word  using feed-forward  Neural Network Language Model  architecture  as shown 
+in Figure 2.6 . He also proposes  a Skip -gram model which is trained by a shallow network 
+that takes a word as input to predict the context w ord. Both approach es succe ed in 
+representing  words in the vector space which capture s the syntactic and semantic word 
+relationship from a very large unlabeled text dataset.  
+By adopting the negative sampling method on Skip-gram,  the training process of Skip-
+gram with negative sampling is to  make a shallow network to distinguish between the 
+contexts  word and random sampling. It shows an improvement in the speed of model 
+training that performs a logistic regression  instead of a Softmax layer. It also improves 
+the quality of the embedding vector s, especially for rare words. Therefore, it has become 
+a standard practice for word representation in current research in NLP.  
+ 
+Figure 2.6 The model architecture of  word embedding  [4] 
+ 
+ 
+CHAPTER 3  MATERIAL AND METHODOLOGIES  
+ 
+ 
+3.1 Dataset   
+3.1.1 Pantip dataset   
+Pantip.com is one of the most popular online discussion boards in Thailand. In the site, 
+people are discussing or sharing a  wide range of topics  on Pantip  (e.g., science, finance, 
+traveling, loves,  religions, cooking, sports , and dramas). Text data of the posts were 
+download  from the first post written by the owner of each thread to ask or to share 
+somet hing across all forums . A total of  58,304 posts  were collected, and the data 
+preparation process is as follows:  
+1. Eliminate HTML tags.  
+Raw data of each document  collected from a website is a HTML page. To get 
+a plain text, HTML tags need  to be handled to reconstruct the content.  
+2. Mask the number s. 
+The number s were masked with a special tag <number> to reduce the bias to 
+a specific number.  
+3. Normalize the character.  
+In Thai language, people frequently use the sub -character to easily type 
+complex character s that look identical and readable by human s. Although 
+those words closely look the same, the sequence of character s is different . 
+Detecting these patterns and handl ing them with the correct character can 
+reduce the dictionary size and the word is more consistent. For example, 
+replacing double เ  ( เ เ )  with แ, and - ํ   and า with - ํ  า . The normalization tool used 
+in this research is provided by PyThaiNLP [21]. 
+4. Token segmentation . 
+Text was segmented into a sequence of tokens . Each token was treated as a 
+word for the analysis . In this research, a pre -trained Attacut [22] is used to 
+tokenize texts into tokens.    
+5. Remove stop words . 
+Stop word is an extremely  common word which  less contribute to the meaning 
+of a sentence.   To maintain a small set of meaningful vocabulary, stop words 12 
+ 
+was removed from  the vocabulary. In this research, stop word removal is 
+based on the list provided in PyThaiNLP [21]. 
+6. Remove common words . 
+Words , present ed on almost all documents , are expected to be common word. 
+To maintain a small set of meaningful vocabulary , filtering out words which 
+exist in 90 percent of documents could remov e common words.  
+7. Remove rare words . 
+Words which hardly exist in document are considered as rare words . To 
+maintain a small set of meaningful vocabulary, filtering o ut words which exist 
+in fewer 10 documents could remove rare words.  
+ 
+3.1.2 Amazon Customer Review dataset  
+Amazon.com is a global e -commerce platform in which customer s may give a  positive or 
+negative  review of the product  they bought.  The dataset was published in [8]. We 
+randomly sample  20 percent of  the dataset which a document length is greater than 100 
+words from various categories including beauty, cloth ing shoes and jewelry, grocery  and 
+gourmet food, sports and outdoor, and video games. The data preparation process is as 
+follows:  
+1. Token segmentation using  
+Text was segmented into a sequence of tokens. Each token was treated as a 
+word for the analysis. In this research, a tool provided in NLTK [23] was used 
+to tokenize texts into tokens.   
+2. Lowering the character  
+In text processing, vocabulary set is a case -sensitive set. To remain a case-
+insensitive vocabulary, all charact ers was converted into lower -case.  
+3. Remove stop words  
+Stop word is an extremely common word which less contribute to the meaning 
+of a sentence.  To maintain a small set of meaningful vocabulary, stop words 
+was removed from the vocabulary. In this re search, stop word removal is 
+based on the list provided in NLTK [23] and a public list on GitHub  [24]. 
+4. Remove common words.  13 
+ 
+Words , present ed on almost all documents , are expected to be common word. 
+To maintain a small set of meaningful vocabulary , filtering out words which 
+exist in more than  90 percent of documents could remov e common words.  
+5. Remove rare words.  
+Words which hardly exist in document are considered as rare words . To 
+maintain a small set of meaningful vocabulary, filtering out words which exist 
+in fewer than 10 documents could rem ove rare words.  
+6. Remove unknown words . 
+In this research, a pre -trained embedding  was used for English words.  
+Therefore, words  which have not been existed  in the pre -trained word 
+embeddings  was removed from the vocabulary set . 
+ 
+ 
+3.2 Exploratory Data Analysis  
+3.2.1. Pantip Dataset  
+1. Raw topic distribution  
+According to raw data, the topics are not equally distributed . It is decreasing 
+gradually among the ranked topics as illustrated in Figure 3.3. This confirms that 
+our dataset is diverse among topics.  
+2. Raw document length and vocabulary size  
+Before the data was pr e-processed, the dataset ha d the vocabulary size of 402,568 
+words . An average document length was 392 and a median document length was 
+213 words. Figure 3.2 shows the distribution of raw document length.  
+3. Final document length and vocabulary size  
+After the data was pre -processed the final vocabulary size of 43,244 words. An 
+average length of the documents was 156 words and a median of 83 words. Figure 
+3.2 show s the distribution of final document length.  
+ 14 
+ 
+ 
+Figure 3.1 The distribution of raw document length on Pantip dataset  
+ 
+Figure 3.2 The distribution of final document length on Pantip dataset  
+15 
+ 
+ 
+Figure 3.3 The distribution of physical topics on Pantip dataset.  
+16 
+ 
+3.2.2. Amazon Customer Review Dataset  
+1. Raw topic distribution  
+Amazon Customer Review is a huge dataset that contains many categories. The 
+reviews are not equally distributed among categories which are gradually 
+decreasing among the ranked categories as illustrated in Figure 3.4. According to 
+the size of the dataset, we only sample d 20 percent  of each category from those 
+reviews with a minimum of 100 words to be used as the dataset for this research. 
+Therefore, the final size of our dataset is 77,749 reviews.  
+2. Raw document length a nd vocabulary size  
+Before the data was pr e-processed, the dataset ha d the vocabulary size of 286,442  
+words . An average document length was 261 and a median document length was 
+178 words. Figure 3.5 shows the distribution of raw document length.  
+3. Final docu ment length and vocabulary size  
+After the data was pre -processed the final vocabulary size of 21,377 words. An 
+average length of the documents was 76 words and a median of 52 words. Figure 
+3.6 shows the distribution of final document length.  
+ 
+ 
+Figure  3.4 The distribution of physical topics on Amazon Customer Review dataset.  
+ 
+ 
+17 
+ 
+ 
+Figure 3.5  The distribution of raw  document length on Amazon dataset  
+ 
+Figure 3.6 The distribution of final document length on Amazon dataset  
+ 
+ 
+3.3 Proposed Method  
+This research  proposes  a new topic modeling technique  as Deep Word -Topic Latent 
+Dirichlet Allocation (DWT -LDA)  which has an  augmentation on the sampling process 
+using a neural network.  Our model is designed to allow the LDA to gain  more knowledge 
+on words by ap plying  information from word embedding that the sampling process of 
+topics is involved  a  neural network which take s word embeddings as the input. The model 
+is divided into 2 steps  as follows:  
+  
+18 
+ 
+1. Initialize  
+The first step is a standard LDA using Collapsed Gibbs Sampling method that aims  to 
+initialize the topics  as shown in Algorithm  2.1.  For the initialization, this step needs to be 
+run until it is converged.  
+ 
+2. Topic Enhancement  
+The second step is a modified v ersion of LDA which is designed to enhance the learned 
+topic s by applying the knowledge of words from a pre -trained w ord embedding. A neural 
+network  as shown in Figure 3.7 was trained on  the topic assignment of each word which 
+is placed on the sampling  process of topic 𝑃(𝑧|𝑤). It is designed to learn the association  
+between the  topics from LDA and the contextual information  which the embedding layer 
+allows the model to learn the topic  assignment based on the embedding vector of the 
+word. Since  similar words are likely to be close to each other on the  embedding space, it 
+increases the chance of being predicted  in the same topic that the network input  will be 
+closely  similar to each other. To maintain a Dirichlet  prior, 𝛽 is added to the predicted  
+probability of the network. A Bernoulli  distribution 𝜆 is added as switching between topic 
+assignment  𝑃(𝑧|𝑤) from using φ and neural network to avoid repeatedly  using all of its 
+own predictions as the training data for a later iteration. Therefore, the word -topic 
+agreement 𝜑𝑤𝑘 on Equation  2.1 of the original LDA is changed to 𝜑̂𝑤𝑘 on Eq uation  3.2. 
+Hence, the conditional probability on Equation 2.3 is changed to Equation 3.3 and the 
+Collapsed Gibbs Sampling for LDA is change d to Algorithm 3.1. 
+ 
+ 
+Figure 3.7 The architecture of neural network -based  word -topic assignment  
+19 
+ 
+λ𝑖𝑗∼𝐵𝑒𝑟𝑛𝑜𝑢𝑙𝑙𝑖 (λ) (3.1) 
+𝜙̂𝑤𝑘=(1−𝜆𝑖𝑗)∗𝑁𝑤𝑘+𝛽
+𝑁𝑘+𝑊𝛽+𝜆𝑖𝑗∗𝑁𝑁(𝑤)𝑘+𝛽
+𝐾𝛽+∑𝑁𝑁(𝑤) (3.2) 
+𝑃(𝑧=𝑘|𝑤,α,β,λij)=ϕ̂𝑤𝑘∗θ𝑘𝑗
+∑𝜙̂𝑤𝑘𝐾
+𝑘=1∗θ𝑘𝑗  (3.3) 
+ 
+Algorithm 3.1  The modified Collapsed Gibbs Sampling for topic enhancement process  
+ 
+ 
+To run the topic enhancement process , the neural network needs to be initialized with the 
+learned word -topic assignment from the first step for some iterations . In this research , it 
+is empirically set to 20 iterations. After the network is initialized , each iteration of the 
+training procedure  is done by running an iteration of modified Collapsed Gibbs Sampling 
+as Equation 3.3. After each iteration,  the neural network is trained for several epoch s with 
+the topic assignment tracking from the modified algorithm.  The whole training proced ure 
+is illustrated in Figure 3.8. 
+ 
+20 
+ 
+ 
+Figure 3.8 The training procedure of our modified algorithm  
+ 
+3.4 Experimental Design  
+The experiment  of our model is designed according to our training phase . We choose the 
+LDA as a baseline model to compare with DWT -LDA . Since our initial phase is an 
+original LDA, so  we make a copy of learned model from the initial phase to continue 
+training LDA to compare with the topic enhance ment  process  as illustrated in Figure 3.9. 
+These copies enabl e us to compare the training process with and without our approach  on 
+the same topic initialization . 
+ 
+ 
+Figure 3.9 The eva luation process of o n our approach and the baseline algorithm  
+ 
+To conduct the experiment on both datasets , the training parameter is empirically set to k 
+from the ra nge from k = 5 to k = 180 where β,α and λ were set to 1
+𝑘,1
+𝑘 and 0.6  
+respectively . The boundary of word  in Thai language  is unclear  since  we put  words c lose 
+21 
+ 
+to each other , the segmentation of word is a challenging task. So, we decide to train the 
+Thai embedding ourselves because we can control the tokenization algorithm to use the 
+same method throughout this research . We train the  embedding  with the skip-gram model 
+on a very large corpus across multiple domains (e.g., Wikipedia, News, constitutional and 
+etc.). For the English dataset , we use a pre -trained word embedding on Google News 
+Corpus published by Google Open Source.   
+ 
+3.5 Evaluations  
+To compare the performance between our approach and the baseline model, two metrics 
+were u sed to qualitatively compare the result of our model. One is the  𝐶𝑣 score from the  
+topic coherence framework which metric is widely used in evaluating the quality o f topic 
+model. Another is a metric called topic diversity which measure s the uniqueness of top 
+keywords among topics. As a combination of topic coherence and topic diversity, we use 
+another metric  named  topic quality to measure the performance on both metr ics. 
+ 
+ 3.5.1 Topic Coherence   
+Topic Coherence is a framework for evaluating topic model  proposed by Röder  et al. [25]. 
+It define s the evaluation process  in terms of segmentation , probability estimation,  
+similarity  estimation , and aggregation  as illustrated in Figure 3.10.  According to the 
+literature , the experiment show ed that 𝐶𝑣 score is the most  correlated to human rating . 
+Therefore, we use 𝐶𝑣 as a metric in this research.  
+ 
+ 
+Figure 3.10 An overview of topic coherence framework  [25] 
+ 
+𝐶𝑣 is calculated by segmenting the top word in each topic with one and the full set of its 
+topic  denoted as 𝑊′ and 𝑊∗, then calculate the agreement of segmented set within the 
+22 
+ 
+sliding window of 110 words  using Boolean sliding window which discard the distance 
+of word.  Next, the Normalized Point wise Mutual Information  (NPMI)  and Cosine 
+similarity are calculated as  the confirmation measure  against each set . Finally, all 
+confirmation measure is aggregated with arithmetic mean as a single value for 𝐶𝑣 score.  
+ 
+𝑆𝑠𝑒𝑡𝑜𝑛𝑒=(𝑊′,𝑊∗)|𝑊′=𝑤𝑖;𝑤𝑖∈𝑊;𝑊∗=𝑊 (3.4) 
+𝑃𝑀𝐼=𝑙𝑜𝑔 𝑃(𝑊′,𝑊∗) + 𝜖
+𝑃(𝑊′) ∗ 𝑃(𝑊∗) (3.5) 
+𝑁𝑃𝑀𝐼=𝑃𝑀𝐼
+−𝑙𝑜𝑔(𝑃(𝑊′,𝑊∗) + 𝜖) (3.6) 
+𝑆𝑐𝑜𝑠(𝑢⃗ ,𝑤⃗⃗ )=∑𝑢𝑖∙𝑤𝑖|𝑊|
+𝑖=1
+∥𝑢⃗ ∥2∙∥𝑤⃗⃗ ∥2 (3.7) 
+ 
+ 
+3.5.2 Topic Diversity  
+Topic diversity is a novel metric pr oposed by Dieng et al. [6]. It measure s the uniq ueness  
+of top keywords among topics that highly overlapped keywords are considered as bad 
+topics . The value close to 1  indicates that the same wor d did not appear across topics  
+which reduce s the ambiguity on interpreting the topic. It is computed by the ratio of 
+unique keywords and the total top keywords in all topics. In this research, the topic 
+diversity is calculated from the top 25 keywords of e ach topic .  
+ 
+3.5.2 Topic Quality  
+Topic quality is a measure that combine s the topic coherence score and topic diversity by 
+multiplying the topic coherence and topic diversity. It is proposed along with the topic 
+diversity by  Dieng et al. [6], 
+   
+ 
+CHAPTER 4  EXPERIMANTAL RESULT  
+ 
+ 
+4.1. Qualitative evaluation  
+After the model was trained with the training process as defined in chapter 3, the models 
+are evaluated with topic coherence , topic diversity , and topic quality . Table 4.1 and 4.2. 
+shows t he qualitative evaluation  of our model compared to the LDA.   
+For the  topic coherence  framework , Figure 4.1 shows that DWT -LDA  achieved higher 
+𝐶𝑣 score on both Pantip and Amazon Customer Review dataset s than LDA . The topic 
+coherence score s were  slightly decrease d with a small variation  upon the increasing 
+number of topics . The average difference between our approach  and LDA  was about 0. 15 
+on Pantip, and 0. 08 on Amazon dataset . However, the difference between each approach 
+was decreasing with the  increasing number of topics.  On average, our method was able 
+to yield the  topic coherence score of 0.62 on Pantip dataset  compar ed to the original LDA 
+of 0.47, and 0.64 on  Amazon  dataset compared to 0.55.  
+For the topic diversity, Figure 4.2 shows that DWT -LDA  archive d higher topic diversity 
+score  on both Pantip and Amazon Customer Review dataset s than LDA . The topic 
+diversity scores were  gradually decreas ed with a small variation upon the increasing 
+number of topics. According to the graph, the difference remain ed stable  that t he average 
+difference between our approach  and LDA  was about 0.28 on Pantip, and 0.24 on Amazon 
+dataset . The result show ed that our approach clearly outperform ed the existing LDA on 
+this metric.  
+As a single metric, topi c diversity was considered to combine topic coherence and topic 
+diversity.  The result show ed that our approach yield ed higher score in all number of topics 
+and on both datasets as illustrated in Figure 4.3. 
+ 
+  24 
+ 
+Table 4.1 The evaluation of DWT -LDA compared to LDA on Pantip dataset  
+k Topic Coherence  Topic Diversity  Topic Quality  
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+5 0.37 0.57 0.66 1.00 0.25 0.57 
+10 0.40 0.60 0.60 0.97 0.24 0.58 
+15 0.45 0.60 0.56 0.93 0.25 0.56 
+20 0.46 0.67 0.52 0.91 0.24 0.61 
+25 0.47 0.63 0.53 0.88 0.25 0.55 
+30 0.47 0.68 0.48 0.84 0.22 0.57 
+40 0.47 0.64 0.44 0.84 0.21 0.54 
+50 0.49 0.63 0.42 0.79 0.21 0.50 
+60 0.48 0.64 0.40 0.76 0.19 0.49 
+70 0.47 0.61 0.39 0.75 0.19 0.46 
+80 0.49 0.63 0.37 0.71 0.18 0.45 
+90 0.48 0.63 0.36 0.69 0.17 0.44 
+100 0.49 0.61 0.34 0.68 0.17 0.41 
+110 0.50 0.63 0.32 0.66 0.16 0.41 
+120 0.49 0.63 0.30 0.62 0.15 0.39 
+130 0.49 0.62 0.31 0.61 0.15 0.38 
+140 0.49 0.60 0.29 0.63 0.14 0.38 
+150 0.48 0.60 0.28 0.62 0.14 0.37 
+160 0.48 0.63 0.28 0.60 0.14 0.38 
+170 0.49 0.60 0.27 0.60 0.13 0.36 
+180 0.49 0.60 0.27 0.60 0.13 0.36 
+ 
+Table  4.2 The evaluation of DWT -LDA compared to LDA on Amazon Customer  
+ Review  dataset  
+k Topic Coherence  Topic Diversity   
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+5 0.51 0.56 0.73 0.81 0.37 0.46 
+10 0.50 0.71 0.56 0.93 0.28 0.66 
+15 0.55 0.67 0.59 0.92 0.32 0.62 
+20 0.56 0.68 0.60 0.91 0.33 0.62 
+25 0.56 0.67 0.58 0.91 0.33 0.61 
+30 0.57 0.66 0.56 0.86 0.32 0.57 
+40 0.55 0.65 0.54 0.87 0.30 0.56 
+50 0.57 0.66 0.52 0.82 0.29 0.54 
+60 0.56 0.66 0.51 0.80 0.28 0.53 25 
+ 
+k Topic Coherence  Topic Diversity  Topic Quality  
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+70 0.57 0.64 0.47 0.78 0.27 0.50 
+80 0.56 0.65 0.47 0.78 0.26 0.51 
+90 0.57 0.63 0.45 0.75 0.26 0.47 
+100 0.56 0.62 0.43 0.72 0.24 0.44 
+110 0.55 0.61 0.42 0.74 0.23 0.46 
+120 0.55 0.62 0.41 0.72 0.23 0.44 
+130 0.56 0.62 0.40 0.69 0.22 0.43 
+140 0.54 0.61 0.38 0.71 0.21 0.44 
+150 0.53 0.60 0.38 0.73 0.20 0.44 
+160 0.54 0.61 0.37 0.70 0.20 0.43 
+170 0.54 0.61 0.36 0.70 0.20 0.43 
+180 0.54 0.60 0.35 0.68 0.19 0.41 
+ 
+ 
+Figure 4.1 Topic coherence between DWT -LDA and LDA  
+26 
+ 
+ 
+Figure 4.2 Topic diversity between DWT -LDA and LDA  
+ 
+Figure 4.3 Topic quality between DWT -LDA and LDA  
+ 
+4.2. Discovered Topics  
+Along with the metrics, the learned topics was visually displayed  to investigate the  
+learned concept of topics. According to the topic diversity score, we expect ed our method 
+to give more specific keywords  to the topics . Some topics from LDA were  more 
+ambiguous  while  DWT -LDA  gave  more concrete  topics  where the keywords  were less 
+overlapped . The result from Pantip dataset show ed that the word “ ท า” appear ed on six 
+topics while it was omitted on DWT -LDA  as shown  in Table  4.3.  Moreover,  the result 
+from Amazon Customer Reviews as shown in Table 4.4 also confirm ed the less redundant 
+27 
+ 
+keywords . For instance, the word “good” show ed on almost all LDA topics but it did not 
+show on the DWT -LDA. This behavior  made the topics easier to interpret from the top 
+keywords.  
+ 
+Table 4.3 The learned topic from Pantip dataset  
+Travel  Politics  Skin  Care Restaurant  
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+เด ิ น เที่ ยว  คน พรรค  ผิว ผิว ร ้ าน ร ้ าน 
+คน เด ิ น ทาง  ท  า สส สี ห น ้ า อา ห าร  อร ่ อย  
+รถ รถไ ฟ  พรรค  ร ั ฐบาล  ต ั ว ส ิ ว ก ิ น ทาน 
+เที่ ยว  ส ถา น ี  ไทย เ ล ื อ ก ต ั ้ ง ห น ้ า สี น  ้ า ใส ่ 
+เด ิ น ทาง  เม ื อง  ปี ประ ช าช น  ดี ทา ท  า อา ห าร  
+พ ั ก บ ิ น ประ เ ทศ  นายก  ดู ค ร ี ม ทาน เ น ื ้ อ 
+เวลา ต ั๋ ว เม ื อง  ร ั ฐม นตร ี  ท  า เ น ื ้ อ ใส ่ รส ช าต ิ  
+น ั่ ง ทร ิ ป  เร ื่ อง เม ื อง  น  ้ า ส าร อร ่ อย  ห มู 
+ถ่า ย จ อง ร ั ฐบาล  ร ั ฐธ รรมน ู ญ  คน ใส ดี ห ว าน  
+ร ู ป รถ ข ่าว ค ะแนน  ทา ก ล ิ่ น ข ้ าว น  ้ า 
+ดี พ ั ก สส กกต ส ิ ว ช ุ่ ม ช ื ้ น ห ว าน  ไข่ 
+เม ื อง  ส นามบ ิ น  ต ั ว ไทย ลอง บ  าร ุ ง  เ น ื ้ อ เมน ู 
+ดู แรม ประ ช าช น  กฎ ห มา ย  ค ร ี ม แห้ง ส ั่ง รส 
+ 
+Buddhism  Treatment  Finance  Relationship  
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+ท่าน จ ิ ต ห มอ  ห มอ  เง ิ น เง ิ น ผม ผม 
+ท  า ธ รรม  ยา ยา เด ื อน  บ ั ตร คน แฟ น  
+คน ท่าน อา กา ร  อา กา ร  ค ่า เด ื อน  ท  า ค ุย 
+โลก พระ ท  า โรค ท  า จ ่าย ตอน  ค ั บ 
+ร ู ้ ศ าส นา  ก ิ น เล ื อด  บาท บาท ร ู ้ คบ 
+ต ั ว พระพ ุทธเจ ้ า  ตอน  ตรวจ  ซ ื ้ อ แจ ้ ง ต ั ว เล ิ ก 
+ช ี ว ิต กรร ม  ต ั ว ร ั กษา  จ ่าย ธ นาคาร  เร ื่ อง ท ั ก 
+พระ ว ั ด เด ื อน  ปวด ข าย โทร ดี ทะ เลาะ  
+ใด ทุกข ์  โรค พย าบาล  แจ ้ ง ห ุ ้น ถา ม ก้ 28 
+ 
+Buddhism  Treatment  Finance  Relationship  
+LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+ส ร ้ าง  บุญ ร ั กษา  ป ่ ว ย ปี ประ ก ั น  เห ม ื อน  จ ี บ 
+จ ิ ต น ิ พพ าน  ตรวจ  ผ ่ าต ั ด  โทร กู ้ เพื่อน  ผญ 
+ปี ส มา ธ ิ  เล ื อด  ไข ้ บ ั ตร บ ั ญช ี  ดู เส ี ยใจ  
+ว ั ด องค ์ นอน  ฟ ั น ตอน  ต ิ ดต่อ  เวลา เทอ 
+ 
+ 
+Table 4.4 The learned topic from Amazon Customer Review dataset  
+Orders  Skin  Care Game Console  
+LDA  DWT -LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+amazon  amazon  skin skin games  controller  
+price  received  product  face game  wii 
+buy seller  face product  controller  xbox  
+product  item oil cream  xbox  ps3 
+reviews  shipping  products  oil play games  
+time service  dry lotion  ps3 console  
+bought  customer  cream  products  wii nintendo  
+money  ordered  feel moisturiz
+er console  psp 
+good  arrived  smell  dry great  sony  
+review  shipped  good  acne version  gaming  
+quality  return  lotion  wash  playing  controllers  
+purchase  company  day sensitive  screen  remote  
+shipping  replacement  scent  scent  psp vita 
+buying  purchase  body  cleanser  nintendo  ps2 
+box order  time body  gaming  buttons  
+ 
+Bike  Clothing  Makeup  
+LDA  DWT -LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+bike  bike  size shoes  color  brush  
+rack  rack  wear  wear  watch  color  
+easy  tire fit size brush  polish  
+good  seat shoes  fit great  nail 
+work  road  comfortable  shoe  colors  nails  
+ride bikes  pair pair love  mascara  
+seat lock  great  comforta
+ble good  lashes  29 
+ 
+Bike  Clothing  Makeup  
+LDA  DWT -LDA  LDA  DWT -
+LDA  LDA  DWT -
+LDA  
+wheel  ride feet feet nail colors  
+road  chain  shoe  socks  time  brushes  
+lock  pump  good  bra polish  coat 
+great  riding  ordered  foot black  makeup  
+pump  tires  bought  boots  nails  apply  
+riding  rear love  wearing  product  eye 
+tire pedals  wearing  ordered  nice foundation  
+bit miles  bit toe dark  lip  
+ 
+CHAPTER 5  CONCLUSION  
+ 
+ 
+5.1 Discussion  
+ 
+According to the evaluation , DWT -LDA  could achieve higher score on  all metrics of both 
+datasets.  As a result, Table 4.3 and 4.4 showed our model success in generating strong 
+keyword to the topics that general keywords were not ranked on the top keyword s. For 
+example, the word “ คน” and “ ท  า ”  is less relevant to politics while they were listed on the 
+first two strongest keywords of politics compared to “ พ รร ค” and “ สส”  on DWT -LDA. The 
+result also show ed that general word on Amazon Customer Review dataset such as 
+“good” and “great” were not listed on the top keywords.  
+Although our method  was able to improve the original LDA , it highly depends on the 
+LDA on the initial stage . The t opic enhancement process learned the topic assignment on 
+the first stage. Therefore, there is a possible limitation that this approach may fail to 
+enhance the topics when the original LDA does not perform well.  However, this 
+possibility  was not show n in our research.  
+ 
+5.2 Conclusion  
+ 
+In this research, we propose d a new algorithm that upgrade the original LDA by adding 
+an augmentation to the topic assignment during the inference process. The word 
+embeddings allow ed our model to learn the word information from a larger corpus . 
+Hence,  the word -topic assignment is done by incorporating with word embedding  to 
+assign the topic . In this manner , the model lear ned the topics from the latent information 
+of words instead of  considering the close or related word apart  as a completely  different 
+vector .  An experiment was done to compare the performance of DWT -LDA  and the 
+original method on Thai and English dataset s which were collected from Pantip.com and 
+Amazon.com . The experimental result on topic coherence  of Pantip dataset  show ed that 
+our model could achieve approximately 0.2 on 𝐶𝑣 score , higher than LDA. However, the 
+difference between score s was reduced to 0.1 on higher number of topics  on Pantip dataset 
+while it slowly decrease d from 0.12 to 0.07 on Amazon dataset. The topic diversity which 
+conside red the ratio of unique ness among top keywords show ed that DWT -LDA  could 
+generate approximately  0.35 and 0.31 , higher than LDA on Pantip and Amazon dataset 31 
+ 
+respectively. Finally,  the co mbined score  show ed that our approach could achieve  higher 
+topic quality than LDA  on Pantip and Amazon datasets for 0.28 and 0.24 respectively. 
+Moreover, the generated topics also show ed that our model could generate more specific 
+keywords to topics. So, we can conclude that word embedding not only improve d the 
+topic modeling in English language but was also able to improve the Thai topic modeling.  
+For future work  of both Thai and English  topic modeling , some experiment s on topic 
+modeling with other embedding methods should be investigated  to compare the 
+performance of embedding on topic modeling task.  
+  
+ 
+REFERENCES  
+ 
+ 
+1. Marr, B., 2018, How Much Data Do We Create Every Day? The Mind -
+Blowing Stats Everyone Should Read , [ Online], Available: 
+https://www.forbes.com/sites/bernardmarr/2018/05/21/how -much -data-do-we-
+create -every -day-the-mind -blowing -stats-everyone -should -read [2020, 
+Septemter 12].  
+ 
+2. Blei, D.M., Ng, A.Y., and Jordan, M.I., 2003, "Latent Dirichlet Allocation",  The 
+Journal of Machine Learning Research , Vol. 3, pp. 993 –1022 , doi: 
+10.1162/jmlr.2003.3.4 -5.993 . 
+ 
+3. Mikolov, T., Sutskever, I., Chen, K., Corrado, G., and Dean, J., 2013, "Distributed 
+Representations of Words and Phrases and Their Compositionality ", Proceedings 
+of the 26th International Conference on Neural Information Processing 
+Systems . Curran Associates Inc., 5-10 December 2013, Lake Tahoe, Nevada, 
+USA, Vol. 2,  pp. 3111 -3119.  
+ 
+4. Mikolov, T., Chen, K., Corrado, G.S., and Dean, J. ,2013.  "Efficient Estimation of 
+Word Representations in Vector Space". The International Conference on 
+Learning Representations (ICLR) , 2-4 May 2013 ,Scottsdale, Arizona, USA . 
+ 
+5. Nguyen, D.Q., Billingsley, R., Du, L., and Johnson, M., 2015, "Improving Topi c 
+Models with Latent Feature Word Representations", Transactions of the 
+Association for Computational Linguistics , Vol. 3, pp. 299 -313, doi:  
+10.1162/tacl_a_00140 . 
+ 
+6. Dieng, A.B., Ruiz, F.J.R., and Blei, D.M., 2020, "Topic Modeling in Embedding 
+Spaces", Transactions of the Association for Computational Linguistics , Vol. 
+8, pp. 439 -453, doi: 10.1162/tacl_a_00325 . 
+ 
+7. Yao, L., Zhang, Y.S., Chen, Q., Qian, H., Wei, B., and  Hu, Z., 2017, "Mining 
+Coherent Topics in Documents Using Word Embeddings and Large -Scale Text 
+Data", Engineering Applications of Artificial Intelligence , Vol. 64, pp. 432 -
+439, doi: 10.1016/j.engappai.2017.06.024 . 
+ 
+8. He, R. and McAuley, J., 2016, "Ups and  Downs: Modeling the Visual Evolution 
+of Fashion Trends with One -Class Collaborative Filtering", Proceedings of the 
+25th International Conference on World Wide Web , 11-15 April 2016 , 
+Montréal , Québec , Canada , doi: 10.1145/2872427.2883037 . 
+ 
+9. George, L.E. and Birla, L., 2018, "A Study of Topic Modeling Methods", 2018 
+Second International Conference on Intelligent Computing and Control 33 
+ 
+Systems (ICICCS) , 14-15 June 2018, Madurai, India , pp. 109 -113, doi: . 
+10.1109/ICC ONS.2018.8663152 . 
+ 
+10. Barde, B.V. and Bainwad, A.M., 2017, "An Overview of Topic Modeling 
+Methods and Tools", 2017 International Conference on Intelligent Computing 
+and Control Systems (ICICCS) , 15-16 June 2017 , Madurai, India , pp. 745 -750, 
+doi: 10.1109/ICCONS.2017.8250563 . 
+ 
+11. Deerwester, S.C., Dumais, S.T., Landauer, T.K., Furnas, G.W., and Harshman, 
+R.A., 1990, "Indexing by Latent Semantic Analysis", Journal of the American 
+Society for Information Science ., Vol. 41,  pp. 391 -407. 
+ 
+12. Hofmann,  T., 1999, "Probabilistic Latent Semantic Indexing " Proceedings of the 
+22nd Annual International ACM SIGIR Conference on Research and 
+Development in Information Retrieval . Association for Computing Machinery, 
+15-19 August 1999, Berkeley, California, USA, pp. 50 –57. 
+ 
+13. Zhang, F., Gao, W., Fang, Y., and Zhang, B.,2020.  "Enhancing Short Text Topic 
+Modeling with Fasttext Embeddings". 2020 International Conference on Big 
+Data, Artificial Intelligence and Internet of Things Engineering (ICBAIE ), 
+12-14 June 2020, Fuzhou, China, pp. 255 -259, doi:  
+10.1109/ICBAIE49996.2020.00060 . 
+ 
+14. Asawaroengchai, C., Chaisangmongkon, W., and Laowattana, D.,2018.  
+"Probabilistic Learning Models for Topic Extraction in Thai Language". The 5th 
+International Confere nce on Business and Industrial Research (ICBIR) , 17-
+18 May 2018, Bangkok, Thailand, pp. 35 -40, doi: 10.1109/ICBIR.2018.8391162 . 
+ 
+15. Pitichotchokphokhin, P., Chuangkrud, P., Kalakan, K., Suntisrivaraporn, B., 
+Leelanupab, T., and Kanungsukkasem, N.,2020.  "Discover Underlying Topics in 
+Thai News Articles: A Comparative Study of Probabilistic and Matrix 
+Factorization Approaches". 2020 17th International Conference on Electrical 
+Engineering/Electronics, Computer, Telecommunications and Information 
+Technology (E CTI-CON) , 24-27 June 2020, Phuket, Thailand, pp. 759 -762, doi: 
+10.1109/ECTI -CON49241.2020.9158065 . 
+ 
+16. Porteous, I., Newman, D., Ihler, A., Asuncion, A., Smyth, P., and Welling, M., 
+2008, "Fast Collapsed Gibbs Sampling for Latent Dirichlet Allocation ", 
+Proceedings of the 14th ACM SIGKDD international conference on 
+Knowledge discovery and data mining , Associ ation for Computing Machinery,  
+24-27 August 2008,  Las Vegas, Nevada, USA, pp. 569 –577, doi: 
+10.1145/1401890.1401960 . 
+ 
+17. McCulloch, W.S. and Pitts, W., 1943, "A Logical Calculus of the Ideas Immanent 
+in Nervous Activity", The Bulletin of Mathematical Biophysics , Vol. 5, No. 4,  
+pp. 115 -133, doi: 10.1007/bf02478259 . 34 
+ 
+ 
+18. Mehlig, B., 2021,  Machine Learning with Neural Networks , Cambridge 
+University Press, pp. 6 -12, 71 -107, doi: 10.1017/9781108860604 . 
+ 
+19. Rosenblatt, F., 1958, "The Perceptron: A Probabilistic Model for Information 
+Storage and Organization in the Brain", Psychological Review , Vol. 65(6), pp. 
+386-408, doi: 10.1037/h0042519 . 
+ 
+20. Emmert -Streib, F., Yang, Z., Feng, H., Tripathi, S., and Dehmer, M., 2020, "An 
+Introductory Review of Deep Learning for Prediction Models with Big Data", 
+Frontiers in Artificial Intelligence , Vol. 3, No. 4 , doi: 10.3389/frai.2020.00004 . 
+ 
+21. Phatthiyaphaib un, W., Chaovavanich, K., Polpanumas, C., Suriyawongkul, A., 
+Lowphansirikul, L., and Chormai, P., 2019, PyThaiNLP: Thai Natural Language 
+Processing in Python , Zenodo , doi: 10.5281/zenodo.3519354 . 
+ 
+22. Chormai, P., Prasertsom, P., and Rutherford, A.T., 2019, "Attacut: A Fast and 
+Accurate Neural Thai Word Segmenter", ArXiv , Vol. abs/1911.07056  
+ 
+23. Bird, S., Klein, E., and Loper, E., 2009,  Natural Language Processing with 
+Python : Analyzing Text with the Natural Language Toolkit , 1. ed., O'Reilly, 
+Beijing, China, Pages.  
+ 
+24. jimmyjames177414, Toro, E., and Sean, B., 2020, Nltk's List of English 
+Stopwords , [Online], Available: https://gist.github.com/sebleier/554280   
+ 
+25. Röder, M., Both, A., and Hinneburg,  A., 2015, "Exploring the Space of Topic 
+Coherence Measures ", Proceedings of the Eighth ACM International 
+Conference on Web Search and Data Mining , Association for Computing 
+Machinery,  2-6 February 2015,  Shanghai, China, pp. 399 -408, doi: 
+10.1145/2684822.2 685324 . 
+   
+ 
+CURRICULUM VITAE  
+ 
+ 
+ 
+NAME  Mr. Siriwat Limwattana  
+DATE OF BIRTH  2 May 1996  
+EDUCATONAL RECORD   
+HIGH SCOOL  High School Graduation  
+Mukdahan School, 2013  
+BACHELOR’S DEGREE  Bachelor of Engineering (Computer Engineering)  
+King Mongkut’s University of Technology Thonburi, 
+2017  
+ 
+MASTER ’S DEGREE  Master  of Engineering (Computer Engineering)  
+King Mongkut’s University of Technology Thonburi , 
+2021  
+  
+SCHOLARSHIP/  
+RESEARCH GRANT  Research Grant for Graduate Student  
+Big Data Experience Center Scholarship, 2018  
+ 
+ 
+ 
+ 

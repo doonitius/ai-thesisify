@@ -1,13 +1,3 @@
-Thesis Title Acoustic-to-Articulatory Inversion Using Deep Learning Approach  
-Thesis Credits  12 
-Candidate Mr. Thanat Lapthawan Thesis Advisors  
-Asst. Prof. Dr. Santitham Prom-on 
-Program Master of Engineering   
-Field of Study Computer Engineering Department
-Computer Engineering 
-Faculty Engineering 
-Academic Year 2019   Speech_Production_Acquisition_Model   
-Abstract  
 This thesis proposed a speech production acquisition model using a self-learning 
 strategy. The model presented the underlying articulatory target of vowels from
 speech features, using a deep learning model. The model was trained with a 
@@ -30,5 +20,3 @@ the vowel from a given speech, the estimation result from the acoustic-to-articu
 inversion (AAI) model was not perfect. The result showed that the inversion speech from the 
 estimated target articulatory was accurate, having 82.6% matching between the original 
 recorded speech and the synthetic speech from the AAI model.  
-Keywords:
-Acoustic-to-Articulatory_Inversion, Deep_Learning

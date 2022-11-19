@@ -1,13 +1,3 @@
-Thesis Title  An Analysis on Network and Topology of Legal Documents Using Text Mining and Graph Approach 
-Thesis Credits  12 
-Candidate  Mr. Supawit   Somsakul   
-Thesis Advisor Asst.  Prof.  Dr. Santitham  Prom-On 
-Program  Master of Engineering  
-Field of Study  Computer Engineering  
-Department  Computer Engineering  
-Faculty  Engineering  
-Academic Year  2021 , Graph_Clustering, Information_Retrieval_System, Network_Science  
-Abstract  
 The number of documents in a dataset available on the Internet is increasing. However, 
 the limitation of using textual information derived from documents in data analysis 
 requires more computation time and resources as the data grow. An analysis of the 
@@ -18,5 +8,3 @@ analysis to gain insight from the corpus. The analysis method included connected
 informatio n retrieval system from the network features obtained from the network 
 analysis. The evaluation revealed an increase in the performance after incorporating the network features with textual features. This indicated the potential benefit of using 
 network fe atures in a real -world information retrieval system.  
-Keywords:   
-Document_Mining, Graph_Analysis

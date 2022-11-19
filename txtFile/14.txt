@@ -1,13 +1,3 @@
-Thesis Title  Quantum Random Walk on A  Number Line Implementation on Different Simulators with Wall- Time Benchmarking  
-Thesis Credits   12 
-Candidate   Mr. Warat Puengtambol  
-Thesis Advisor  Dr. Unchalisa Taetragool  
-Program   Master of Engineering  
-Field of Study   Computer Engineering 
-Department   Computer Engineering 
-Faculty   Engineering 
-Academic Year  2020 Circuit_Depth, Computing_Wall-Time, 
-Abstract  
 Since a classical computer has a limitation to solve a large size of data and complex 
 problems, researchers have be en trying to find new solutions. Q uantum computing is one 
 of them. A number of quantum algorithms have been invented. Some of them were 
@@ -28,5 +18,3 @@ IBM quantum computer, named ibmq_16_melbourne . However, the returned result is
 only for the 4- qubit position state. The other sizes of position state s return error due to 
 the capacity of the quantum computer. Furthermore, the returned measurement results are 
 disturbed by the noise from the operation of the actual quantum computer. 
-Keywords: 
-Quantum_Random_Walk, Quantum_Computer_Simulator  

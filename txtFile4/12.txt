@@ -1,0 +1,1742 @@
+ 
+ 
+EFFECTS OF FACIAL MOVEMENTS TO EXPRESSIVE SPEECH PRODUCTIONS: 
+A COMPUTATIONAL STUDY  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+MISS METITA ONSRI  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+A THESIS SUBMITTED IN PARTIAL FULFILLMENT  
+OF THE REQUIREMENTS FOR  
+THE DEGREE OF MASTER OF  ENGINEERING   
+(COMPUTER ENGINEERING ) 
+FACULTY OF ENGINEERING  
+KING MONGKUT’S UNIVERSITY OF TECHNOLOGY THONBURI  
+2019 
+
+
+""!0/+"%(+2!)!*0/0+4,.!//%2!,!!$.+ 10%+*/
++),100%+*(01 5
+
+
+/!0%0*/.%*#+),10!.*#%*!!.%*#
+
+$!/%/1)%0! %*.0%(1("%(()!*0 +"
+0$!!-1%.!)!*0/"+.
+0$!!#.!!+"/0!.+"*#%*!!.%*#+),10!.*#%*!!.%*#
+1(05+"*#%*!!.%*#
+%*#+*#'107/*%2!./%05+"!$*+(+#5$+*1.%
+	
+
+
+
+$!/%/+))%00!!
+
+66666666666666666666 $%.) *+"$!/%/+))%00!!
+//0.+"1*#&%%0'+*#$1!*$
+66666666666666666666 !)!.* $!/%/ 2%/+.
+//0.+"*0%0$1).+)+*$
+
+66666666666666666666 !)!.
+//+.+"0/$!& 1).+*#$
+
+66666666666666666666 !)!.//0.+"10$0$%,*!!3+*#20*$
+
+66666666666666666666 !)!.
+!0&+.*2101*&%$
+
+
++,5.%#$0.!/!.2! 
+6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+0&0iii 
+ 
+Thesis  Title  Effects of Facial Movements to Expressive Speech Productions:  
+  A Computational Study  
+Thesis  Credits  12 
+Candidate  Miss Metita   Onsri   
+Thesis  Advisor s Asst.  Prof.  Dr. Santithum   Prom -on  
+Program  Master of Engineering  
+Field of Study  Computer Engineering  
+Department  Computer Engineering  
+Faculty  Engineering  
+Academic Year  2019 
+ 
+ 
+ 
+Abstract  
+ 
+ 
+This thesis  presents a computational study on the relation between the movement of visual 
+facial and acoustic features. Audio -visual corpus on expressive speech production was 
+collected for the study. For the corpus, the relevant stimuli consist ed of 4 fac ial 
+expression s and 4 Thai sentences, thus in total , there are  16 combinations. Video and 
+audio data were captured from 10 native Thai speakers. Each speaker pronounce d the 
+sentence of all combinations in the stimuli . In total, there were  160 audi o-visual track s 
+for the analysis. Facial features were extracted and tracked by using visual markers 
+through the pronunciation. At the same time, acoustic data, particularly the fundamental 
+frequency (F0) was tracked and synchronized with the facial data. Computati onal analysis 
+on the landmark and dynamic features of both visual and audio data were performed. This 
+result provides the relation  of the expressive facial movement together with the acoustic 
+adjustments.  
+ 
+Keywords :  Audio-synchronization / Facial Expression / Facial Movement / Speech 
+Production/ Thai Language   
+ 
+  iv 
+ 
+ห ั วข ้ อ วิทย าน ิ พ นธ์  กา ร วิเ ค ร าะ ห์ผลก าร เคล ื่ อ นท ี่ ของใบหน ้ าต่ อ กา ร ส ร ้ าง เส ี ยง ประกอบ
+อ ารมณ ์ ด ้ วยก ารค  าน วณ  
+หน ่ วยกิ ต  12 
+ผ ู ้ เขียน  นางส าว เมธ ิ ตา   อ ่ อ นศ ร ี   
+อ าจาร ย ์ ท ี่ ป ร ึ กษ า  ผศ. ดร .ส ัน ต ิ ธ ร ร ม   พ ร หม อ ่อ น   
+หล ั กส ู ตร  วิศวกรร มศาส ตร มหาบ ั ณฑ ิ ต  
+ส าขาวิชา  วิ ศว กรร มค อ มพ ิว เตอร ์  
+ภาควิชา  วิศวกรร มค อ มพ ิว เตอร ์  
+คณะ  วิศวกรร มศาส ตร ์  
+ป ี กา ร ศ ึ กษ า  2562 
+ 
+ 
+บทค ั ดย ่ อ  
+ 
+ง า น ว ิ จ ั ย น ี ้ เ ป ็ น ก า ร ศ ึ ก ษ า เ ก ี่ ย ว ก ั บ ค ว า ม ส ัม พ ั น ธ ์ ข อ ง ก า ร เ ค ล ื่ อ น ท ี่ ข อ ง ภ า พใ บห น ้ า ก ั บส ั ญ ญ า ณ เ ส ี ย ง  โ ด ย
+ข ้อ มู ล ก า ร พู ด ป ร ะ ก อ บ อ า ร ม ณ ์ ถ ู ก ส ร ้ า ง ข ึ ้ น ใ ห ม ่ เ ป ็ น ฐ า น ข ้ อ มู ล ภ า พ แ ล ะ เ ส ี ย ง เ พื่ อ น  า ม า ใ ช ้ ส  า ห ร ั บ
+ก า ร ศ ึ ก ษ า น ี ้  ข ้อ ม ู ล บ น ฐ า น ข ้ อ ม ู ล ป ร ะ ก อ บ ไ ป ด ้ ว ย ก า ร แ ส ด ง อ อ ก ท า ง บ น ใ บ ห น ้ า ท ั ้ ง ห ม ด ส ี่ ร ู ป แ บ บ
+อ ารมณ ์  ส ี่ ประโ ยค ภาษา ไทย  ซ ึ ่ งจะท  าให ้ ได ้ ช ุ ด ข ้ อ ม ูล ท ั ้ ง ห ม ด ส ิ บ ห ก ช ุ ด ข ้ อ ม ูล  โ ดย ภาพวิด ิ โ อ และ ข ้ อ มู ล
+เ ส ี ย ง ไ ด ้บ ั น ท ึ ก จ า ก ผ ู ้ ใ ช ้ ภ า ษ า ไ ท ย จ  า น ว น ส ิ บ ค น  แ ต่ ล ะ ค น พู ด อ อ ก เ ส ี ย ง แ ต่ ล ะ ป ร ะ โ ย ค ป ร ะ ก อ บ ก า ร
+แสดงอาร มณ ์  ซ ึ ่ ง ร ว ม ท ั ้ ง ห ม ด เ ป ็ น ห น ึ ่ ง ร ้ อ ย ห ก ส ิ บ ช ุ ด ข ้ อ ม ูล ภ า พ แ ล ะ เ ส ี ย ง เ พ ื่ อ น  า ไ ป วิ เค ร าะ ห์ ต่ อ ไป  กา ร
+บ ัน ท ึ ก ข ้อ มู ล ก า ร เ ค ล ื่ อ น ไ ห ว ข อ ง คุ ณ ล ัก ษ ณ ะ บ น ใ บ ห น ้ า ถ ู ก บ ั น ท ึ ก ข ณ ะ ผ ู ้ พู ด ก  า ล ัง พู ด โ ด ย ก า ร ต ิ ด
+ส ั ญ ล ั ก ษ ณ ์ บ น ต  า แ ห น ่ ง ส  า ค ั ญ ต่ า ง  ๆ  ใ น เ ว ล า เ ด ี ย ว ก ั น  ไ ด ้ บ ั น ท ึ ก ข ้ อ มู ล ค ว า ม ถ ี่ มู ล ฐ า น ข อ ง เ ส ี ย ง แ ย ก ไ ว ้
+โ ด ย ข ้ อ ม ู ล ท ั ้ ง ส อ ง เ ป ็ น ข ้ อ ม ู ล ท ี่ เ ก ิ ด ข ึ ้ น อ ย ่ า ง ป ร ะ ส า น ก ั น  ก า ร ป ร ะ ม ว ล ผ ล เ ป ็ น ก า ร ค  า น ว ณ ต  า แ ห น ่ ง แ ล ะ
+ก า ร เ ป ล ี่ ย น แ ป ล ง ข อ ง ค ุ ณ ล ั ก ษ ณ ะ ท ั ้ ง ข ้ อ ม ู ล ภ า พ แ ล ะ เ ส ี ย ง ท ี่ ถ ู ก ส ร ้ า ง ข ึ ้ น  ซ ึ ่ ง ผ ล ก า ร ศ ึ ก ษ า แ ส ด ง ถ ึ ง
+ค ว า ม ส ั ม พ ั น ธ ์ ข อ ง ก า ร เ ป ล ี่ ย น แ ป ล ง ก า ร เ ค ล ื่ อ น ท ี่ เ ม ื่ อ เ ก ิ ด ก า ร แ ส ด ง อ อ ก บ น ใ บ ห น ้า ม ี ค ว า ม ส ั ม พ ั น ธ ์ ก ั บ
+เส ี ยง ท ี่ เปล ี่ ยนไ ป   
+ 
+ค  า ส  า ค ั ญ  :  ก า ร ป ร ะ ส า น เ ส ี ย ง ใ ห ้ต ร ง ก ั บ ข ้ อ มู ล /  ก า ร แ ส ด ง อ อ ก ท า ง อ า ร ม ณ ์ บ น ใ บ ห น ้ า / ก า ร เ ค ล ื่ อ น ไ ห ว
+ของคุณล ั กษ ณะบ นใบหน ้ า / กา ร ส ร ้ างเส ี ยง / ภาษา ไทย  
+ 
+  v 
+ 
+ACKNOWLEDGEMENT  
+ 
+ 
+I would like to express my appreciation to many people who helped me during my study 
+period and always support. First of all, I would like to regard significantly and sincere 
+gratitude to Asst. Prof. Dr. Santithum Prom -on, my advisor, and a lecturer at Computer 
+Engineering Department, Faculty of Engineering, King Mongkut’s University of 
+Tech nology Thonburi, always gives me the opportunity to do research and provides 
+invaluable guidance throughout this research. Moreover, who gives me a chance to do 
+something impossible and made me understand that every step starts with a first step and 
+keep w alking. His supportive attitude, vision, and motivation  have deeply inspired me. 
+And many help s with his patience. This thesis could not be completed without him.  
+  
+I am grateful to all lecturers who have instructed me on the knowledge. I wish to say 
+thank  you to all thesis committees who gave me the critical question and feedback on my 
+study. And I am grateful to staff members of the department for their willing help.  
+ 
+I really thank you to all participants who involved in this study. The speakers, the te sters, 
+and the observers are the other significant part s of this study. Thank you for creating a 
+little special thing together.  
+ 
+Moreover, I want to thank my friends and colleges for their support. Thank you to my 
+best friends and my sister -code, who alway s be there for me. Finally, I am incredibly 
+grateful an d extremely loving to the family that still gives me love, caring, and 
+encouragement.   vi 
+ 
+CONTENTS  
+PAGE  
+  
+ENGLISH ABSTRACT     ii  
+THAI ABSTRACT    iii  
+ACKNOWLEDGEMENTS  CONTENTS     v  
+LIST OF FIGURES   vii  
+LIST OF TECHNICAL VOCABULARY AND ABBREVIATIONS     x  
+ 
+CHAPTER  
+1. INTRODUCTION    1  
+1.1 Problem Stat ement    2  
+1.2 Objectives    2  
+1.3 Research Scopes    2 
+1.4 Expected Benefit    3  
+ 
+2. RELATED WORKS    4  
+2.1 Speech Production      4  
+2.2 Facial Movem ent and Facial Expression    5 
+2.3 Emotional Speech Production    9  
+2.4 Facial Expression Affects Speech processing  10 
+2.5 Thai Audio-Visual Emotional Speech Analysis   12 
+2.6 Speech Synthesis  12 
+2.7 Articulatory Movement Model  14 
+2.8 Audio – Visual Synchron ous in Talking Head  15 
+ 
+3. EXPERIMENTAL DESIGN AND DATA COLLECTION   16  
+3.1 Experimental Design  16  
+3.2 Data Collection  16  
+3.3 Evaluation Method  19 
+ 
+ 
+ vii 
+ 
+CONTENTS (Cont’d)  
+PAGE  
+ 
+ 
+4. EXPERIMENTAL RESULTS AND DISCUSSION   23  
+4.1 The Visualization of Data Colle cted 23  
+4.2 Audio -visual Correlates  29  
+4.3 The Emotion Effects as The Difference in Sound and Facial’s Features  34 
+ 
+5. CONCLUSION  46 
+5.1 Conclusion  10  
+REFERENCES  48 
+ 
+CURRICULUM VITAE   52 
+ 
+APPENDIX  53 
+A. Data Collected Visualiza tion  53 
+B. Correlation Result s of a Person in F0 and X -Y Coordination   57 
+  viii 
+ 
+LIST OF FIGURES  
+FIGURE   PAGE  
+  
+2.1 A view of the human vocal apparatus, dissociating parts responsible of  
+phonation and the articulators. The sounds produced by these mechanisms  
+resonate into three cavities/ tracts.  Figures extracted from the Springer  
+Handbook of Speech Processing    4  
+2.2 Sample AUs of the FACS    5  
+2.3 The 84 Feature Points (FPs) defined o n a neutral face.    7 
+2.4 Examples of the eight RAVDESS emotion s   8 
+2.5 The 2D valence -arousal emotio n space (The affective emotion terms are only  
+approximated position)    9 
+2.6 Example screen of Subtitle Edit  [31]  12 
+2.7 Illustration of PENTA model  13 
+3.1 The physical setup of the recording equipment  17 
+3.2 Illustration of facial feature trackers  18 
+3.3 The result of the data corpus perception test  20 
+4.1 The movement of x position, y position, and pitch curve in a same sentence  
+different emotion, neutral face  25 
+4.2 The movement of x position, y position, and pitch curve in a same sentence  
+different emotion, happy emotion  26 
+4.3 The movement of x positio n, y position, and pitch curve in a same sentence  
+in sad emotion  27 
+4.4 The movement of x position, y position, and pitch curve in a same sentence  
+different emotion, angry emotion  28 
+4.5 The correlat ion of F0 with x -y points in sentence 1 , neutral face  30 
+4.6 The correlation of formants with x -y position 3 in sentence 1, neutral face   31 
+4.7 The correlation of formants with x -y position 5 in sentence 1 , neutral face   32 
+4.8 The correlation of F0, and formants with x -y points around a mouth in  
+sentence 1 and neutral face   33 
+4.9 The correlation of F0 with F0, x -y points at point 1 in sentence 1 compare in  
+4 emotions: neutral, happy, sad, and angry  35 
+ ix 
+ 
+LIST OF FIGURES  (Cont’d)  
+FIGURE   PAGE  
+ 
+4.10 (left)  The correlation value of F0 with x -y points of a person in sentence 1,  
+  4 emotions: neutral, happy, sad, and angry. (right) The facial feature positions.  36 
+4.11 The correlation value of formants , x-y points in sentence 1 compare in  
+4 emotions: neutral,  happy, sad, and angry   37 
+4.12 The correlation value s of F0, F1, F2, F3 with  x-y points in sentence 1   
+word 1 in 4 emotions: neutral, happy, sad, and angry  (1) 38 
+4.12 The correlation value s of F0, F1, F2, F3 with  x-y points in sentence 1   
+word 1 in 4 emo tions: neutral, happy, sad, and angr y (2) 39 
+4.13 The correlation result graphs compared F0 of neutral face with happy emotion  
+in a same person and across person  40 
+4.14 The correlation data of the F0 contour compared with the same person and  
+across pers on then compared the same and across  emotion of sentence 1 and  
+syllable 1  41 
+4.15 The correlation data of the x1 position’s movement compared with the  
+same person and across person then compared the same and across emotion of  
+sentence 1 and syllable 1  42 
+4.16 The correlation data of the y 1 position’s movement compared with the  
+same person and across person then compared the same and across emotion of  
+sentence 1 and syllable 1   43 
+4.17 The correlation data of the 1st formant (F1) compared with the same person  
+and across person then compa red the same and across emotion of sentence 1  
+and syllable 1  44 
+4.18 The correlation data of the 2nd formant (F2) compared with the same person  
+and across person then compared the same and across emotion of sentence 1  
+and syllable 1.   45 
+A.1 The collected data visualized of person 1 – sentence 1 – neutral  53 
+A.2 The collected data visualized of person 1 – sentence 1 – happy emotion  54 
+A.3 The c ollected data visualized of person 1 – sentence 2 – sad emotion   55 
+A.4 Th e collected data visualized of person 1 – sentence 1 – angry emotion  56 
+  x 
+ 
+LIST OF TECHNICAL VOCABULARY AND ABBREVIATIONS  
+ 
+3D =  Three Dimentional  
+AAM  = Active Appearance Model  
+AUs =  Action Units  
+EmFACS  =  Emotional Facial Action Coding System  
+F0 = Funda mental frequency  
+F1  =  Lowest frequency  
+F2  =  Second frequency  
+F3 =  Third frequency  
+FA = Facial Animation  
+FACS  = Facial Action Coding System  
+FAPs  =  Facial Animation Parameter  
+FP =  Feature points  
+MPEG  = Moving Pictures Experts  Group  
+qTA =  Quantitative  Target Approximation  
+ 
+ CHAPTER  1 INTRODUCTION  
+ 
+User experience  of how we  use tools or technologies has always been  evolving . We use 
+gadgets with not just keyboard or mouse but also with touch and voiced command. With 
+the increasing computat ional power, computing device  could process high performance  
+requirement  program by using small er resources and fast er access with  lots of data in a 
+few seconds. Due to that,  the studies about how to create more grateful user interactions 
+have been widely of interest to many research and development fields, particularly those 
+related to human cognition such as speech, perception, and vision  [1,2,3,5,7 ,8,21,24 ]. 
+ 
+Human uses mul tichannel information in communications . There are a number of studies 
+that found links between visual and audio processing [1,2,3,4]. These include both in 
+production and perception. In an interactive system, t he system that combin es both audio 
+and visual data can thus utilize them to make simpler and more realistic responses [ 5]. 
+The audio -visual talking head incorporate s the facial movement, eyes and lip’s 
+movements  [5,6] . The face will be modeled from the set of images of a human’s face 
+features  in synchronous with the  speech  signal . However, the present issue show that 
+audio -visual  head talking  is not only the linguistic (dialogic interactions) but also 
+paralinguistic (emotions and affects)  [1,5].  
+ 
+Study of emotion expression can help to create a more natural synchronous ity among 
+speech sound and visual of facial movement.  As speec h apparatus is parts of human face. 
+Human speech may comprise the auditory and the visual modalities. Many researchers 
+have emphasized the close connection between them  [3,4,6 ]. A speaker cannot produce 
+auditory speech without displaying visual cues such a s lip, head or eyebrow movements. 
+[1] 
+ 
+Human speech is produced from  the vibration of the vocal cord and pass through  the 
+configuration of the vocal tract that is composed of articulatory organs  [7]; including the 
+nasal cavity, tongue, teeth, and lips — using of these articulatory organs together with the 
+muscles generate s facial expressions. Once a  speaker produces speech , since some of 
+these articulators are visible, there is an inherent relationship between the acoustic and 
+visible speech on a face .  
+  2 
+1.1 Problem Statement  
+ 
+Changes in facial expression affects the resulting speech and the meaning of the utterance. 
+This thesis  aims to study the relationship between the facial movements and the acoustic 
+dynamics, to understand the degree of associations be tween them. Speech wer e recorded 
+at the same time as the visual data, in forms of facial markers, are tracked over time. 
+Finding relationships between these movements may shed some light toward the effect 
+and control of facial features in relation to speec h feature.  
+ 
+1.2 Object ives 
+1. To study the relation between facial movement and speech production.  
+2. To study the voiced affect by the emotional expression.  
+3. To collect the facial movement and speech data of Thai people’s expression.  
+ 
+1.3  Research Scope s 
+1.  A set of expressions was selected to be used as stimuli for the study, including 
+happiness, sadness, anger, and neutral (no expression) . Speakers were instructed to 
+speakers with these emotions  at the high intensity levels . Neutral expression is 
+selected as  a baseline condition.  
+2. The expressions are studied based on Thai language. Then the result will be in Thai 
+language and showing Thai expressions  based on the Bangkok area.  
+3.  The physical facial markers  apply on the participant’s facial feat ures 29 posi tions on 
+face.  
+4.  The study on only relationship between facial marker  which revealed the movement 
+if facial muscle  and acoustic signals . 
+ 
+  3 
+1.4 Expected Benefit  
+1. The knowledge is generating more naturally emotional expression by synchronization 
+between th e synthetic speech and facial features movements. The relationship 
+between facial movement and speech production in expressive conditions will help 
+the researcher to understand and create the feeling in the human voice. Human spee ch 
+with emotion may diffic ult to understand the cause of cultural and individual 
+expression of emotion. However, the understanding of feeling in voice and visual will 
+help to synthesize more natural emotional speech in the future.  
+2. The knowledge is generati ng more naturally emotiona l expression by synchronization 
+between the synthetic speech and facial features movements. The relationship 
+between facial movement and speech production in expressive conditions will help 
+the researcher to understand and create the feeling in the human v oice. Human speech 
+with emotion may difficult to understand the cause of cultural and individual 
+expression of emotion. However, the understanding of feeling in voice and visual will 
+help to synthesize more natural emotional speec h in the future.  
+  CHAPTER  2 RELATED WORKS  
+ 
+In this chapter , related work about emotional  speech  synthesis , facial movement  and 
+facial expression,  speech  synthesis , and audio and vision emotional speech  are given.  
+ 
+2.1 Speech Production  
+The speech production is the p rocess of the motor system using the vocal apparatus to 
+articulate the sounds and the operation of the selection of the words and organize the 
+grammatical form. The speech sound is produce d by the exhaled air from the lungs and 
+cause d the vibration of the vocal cord or turbulence some point in the vocal tract. It then 
+comes out as the speech sound through the lip and nose. The shape of the vocal tract 
+affects the sound in many levels . Vocal tract can be simply separated into two parts: oral 
+and nasal tracts . The oral tract comprises the pharynx, palate, tongue, lips, and jaw. The 
+nasal tract acts a secondary acoustic radiator.  
+ 
+ 
+ 
+Figure 2. 1 A view of the human vocal apparatus, dissoc iating parts responsible of   
+    phonation and the articulators. The sound s produced by these mechanisms  
+    resonate into three cavities/tracts. Figures extracted from the Springer  
+    Handbook of Speech Processing  [8] 
+  
+5 
+2.2   Facial Movement and Facial Expression  
+Facial Expressions are formed by the movements of facial featur e parts on the human’s 
+facial. The various facial behaviors and motions can be parameterized based on muscle 
+actions. This set of parameters can  then be used to represent the various facial 
+expressions.  This part gives the related research which worked on facial expression and 
+facial movement parameterized, and the current virtual character animation systems.  
+ 
+2.2.1 The related facial expression and facial movement research  
+1. Facial Action Coding System (FACS)  
+The widely used method to describing facial mo vement based on anatomical basis of 
+facial action, named Facial Action Coding System or FACS. Facial Action Coding 
+System was used to classify the atomic facial si gnals into Action Units (AUs) through 
+analysis of facial muscle contractions [ 9]. As shown in  Figure 2.2, AUs are grouped based 
+on their location on the face and the type of facial action involved. The “upper -face” AUs 
+include the eyebrows, forehead,  and eyelids muscles, e.g., the inner brow raiser muscle  
+corresponds to AU1; the “lower -face” AUs i nclude  muscles around the mouth and lips; 
+and the “head and eye  movement” AUs include the neck muscles which move the  head, 
+whereas the eye muscles move the g aze direction.  
+ 
+ 
+Figure 2. 2 Sample AUs of the FACS  [9] 
+6 
+Emotional FACS (EmFACS) [ 10] is a subset o f FACS,  focused on facial expressions of 
+emotions. EmFACS provides  subsets of AUs used to generate Ekman’s 6 universal  
+emotions  [11]: happiness, sadness, disg ust, surprise, fear, and anger. And other emotional 
+facial expressions such as contempt,  pride, an d embarrassment can also be depicted by  
+AU combinations.  
+ 
+2. Facial Animation Parameter (FAPs)  
+Facial Feature Extraction are using the extracted facial feature points through Active 
+Appearance Model (AAM) which represented as Facial Animation Parameter (FA Ps) 
+[13][14]. It was start from the issue to facial control parameterization  in the animation 
+and graphics researchers were more focused on the facial m ovements that the parameters 
+caused, rather  than the efforts to choose the best set of parameters  [13]. Then  the Moving 
+Pictures Experts  Group or MPEG introduced the Facial Animation (FA) specifications in 
+the MPEG -4 standard.  The MPEG -4 defines a face mod el in its neutral state to have a 
+specific set of properties . Key features are exampled  eye separation, iris diameter, etc are 
+defined on this neutral face model . The standard also defines 84 key feature points (FPs) 
+on the neutral face [ 14]. The n the  move ment of the FPs is used to  understand and 
+recognize facial movements (expressions) and in turn also used  to animate the faces. 
+Figure 2.3 shows the  location of the 84 FPs on a neutral face as defined by the MPEG -4 
+standard.  
+ 7 
+ 
+ 
+Figure 2. 3 The 84 Feature Points (FPs) defined on a neutral face  [15] 
+ 
+The FAPs are a set of parameters that represent a complete se t of facial actions along with 
+head -motion, tongue,  eye and mouth control . However,  the FAPs like the AUs are closely 
+related to muscle action s [14]. According to that, many of research still using FACS as 
+the basic method.  
+ 
+2.2.2  The current virtual chara cter animation system  
+FACS is widely  used for animating virtual characters’ facial  expressions. The example of 
+realistic character modeling su ch as facial animation, speech synthesis, and  various 
+automated non -verbal behaviors.  There are some of syste ms ba sed on FACS and FAPs. 
+There are FACSGen [1 6], Villagrasa and Sanchez  [17], Alfred  [18], Greta  [19] (based on 
+FAPs ), Digital Emily [20], and HapFACS [22] 
+ 
+8 
+The meaningful facial feature  positions  from the FACS and FAPs system  are used in many virtual 
+character s animation system as the previous paragraph. They are worked together to create the 
+good experiences for animating. Most of facial features in FAPs are in the same position and 
+represent the action units of FACS.  For example,  the key features  5.3 and 5.4 from FAPs  reveal 
+the AU12 in FACS . Some of these positions also selected and operated in many studies of facial 
+expression as will show in the topic 2.4.  
+ 
+2.2.3  The facial expression database  
+The studies of facial expression, facial movement, and emotiona l expression are 
+provided the facia l information from many databases. The present  database which 
+inspired how to record and deal with emotion condition dialog plan on this thesis  is the 
+database from research journal named the Ryerson Audio -Visual Database  of Emotional 
+Speech and Song (RAVD ESS): A dynamic, multimodal set of facial and vocal 
+expressions in North American English  [23]. The RAVDESS is a validated multimodal 
+database of emotional speech and song . 
+ 
+ 
+ 
+Figure 2. 4 Examples of the eight RAVDESS emo tions [23] 
+ 
+9 
+2.3 Emotional Speech Production  
+From the recent research on speech, processing has focused on emotional expression, as 
+the expectation of creating naturalness most obviously missing from synthetic speech, 
+which is an appropriate emotion to expr ess. Speech reco gnition has focused on what is 
+each emotional express in a speech signal. Moreover, speech synthesis has focused on 
+how to generate emotional expressiveness in synthesized speech. This observation has 
+motivated attempts to combine the expre ssion of emotion s into synthetic speech for more 
+than a decade. Furthermore, that attempts increasing in recent years.  
+ 
+The way emotion expressed in speech can improve along two axes. First, the description 
+of the voice correlates of emotions (how is a giv en emotion expre ssed in speech). 
+Moreover, second is the description of the emotional states themselves (what are the 
+properties of the emotional state to be expressed or what is the relation between this 
+emotional state and another state) [24].  
+ 
+The expre ssion of emotion  in synthetic speech can found in the literature. A variety of 
+approaches has been employed [2]. The modeling of emotion in speech turns to several 
+parameters, such as fundamental frequency (F0) level, voice quality, or articulation 
+precisi on. There are ex isting techniques, such as Formant synthesis, Diphone 
+concatenation, Unit selection, or Prosody rules [2].  
+ 
+From the studied about emotional expression, one of classic research come from 
+psychology, which used to divide in dimension and pr edict continuous  emotion in terms 
+of Valence and Arousal [25]. Besides, the circumplex model of emotion [25] is the model 
+consists of a two -dimensional, circular structure involving the dimensions of valence and 
+arousal, as shown in Figure 2.1. Within this  structure, emot ions that are inversely 
+correlated placed across the circle from one another.  
+ 10 
+ 
+ 
+Figure 2. 5 The 2D valence -arousal emotion space  (The affective emotion terms are only   
+  approximated  position ) 
+ 
+Valence and Arousal (V -A) emotional plane su ggests a simple powerful way of 
+organizing different emotions in terms of their affect appraisals (valence)  and 
+physiological reactions (arousal) . It allows for direct comparison of different emotions 
+which used in research  about emotion recognition.  
+ 
+One purpose of the studies about emotion speech synthesis is to create the face -to-face 
+communication. Face-to-face communication is in fact much more than speaking and 
+speech is greatly influenced both in  substance and content.  Face-to-face communication 
+is multimodal ; interacting involves multimodality and nonverbal  communication to a 
+large extent.   
+ 
+2.4   Facial Movement  and Speech pro duction  
+There are three studies of facial movements and speech producti on, which give the effects 
+of the movements on speech sounds. These research  study in a similar purpose, but 
+different tracking feature methods. The first research used the OPTOTRAK motion 
+captures, which is the wireless markers system to track the head and face movement. The 
+second research used the drawing on a face and camera. And th e last one used only the 
+computer vision and image processing to extract and keep track of the features.   
+ 
+Arousal  
+Valence  
+(positive)  
+(high)  
+(low) 
+(negative)  
+Annoying  
+Nervous  
+Angry  
+Excited  
+Pleased  
+Happy  
+Sad 
+Bored  
+Sleepy  
+Clam 
+Peaceful  
+Relaxed  11 
+2.4.1 The audiovisual production of Mandarin tones  
+The study of audio -visual production  for Mandarin tones by capturing m otion and using 
+PCA for mode lling the face movements [ 6] are studied about the correlations between F0 
+values and the different face and head components.  The motion capture captured by 
+OPTOTRAK system while a speaker speaking.  PCA used for identifying the important 
+visual parameters which related to the different F0 patterns of each tone.  The paper 
+presents the visual correlates of tone but different in citation and sentential forms.  
+ 
+2.4.2 The audiovisual production and perception study in French  
+The exper iments of  audiovisual production and perception of contrastive focus in French 
+[3] suggest that the lower face components correlate  of contrastive audiovisual perception 
+in French.  The participants of an experiment give the correct answer, what is the spea ker 
+speaks  without the sound, when the speaker speaks in hyper -articulation. The visual cues 
+enhance perception. The analysis results of the study showed that poorly perceived 
+stimuli corresponded to not clearing visible articulatory and duration.  
+ 
+2.4.3 The facial movements made during Mandarin tone production al ong with pitch 
+trajectories  
+The visual cues are applied in Mandarin tone production by using computer -vision and 
+image processing technique  and analyzed by random forest classifier to understand wh ich 
+extract facial features are most representative for each tone [ 4]. The recorded video  
+preprocessed by identify specify visual cues which induced by facial movements i n each 
+tone production. The study measured the manner and length of the movements usin g 
+distance and time as base metrics. The extracted features are analyzed in two parts  to find 
+the most relevant features and analyst to examine the individual features on each tone.  
+Then the  discrim inant approach, random forest classifier , performed the as sociations 
+between features and tone . The study found the linguistic relevance of visual cues has 
+significant implications for tone perception.  The tone perception is needed to determine 
+how the vis ual tonal cues are used to promote perception of categoric al tonal distinctions 
+and extent to which perception is based on linguistic relevance of that cues.  
+ 
+ 
+ 12 
+2.5 Thai audio -visual emotional speech analysis  
+Many emotion speech corpora which collected video and speech gather the gesture in the 
+English language, as the corpus named RADVSS in the previous related works section. 
+The EMOLA[3 1] is the Thai emotional speech corpus. The corpus collects the 
+professional acting from the actors and actr esses in the Thai drama. And transcription 
+from the show with tagged th e emotions of each utterance. The total video clips nearly 
+long 16 hours or 940 minutes.  
+ 
+ 
+ 
+Figure 2.6  Example screen of Subtitle Edit  [31] 
+ 
+The research corpus aims to classify the emotional states by developing the clearly 
+expressed feelings of perform ed actors. First, the data collection assembled the video and 
+speech data from the Thai drama series. Second, the selected drama series are extracted 
+and subtitled data. T hen annotated the emotion states of each data.  
+ 
+2.6 Speech Synthesis  
+Before the revie w of speech synthesis, I will interview about speech -to-speech system. 
+The speech -to-speech is a process of speech technologies combination which created to 
+do some specia l task. There is speech recognition, recognized what is the meaning of 
+speech content , to speech synthesis, generated what is the content in sounded. The 
+translation systems focus on the processing of linguistic content, without knowing 
+gestures in human f ace-to-face communication (Reviewed in Emotional Expressions).  
+13 
+ 
+For example, the spee ch-to-speech translation [2 6] processed the required audio by 
+putting it in to the system to captured by a speech recognizer. The linguistic content will 
+be extracted  then do the content analysis to be translated into the target language. Finally, 
+the spee ch synthesizer takes an input as the representation of the content, transmitting F 0 
+contours, and generates the spoken translation. (In this example [2 6] is using some of 
+visual contents to help the selecting appropriate synthesis style. It shows part of v isual 
+involved in speech processing.)  
+ 
+As the speech -to-speech system is used as a communication tool between humans. Then 
+making the natural synthesized speech or having appropriate expression of affect in the 
+synthetic speech are important.  
+ 
+To define th e speech synthesis, it generates the speech signal process by using meaning 
+in computational for human interactions. The Text -to-Speech (TTS) synthesis is one of 
+notably technique, which generates intelligible, natural -sounding artificial speech for a 
+given input text. TTS systems mostly have two main parts; there are text analysis and 
+speech waveform generation. In the text analysis part is converting the input te xt into a 
+linguistic specification consisting of elements such as phonemes. In the speech wave form 
+generation part is generating the speech waveforms from the produced linguistic 
+specification.  
+ 
+In the waveform’s generating part are the two primary technologies synthetic speech 
+waveform. There are concatenative synthesis and formant synthesis. Acco rding to the 
+long studied from the part until now, each technology has strengths and weakness then 
+we will use them in the combination of two technologies.  For concatenative synthesis, 
+there are three main sub -types; unit selection synthesis, diphone synth esis, and domain -
+specific synthesis. The unit selection provides the greatest naturalness [ 1] because it 
+applies a small amount of digital signal processin g to the record speech. However, unit 
+selection synthetic speech naturalness is required the very lar ge databases. Then we will 
+select the proper sounded by using unit selection and modifying the selection to the target 
+speech that we need. In this study w ill use the fundamental frequency contours, as found 
+in formant synthesis, to transmit the tone, pros ody, energy of the sounded to become the 
+closely synthesized speech as it should be. The quantitative target approximation (qTA) 14 
+model [4][5][24] will be u sed in this part. The quantitative target approximation model is 
+the model to simulate tone and inton ation from the generating F 0 contours, based on the 
+target approximation model [2 7] and the PENTA model [2 7]. 
+ 
+Even if text -to-speech systems is a good tec hnique to use in the speech synthesis. 
+However, text -to-speech system would need to predict the affec t and emotion from the 
+textual input. Then to create the emotion speech synthesized one from many ways is 
+applying the process strategies to multimodal inp ut (audio and visual).  
+ 
+2.7 Articulatory Movement Model  
+Parallel Encoding and Target Approximation ( PENTA) model is a computational model 
+on the functional -acoustical movement relationships that can be used to generate the 
+surface F0 contours in syllable synchronized sequential target approximation manner, 
+whereby each target is an underlying linear path  specified by multiple communicative 
+functions  [27]. PENTA model assumes  that the surface acoustic feature represents both 
+the local and global components resulting from implementing the communicative 
+functions  [28]. This framework can be adapted to repres ent the effect of facial movements 
+by expressing the facial expression a s one of the communicative functions.  
+ 
+ 
+ 
+Figure 2. 7 Illustration of PENTA model   
+ 
+In PENTA, a pitch target is a forcing function representing the strong join force of the 
+laryngeal mu scles that control vocal fold tension [27]. From Figure 3, the vertical lines 
+represent syllable boundaries. The dashed lines represent underlying targets of the unit. 
+The thick curve represents the surface of F0 contour that results from the asymptotic 
+15 
+approximation of the pitch targets  [28]. This study uses the PENTA trainer script based 
+on PENTA model to generate the F0 contours from the experiment record s. 
+2.8  Audio – Visual Synchronous in Talking Head  
+The audio and visual integration is important in the multimodal communication, more 
+than one interaction is provided. In multimodal communication where human  speech is 
+involved, audio -visual interaction is particularly significant because human speech is 
+bimodal in nature.  Human speech is produced by the vibration of the vocal cord and the 
+configuration of the vocal tract  that is  composed of articulatory organs  [1]; including the 
+nasal cavity,  tongue, teeth,  and lips. The u sing of these  articulatory organs together with 
+the muscles that generate facial exp ressions . A speaker produces speech. Since  some of 
+these articulators are visible, there is an inherent relationship between the acoustic and  
+visible  speech  on face . 
+ 
+In the talking head, the speech is synchronized with the movements of facial features on 
+the simulated head. Some approach of the methods for synthesis of animated talking 
+heads use the basic idea. That is to concatenate pieces of recorded data to produce the 
+new data . It is called sample -based talking -head animations . In this research [ 5] sho w the 
+method that us e PC A based metric for discriminating fine differences in the appearance 
+of facial features . They also use the combination of geometric and pixel -based to 
+characterize the appearance of facial parts and use a full 3D head -pose estimatio n to  take 
+care for t he different orientations. And use the unit selection process to find the best 
+segments. The system overview of this research is divided into two parts: the processing 
+to prepare the database and the processing for synthesis . CHAPTER  3 EXPERIMENT AL DESIGN  
+  AND DATA COLLECTION  
+ 
+This chapter explains the procedure of dataset creation and the evaluation of the dataset 
+and to find  the impact factors is also explained .  
+ 
+3.1 Experimental Design  
+The study aims to find the esse ntial relations among the features. The experiments divided 
+into three parts:  (1) The data collected visualizing , (2) The audio -visual correlates , and 
+(3) The emotion effects as the difference in sound and facial features of each person and 
+the emotional e ffects of the same emotion group and across the group . The first 
+experiment was the visualization of data collected in the corpus, which separate into facial 
+coordination and speech audio to create the visualized graph of the movement of x -y 
+coordination a long with F0 contour. The experiment revealed the relation of visual and 
+audio change along the timeline. The second experiment was the correlation calculation  
+of audio and visual data in a person. The experiment tried to find the relation by 
+computing the  cross -correlation of each person's features.  The third experiment was the 
+comparison of the correlation of audio -visual data among the different emotions in t he 
+same person and across other people. Thai expressive audio -visual data in this studied 
+was col lected by recording Thai native speakers explained in section 3.2.  
+ 
+3.2 Data Collection  
+3.2.1  Data collection process  
+The audio -visual  corpus  was designed to contain the variations of facial expressions and 
+speech content. S timuli consist of 4 facial expr ession s and 4 Thai sentences, in total of 
+16 combinations.  Ten Thai native speakers (five males and five females) participated in 
+data collect ion. Each speaker pronounced the stimuli sentence. In total, there are 160 
+emotional expressive utterances and vis ual tracks.  
+ 
+Four emotion categories, including  joy, sadness, anger , and neutral , were used in this 
+study . The first t hree emotions  were selected from eight emotions from the different 
+arousal levels from each other .  In case of neutral was used as the ba seline condition and 
+each expression produce in the high intensity expressive level.  The four emotion states , 17 
+which  were used with all speakers and a description of each emotional condition were  
+provided.   
+ 
+The recording was physical setup as  shown in  Figure 3.1 . The speaker sat in front of the 
+recording equipment during the recoding. A  break -time was provided for speakers  to rest 
+and prepare between conditions.  
+ 
+ 
+ 
+Figure 3.1  The physical setup of the recording equipment  
+ 
+In each recording, the speaker’s  face marked by the white stickers on the important facial 
+feature points. The critical reason for masking points is helping to track a correctly 
+changes position of each facial feature.  
+ 
+From the studies of facial movement research, there are many paramet er sets used to 
+represent facial movement. The facial feature positions were selected using the main key 
+features commonly found in the facial expression studies from chapters 2.2 and 2.4. The 
+essential features rely on the mouth and cheeks. The selected p ositions also used the same 
+key features in facial animation technics, for example, in FACSGen, Digital E mily, and 
+HapFACS.   
+ 
+Then 29 facial features are selected and  shown in Figur e 3.2. T he color  dots represent 
+areas of facial features . There are Blue co lors for  a mouth zone, Orange colors for  a chin 
+ 
+18 
+and lower face zone, Green colors for cheek zones, Red co lors for eyes’ corners, and 
+Yellow colors for eyebrows’ borders.   
+ 
+ 
+ 
+ 
+Figure 3.2  Illustration of facial feature trackers  
+ 
+The speakers pronounced fou r sentences of ten syllables:  
+(1) “ ฉ ั นห ิ ว ข ้ า ว แล ้ ว เรา ไ ปก ิ นข ้ า ว ก ั นเถ อ ะ” ( Chan hiw khaw laew rea pi kin khaw kan ther)  
+(2) “ ว ั น น ี ้ อ า ก า ศ ด ี น ่ า อ อ ก ไ ป ว ิ่ง เ ล ่น ”  (Wan ni aar kas di na aok pi winf len)  
+(3) “ ข ้ า ง น อ ก ม ีเ ด ็ก น ้ อ ย น ั่ ง ข ว า ง ป ร ะ ต ูอ ย ู่ ”  (Kang nok mi dek noy n ang khwang pra tu au)  
+(4) “ สว ั สด ี สบา ยด ี ไ หม เป ็ นย ั ง ไ ง บ ้ า ง ”  ( Sa was di sa b ay di mai pen yang ngi bang).  
+The sentences are created for testing the different of facial movements and acoustic 
+features.  
+ 
+3.2.2 Computation al process ing 
+The computation  process is focused on how emotion , or facial expression,  can affect  
+speech  process  to produce the sound . The collected data in a previous process  was used 
+as the audio  and visual speech database  separately.  
+ 
+ 
+19 
+The recorded audio s were used for measuring and simulatin g curve of utterance. 
+Fundamental frequency  (F0), which produced in the larynx by the vibration of the vocal 
+folds,  extracted basically by autocorrelation using Praat  [30], the speech analysis 
+software. Then the ProsodyPro script was used  [29] for extracti ng the F0 contours. F0 
+curve of each utterance is used to compare with the position of facial movement.  Despite 
+of formant frequencies or the acoustic resonance of human vocal tract which measured 
+as an amplitude peak in frequency spectrum of the sound sou rce. The first three formant 
+frequencies  (F1, F2, F3) extracted by using FormantPro script [3 2] for extracting the F 1, 
+F2, F3 contours with the normal time samplings. F1, F2, F3 data of each utterance are 
+also used for the facial movement features comparat ion. 
+ 
+The visual data of facial expression  videos  with the tracked features were used for 
+measuring the changing pos ition of each features during speaking.  The position data was 
+extracted from a video by using Open CV, computer vision library, on Python , then 
+normalized the points data in each set before comparing the result with each utterance in 
+the fundamental freque ncy and the formant frequencies . 
+ 
+3.3 Evaluation Method  
+3.3.1  Collected data evaluation  
+The audio -visual data of Thai native speakers colle cted for test the relationship among 
+the audio and visual features movement. The data in the database separated into two parts: 
+speech audios and video records in the data collecting process. Before the ex periment 
+began the test of data qualities was creat ed and evaluated the expressive audio -visual 
+perception first. The perception test designed to test the perception of a person if they 
+received the real emotion expressed by the speakers in the data corpus  or not. The test 
+separated into three parts; visua l data only, audio data only, and audio -visual data of the 
+collected descriptive data, and tested all collected data by randomly ordered. The 
+participants labeled the emotion after they watch or hear each data. All labels compared 
+with the answer sheets.  The result showed as the figure 3.3.  
+ 
+ 20 
+ 
+ 
+ 
+Figure 3.3 The result of the data corpus perception test  
+ 
+Furthermore, the result from 30 Thai  native speakers  who are not in the database  shows 
+that 97% can answer the  correct perception of audio -visual data. An average score of 
+correctness perception for visual -only data is 87.84%, and the audio -only data is 83.80%. 
+From 30 participants, all 30 persons can answe r more than 90% correctly, and nine 
+persons can answer 100% correct in audio -visual data. Twelve person s can answer more 
+than 90% correctly from all data as a result of visual -only data. Moreover, for the audio -
+only data, there seven persons can answer mor e than 90% correctly.  
+21 
+ 
+3.3.2  Relationship between audio contour and features movement  
+The evaluation o f this st udy was evaluate d by finding the relationship between facial 
+expression and the speech sound caused by an emotion . One of the main objectives  of 
+this study is to identify the effect of emotions on audio and visual data. We compare the 
+signal acros s different emotion categories to identify whether there exists such differences 
+in pitch and facial movement tracks . In the same emotion group, the rela tion of facial 
+movement and pitch track should have the same pattern or value more than comparing to 
+another emotion group.  
+ 
+The relation between audio and visual data compared by using cross -correlation to find 
+the value of data relative to two signal data. The cross -correlation calculated by using the 
+correlate function in the Scipy library for signal pro cessing in Python programming.  As 
+the signal data of speaking in sentence each feature ; F0, F1, F2, F3  contour s, or x-y 
+position, has different  frequency even there are the time synchronized. However, the 
+visual features signal cannot  be compare d directly with audio  contour s because of the 
+frequency of data collection. In each syllable in a sentence was different time length. 
+Then the first step is to normalize each feature based on a syllable data.  
+ 
+According to that, one syllable dataset is selected the x positions, y positions, and F0 , 
+Formants  data by 20 units of time. Next, dataset is selected to rescale data by using 
+normalization equation defined as  (3.1) :  
+ 
+ 𝑍 𝑖= 𝑥𝑖 − 𝑥̅
+𝑠   (3.1) 
+ 
+Where: 𝑥𝑖 is a data point, 𝑥̅ is the sample mean, and s is the sample standard deviation.  
+ 
+After normaliz ing all dataset, the syllable dataset was selected and used the two features: 
+F0, F1, F2, F3 data , x, or y  position, for calculating the correlation of them by using the 
+cross -correlation z of arrays x and y  in Scipy.signal.correlation function which is the 
+discreate linear cross -correlation of t he inputs  defined as  (3.2) : 
+ 
+ 𝑧[𝑘]=(𝑥×𝑦)(𝑘−𝑁+1)= ∑ 𝑥𝑙𝑦𝑙−𝑘+𝑁−1∗ ||𝑥||−1
+𝑡=0  (3.2) 22 
+ 
+for  𝑘 = 0,1,...,||𝑥||+||𝑦||−2 
+Where ||𝑥|| is the length of 𝑥,𝑁=𝑚𝑎𝑥 (||𝑥||,||𝑦||) , and 𝑦𝑚 is 0 when m is outside the 
+range of y.  Finally, the output is an array contained a subset of the discreate lin ear 
+cross -correlation of feature data 1 with feature data 2.  
+ CHAPTER 4  EXPERIMENTAL RESULTS AND DISCUSSION  
+ 
+This chapter is divide d into 3 sections for explanation of all the results and calculation on 
+data to find the relation between the facial featur es and pitch tracks. First section is the 
+visualization of collected data which plotted to show the changing in each sentence 
+compare e ach emotion. The observation of movements reveal ed interesting  pattern s in 
+each emotion, explained in Section 4.1. The s econd section explains  the calculati on of 
+correlation among F0, x and y coordination at syllable level s. The correlation showed the 
+relation of pitch track and x -y track, more detail in Section 4.2. The t hird section is the 
+correlation of F0, x and y coordi nation compared in term of different emotions. The result 
+show ed that F0 and x -y movements correlation of each person in the same emoti on group 
+have high similarity than the different emotion group, discuss in 4.3.   
+ 
+4.1   The Visualization of Data C ollect ed 
+The collected data were separated into two parts, video records and audio records. Facial 
+features were extracted as x -y coordination and tracked by using visual markers through 
+the pronunciation. At the same time, acoustic data, particularly the fundam ental 
+frequency (F0) was tr acked and synchronized with the facial data. The data from ten Thai 
+native speakers were recorded as corpus for the study.  
+ 
+All data grouped in sentences and emotion to study. One dataset plotted in three graphs 
+as the figure 4.1  to figure 4.4, the figure shows the movement measuring of x -y 
+coordination of 29 feature points collected from a person’s face in one sentence and the 
+simulating curve of utterance. The first graph in each figure is the x -axis position from 
+the facial rec ord which the higher value means the feature points moving to right side of 
+a face otherwise is a left side. The second graph is the y -axis position from the facial 
+record which the higher value means the feature points moving up toward otherwise is 
+moving  down. And the third graph is F0 contour showing the pitch of the speech sound. 
+The comparation is considered on a syllable level. Then separated into 4 emotions, there 
+are neutral, happy, sad, and angry in order.  
+ 24 
+The neutral expression, a one person spe aking a sentence without em otion or neutral face, 
+is shown as an example in figure 4.1. From observation s, most of data showed the smooth 
+movement of facial features with morphing along with the words sound. A face with no 
+expression created the first move ment for this experiment an d the based speech sound for 
+using to comparing with other emotions.  
+ 
+The result of happy emotion, given an example as in figure 4.2, was visualized in a graph 
+of one person speaking with happy emotion or smiling face. The happy expression data 
+showed more  rapid changing in the x -axis and y -axis. The x -positions showed that the 
+corners of mouth expanding and nostrils flaring out when speaking. In y -positions showed 
+that mouth moving up profoundly and opening very large during the speaking and 
+eyebrows shift  up to higher. The pitch curve came out in high level than the neutral face 
+but almost same duration.  
+ 
+The observation of sad emotion given in figure 4.3 one person speaking with sad emotion 
+or pout face. The visualized data show s the slightly changing pos itions in the opposite of 
+the happy expression, especially in the y -axis. There were not obviously changes in x -
+position. In y -position, it was changing by middle lip moving up but corners of the mouth 
+moving down during speaking . The center of eyebrows ra ised and contracted to the center 
+of a forehead. The pitch curve showed in a lower pitch and long duration than in happy 
+expression also the neutral expression.  
+ 
+ 25 
+ 
+ 
+Figure 4.1  The movement of x position, y position, and pitch cu rve in a same sentence  
+  different emotion, neutral face  
+26 
+ 
+ 
+Figure 4.2  The movement of x position, y position, and pitch curve in a same sentence  
+  different emotion, happy emotion  
+27 
+ 
+ 
+Figure 4.3  The movement of x position, y position, and pitch curve in a same sentence  
+  in sad emotion  
+ 
+28 
+ 
+ 
+Figure 4.4  The movement of x position, y position, and pitch curve in a same sentence  
+  different emotion, angry emotion  
+29 
+ 
+The observation of speaking with anger emotion or tight face showed the extreme 
+changed in the y-axis, but x -axis was not changing much, as an e xample in figure 4.4. 
+The face of angry expression pulls the center of eyebrows lower, lips tightly closed, and 
+nostrils move upward. While speaking, the y -position changing very fast and gain high 
+value, es pecially the lower lip and chin. The pitch curve came out in lower level but 
+straight nearly like the neutral face. Each syllable had shorter duration but much louder 
+from the neutral.  
+ 
+The observation of preprocess data, facial features movement related t o speech 
+production. The speech acoustic features  differ in different movements of the feature 
+points around the mouth. Then t he facial features can optimize from 29 x -y coordination 
+to 15 feature points; there are P1, P2, P3, P4, P5, P6 for movement of a mouth, then P8, 
+P10 for chin, next are P12, P13, P14, P15 for cheeks, and P25, P27, P29 for eyes and 
+eyebrows movement.   
+ 
+4.2  Audio -visual  Correlate s 
+The relationship among F0 contour , formant frequencies , and X-Y position s were  studied 
+by finding the cor relation of them. As the signal data of speaking in sentence each feature, 
+F0 contour or x -y position, has different frequency even there are the synchronized. 
+However, the visual features signal cannot  be compare d directly with audio  contour 
+because of th e frequency of data collection. And in e ach syllable in a sentence was 
+different time length. Then the first step is  to normalize each feature based on a syllable 
+data.  
+ 
+The correlation between two features: F0 and x -point, F0 and y -point, and x correlate d 
+with y point, were  calculated 1 5 facia l features were selected as  representative x -y 
+coordinates from 29 points. Then a sentence with 10 syllables were contained 110 facial 
+features. And the correlation of F0 with x -y points were 330 results in total num ber. The 
+correlation results of each syl lable showed as figure 4.5, the correlation of F0 with x -y 
+points around a mouth in sentence 1 and neutral face. The correlation of the formant with 
+x-point and y -point also calculated and the example of selected pos itions represented in 
+figure 4.6 -4.7 30 
+ 
+Correlation s were used for comparing the relationship between two signal data, if there 
+are some related the value will raise up in otherwise if there are related in opposite way 
+the value will fall less than 0. Figure  4.5 shows  the correlation result of 6 different x -y 
+feature points  of a same person, the results raise or fall in middle of a graph. This median 
+value stand for the relationship when two signals are fully overlapped together. Then the 
+median value of corr elation results of these features used for comparing among syllables 
+or persons or emotions as the correlate result of each syllable’s features.  
+ 
+ 
+ 
+Figure 4.5  The correlation of F0 with x -y points in sentence 1 , neutral face  
+31 
+ 
+The comparation of each syl lable feature of one person data compared with the same 
+syllable from 10 persons in neutral face. The result s are similar  to an example in figure 
+4.5. In most facial feature points, P1 P6 P14 as an example, F0 signal were found to 
+correlate with x and y mo vement in the positive correlation. However, there were s ome 
+of the facial feature points,  for example  P5 in Fig.4.5,  F0 cor relate d with x and y 
+movement in the negative correlation.  And s ome of them, for example  P16 in Fig.4.5 , the 
+F0 correlate d with y bu t no relation with x movement or correlate opposite ly. There were 
+rare to find no correlation among F0 with feature points, liked P3 in an example figure . 
+The correlation value, the median of correlation result, of x -y are mostly  positive ly related 
+to each  other.  
+ 
+ 
+ 
+Figure 4. 6 The correlation of formants with x -y position 3  in sentence 1 , neutral face  
+ 
+32 
+ 
+ 
+Figure 4. 7 The correlation of formants with x -y position 5 in sentence 1 , neutral face  
+ 
+As the result of formants correlation in figure 4.6-4.7, the co mparation of a syllable 
+feature of one person data compared with the same syllable from 10 persons in neutral 
+face. The results are like examples in figure 4.6 and 4.7. In some of  facial feature points 
+are correlated in positive with the formants a s in fig ure 4.7. And the same feature points 
+can either  correlate  in positive or negative with the different formants as in figure 4.6. 
+ 
+33 
+ 
+ 
+Figure 4. 8 The correlation of F0, and formants  with x -y points around a mouth in sentence 1   
+and neutral face  
+34 
+Usually, the formants have correlation values similar to fundamental frequency, as shown 
+in figure 4.8. The correlation of the first formant (F1) and the facial feature created the 
+peaks in ne gative correlation compared with the positive correlation of x -y coordination . 
+It means that the facial feature relative with formant frequency, the facial position has a 
+great movement but low tone in audio frequency. The correlation value of the third 
+formant (F3) and the facial feature is zero in some facial points, meaning that  the formant 
+frequency does not correlate with the facial feature movement.   
+ 
+4.3  The Emotion Effects as  The Difference in Sound and Facial’s 
+Features  
+4.3.1 E xperiment in the emotion effects of each person  
+The comparation of each syllable feature of one  person data are compared in the same 
+syllable showed the relation of facial features and pitch. In this section, the correlation 
+values , represented the median  of correlation result  which is the calculated value when 
+two data are completely collapse to ea ch other , used for finding the relation across an 
+emotion group. The correlation of facial features with F0  in same syllable, same person 
+but different emotion are compared as figure 4. 9, It shows the correlation among the 
+syllable features compared the sa me word in neutral face, happy emotion, sad, and angry 
+in order. A correlation  value in each sub -graph showed the different value.  
+ 35 
+ 
+ 
+Figure 4. 9 The correlation of F0 with F0, x -y points at point 1 in sentence 1 compare in  
+   4 emotions: neutral, happy,  sad, and angry  
+ 
+The correlation result of F0 with x -y movement for one syllable showed as figure 4. 10. 
+The value of each features compared across  the emotion groups. Blue color represents 
+the positive correlation of facial feature and pitch, red color rep resents the negative 
+correlation, and white color represents no relation among two signal features. The same 
+syllable and same facial feature poin t have different correlation value.  
+ 
+36 
+  
+ 
+Figure 4. 10 (left) The correlation value of F0 with x -y points  of a person  in sentence 1 , 
+  4 emotions: neutral, happy, sad, and angry . (right) The facial feature positions.  
+ 
+ 
+37 
+ 
+ 
+Figure 4. 11 The correlation value of formants , x-y points in sentence 1 compare in  
+  4 emotions: neutral, happy, sad, and angry  
+ 
+The correlati on of F0 and x -y movement as in figure 4.10  (left)  the x positions 6, 8 are 
+high correlate  in neutral, happy, and sad emotion. The y positions 6, 8, 10, 12 are in the 
+same pattern, there are positive correlate in neutral, happy, but there is negative corre late 
+in sad emotion. In x position 25, 27, 29, there strongly negative correlative in neutral, and 
+happy  emotion. But there is positive correlation in angry emotion. From the correlation 
+of F0 and facial movement shown that angry emotion is no relation tog ether, the 
+correlation values are almost nearly zero in many facial features position.  
+ 
+However, the correlation value s of formant frequencies and x -y movement in figure 4.11 
+revealed that the angry emotion cause the strongly negative correlation in mostly  x-y 
+positions in F1, F2, and F3. In the happy emotion, y -position have the great negative 
+correlative with F2, F3.              
+38 
+ 
+ 
+Figure 4. 12 (1)  The correlation value s of F0, F1, F2, F3 with  x-y points in sentence 1   
+  word 1 in 4 emotions: neutral, hap py, sad, and angry  
+ 
+39 
+ 
+ 
+Figure 4. 12 (2) The correlation value s of F0, F1, F2, F3 with x-y points in sentence 1   
+  word 1 in 4 emotions: neutral, happy, sad, and angry  
+ 
+As a result, in figure 4.12, in the correlation of F0 and x -position 6, 8, 10 are negati ve 
+correlation in neutral, happy, and angry emotion. In contrast, in the correlation of F0 and 
+y-position 6, 8, 10 are positive relations in sad emotion. The correlation between F1 and 
+x-position 1 -10 are a strongly negative correlation in neutral, but the y have a positive 
+correlation in sad emotion. The correlation between F2 and y positi ons are negative in 
+neutral and happy emotion. The correlation of F3 and x positions in sad emotions are 
+positive relation to each other. However, the correlation of F3 an d y positions in happy 
+emotions are opposite; they are negative relationship. The fig ure also showed that the 
+formant frequencies have some similar pattern as the fundamental frequency.  
+40 
+The next experiment is the compar ation  mean contour of each features b y using cross -
+correlation between one person to another person. Then compare across the emotion 
+groups in the same syllable. The results showed the median data of correlation in the same 
+emotion group and across emotion as in figures 4.13. 
+ 
+4.3.2 Experimen t in the emotion effects of the same emotion group and across group  
+The figure 4. 10-4.12 showed the correlation data of the frequency  contour compared with 
+the same person and across person then compared the same emotion and across emotion. 
+In figure 4.1 3, the correlation data of the x movement and y movement data calculat ed 
+correlation values from mean contour. The comparation between a person with another 
+person and across emotion group. The mean value of the same emotion group also higher 
+than mean valu e from across emotion group.  
+ 
+  
+ 
+ 
+Figure 4. 13 The correlation result graphs compared F0 of neutral face with happy 
+emotion in a same person and across person   
+41 
+  
+ 
+ 
+Figure 4. 14 The correlation data of the F0 contour compared with the same person and 
+across person then compared the same and across emo tion of sentence 1 
+and syllable 1  
+ 
+42 
+ 
+ 
+ 
+Figure 4.1 5 The correlation data of the x 1 position’s  movement compared with the same 
+person and across person then compared the same and across emotion of 
+sentence 1 an d syllable 1  
+ 
+43 
+ 
+ 
+ 
+Figure 4.1 6 The correlation data of the y1 position’s  movement compared with the same 
+person and across person then compared the same and across emotion of 
+sentence 1 and syllable 1  
+ 
+44 
+ 
+ 
+ 
+Figure 4.1 7 The correlation data of the 1st forma nt (F1)  compared with the same person 
+and across person then compared the same and across emotion of sentence 
+1 and syllable 1  
+ 
+45 
+  
+ 
+ 
+Figure 4.1 8 The correlation data of the 2nd formant (F 2) compared with the same person 
+and across person then compared the  same and across emotion of sentence 
+1 and syllable 1  
+ 
+The correlation value of  the persons in  the same emotion group has the similar  value  than 
+correlation value from across emotion group  as showed in figures 4.14 – 4.18.  The 
+correlation of each person’s pitch is comparable in the same group. The correlation of y 
+movement of each person showed the similarity in the same group, there are posi tive and 
+negative correlation than outside emotion group.  The   1st formant     correlation value in 
+figure 4.17 reve aled that the   emotion can relative to other emotion and the same group 
+of emotion ha s the highly correlation more than in  another  group. The 2nd formant 
+correlation value as figure 4.18 has    the   high relative value in the same emotion group. 
+And  the   neutral emotion have highly correlation value compared to other emotion.
+CHAPTER 5 CONCLUSION  
+ 
+In this chapter, all processes of the stud y provided from the objectives, experimental 
+design, data collection, results, discussions, and conclusion. As the hy pothesis of this 
+study, an emotion or facial expression affect pitch track and facial feature movement.  
+ 
+The experimental design to find th e relation of the visual and audio parts is to calculate 
+the correlation value of facial features and pitch signals. The experiment using the 
+collected the relevant stimuli consist of 4 facial expressions and 4 Thai sentences, in a 
+total of 16 combinations . The expressions produced by 10 Thai native speakers (five 
+males and five females) were selected. All speakers prono unced four sentences of 10 
+syllables.  The speakers prepared before expressing each sentence as the plan.  In total, 
+there are 160 emotional, expressive utterances and visual tracks.  The data corpus 
+evaluated the perception test by 30 participants and got 97% can answer the  correct  
+emotion  of audio -visual data , 87.84%  of people can answer visual -only data  correctly , 
+and for the audio -only data is 83.80%  of overall .   
+ 
+Then all data collected are visualized to observe some similarity of the movement of 
+facial features changes along each utterance simulates by  fundamental frequency or  F0 
+and the formant frequenci es; F1, F2, F3.  As the data visualizing, Happy and sad 
+expressions show the most difference. Happy facial expression moves the mouth's corners 
+up and ma kes a larger mouth gesture than the sad facial expression. The sound is more 
+precise, louder, and create  a higher frequency sound than neutral and sad. The sad face 
+expression has a lower mouth's corners. Then it can open in a small cavity. The speech 
+come s out in lower frequency and longer duration to make a clear word. Anger facial 
+expression shows the tig ht muscles around a mouth, which cause a short duration, lower 
+pitch. However, anger expression has a louder sound than other expressions.  
+ 
+One syllable  is image and sound synchronously —the relation of facial features and sound 
+signals. The signal analysis  in section 4.2 shows the related relation of F0 and facial 
+features in x y movements. The movement of facial features in the y -axis usually found 
+more relative to F0 than the movement in the x -axis. The formants frequency correlated 
+with the facial featur e has a correlation value similar to the fundamental frequency. 47 
+According to the results in section 4.3, the relation of the facial features and pitch t rack 
+or formants in each syllable, a significant expression effect of the correlation value in 
+each pers on’s features showed a pattern.  The correlation of formants and x -y positions 
+also showed that the audio frequency is not relative with x -y movement som etimes in 
+angry emotion.  In the result of angry emotion revealed that Thai expression normally 
+used the sound tone and expressed a little change on face.  Moreover, for the correlation 
+value  experiment across the emotion groups of the group of people,  the s ame emotion 
+group has highly correlated than outside groups .  
+ 
+In conclusion, the different emotions cau se different changes in the movement of facial 
+features and different in pitch track relatively. Furthermore , the movement of facial 
+features is related  to the pitch track  and formants . The changing of facial features in the 
+y-axis shows the related to pit ch track than in the x -axis. And the formants revealed the 
+pattern of each emotions which relative to x and y movements.  Finally, the movement of 
+the fa cial features  which caused by expression  affect ed speech production. The acoustic 
+features differ in dif ferent movements of the feature points around the mouth.  
+ 
+However, the study of emotion relationship and facial movement effect on speech 
+production nee ds more study on the length and amplitude of the audio features, which 
+may be affected by the expression  or not. Thai audio -visual corpus also needs more 
+improvement for use in other purposes. The synthesis of facial features' movement in a 
+syllable by usi ng target approximation knowledge is another purpose to work on in the 
+future. This study is just a begi n of more knowledge of Thai expression, speech 
+production, and expression synthesis.  
+ 
+ 
+ 
+ 
+ 
+  REFERENCES  
+ 
+ 
+[1] Joosten, B., Postma, E., & Krahmer, E. , 2015, “Voice Activity Detection based on  
+  Facial Movement ”, Journal on Multimodal User Interfaces 9.3 , pp. 183-193.  
+ 
+[2] Schroder, M., 2001, “Emotional Speech Synthesis: A Review”, Proceeding s of 7th  
+  European Conference on Speech Communication and Tech nology , 3-7  
+  September, Aalborg, Denmark , Vol. 1, pp. 561 –564. 
+ 
+[3] Dohen, M. , Loevenbruck, H. , 2005. Audiovisual Production and Perception of  
+  Contrastive Focus in French: A Multispeaker Study. Interspeech/Eurospeech 2005   
+  2413 –2416 .  
+ 
+[4] Garg, S .; Hamarneh, G.; Jongman, A.; Sereno, J.A.; Wang, Y. 2019, Computer - 
+  Vision Analysis Reveals Facial Movements made During Mandarin Tone Production  
+  align with Pitch Trajectories,  Speech Commun ication . 113,  pp. 47–62. 
+ 
+[5] Cosatto, E., Potamianos, G. an d Graf, H.P.,  2000,  “Audio -Visual Unit Selection for  
+  the Synthesis of Photo -Realistic Talking -Heads ”, Proceeding s of IEEE  
+  International Conference on Multimedia and Expo (II) , 30 July -2 August , 2000,   
+  New York, USA , pp. 619-622. 
+ 
+[6] Attina, V., Gib ert, G., Vatikiotis -Bateson, E., Burnham, D., 2010 , Production of  
+Mandarin Lexical Tones: Auditory and Visual Components , Proceeding s of the 9th 
+International Conference on Auditory -Visual Speech Processing, 30 September - 
+3 Oc tober,  2010,  Kanagawa, Japan , pp. 59-64. 
+ 
+[7] Guennec, D. , 2016 , Study of Unit Selection Text -To-Speech Synthesis Algorithms ,  
+  Doctoral Dissertation, Université Rennes 1.  
+ 
+[8] Benesty, J., M. M. Sondhi, and Y. Huang, eds., Springer Handbook of Speech  
+  Processing,  Verlag Berlin Hei delberg: Springer, 2008.  
+ 49 
+[9] Friesen, E. and Ekman, P. , 1978, Facial Action Coding System: A Technique For  
+  the Measurement of Facial Movement , Palo Alto, Consulting Psychologists Press,  
+  CA. 
+ 
+[10] Friesen, W.V. and Ekman, P. , 1983 , EMFACS -7: Emotiona l Facial Action Coding  
+  System , Unpublished manuscript  University of California at San Francisco  2.36. 
+ 
+[11] Ekman, Paul, Robert W. Leve nson, and Wallace V. Friesen, 1983 , Autonomic  
+  Nervous System Activity Distinguishes among Emotions , Science, Vol. 2 21,  
+  No. 4616, pp. 1208 –1210.  
+ 
+[12] Friesen, E. and Ekman, P. , 1978 , Facial Action Coding System  : A Technique for  
+  the Measurement of Facial Movement. Mountain View , Palo Alto, Consulting  
+  Psychologists Press, CA . 
+ 
+[13] Pandzic, I.S. and Forchheimer , R. eds. , 200 3, MPEG -4 Facial Animation: The  
+  Standard, Implementation and Applications , John Wiley and Sons.  
+ 
+[14] Cowie R., Douglas -Cowie  E., Karpouzis  K., Caridakis  G., Wallace  M. and Kollias 
+S., 2008 , “Recognition of Emotional States in Natural Hum an-Computer Interaction” , 
+Multimodal User Interfaces , Springer Berlin Heidelberg , pp. 119 -153. 
+ 
+[15] Bettadapura, V. , 2012, Face Expression Recognition and Analysis: the State of  
+  the Art [Online] , Available: https://arxiv.org/ftp/arxiv/papers/1203/1203. 6722.pdf ,  
+  [2019,  March  30]. 
+ 
+[16] Krumhuber  E. G., Tamarit  L., Roesch  E. B., and Scherer  K. R., 2012 , “FACSGen  
+  2.0 Animation Software: Generating Three-dimensional FACS -valid Facial  
+  Expressions for Emotion Research” , Emotion , Vol. 12, No. 2, pp. 35 1–363. 
+ 
+[17] Villagrasa, S. and Susín Sánchez, A. , 2009, “Face! 3d Facial Animation System  
+  Based on FACS” , Proceeding s of IV Iberoamerican Symposium in Computer  
+  Graphics - SIACG 2009 , 1 June, Margarita , Venezuela , pp. 20 1–207. 
+ 50 
+[18] Bee, N., Falk, B. and André , E., 2009, “Simplified Facial Animation Control  
+  Utilizing Novel Input Devices: A Comparative Study” , Proceeding  of 14th  
+  International Conference on Intelligent User Interfaces , 8-11 February,  2009,  
+  Sanibel Island Florida , USA , pp. 197 –206. 
+ 
+[19] Pasquariello S, Pelachaud C. Greta , 200 2,  “Greta: A Simple Facial Animation  
+  Engine ”, Soft Computing and Industry , Springer, London ,pp. 511 –525. 
+ 
+[20] Battista, S., Casalino, F. and Lande, C. , 1999, “MPEG -4: A Multimedia Standard for  
+  the Third Millenn ium, part 1” , IEEE Multimedia , Vol. 6, No. 4, 1 October 1999 ,  
+  pp. 74 –83. 
+ 
+[21] El Ayadi, M., Kamel, M.S. and Karray, F. , 2011, “Survey on Speech Emotion  
+  Recognition: Features, Classification Schemes, and Databases” , Pattern  
+  Recognition , Vol.44, No .3, pp. 572 –587. 
+ 
+[22] Amini, R., Lisetti, C. and Ruiz, G. , 201 5, “HapFACS 3.0: FACS -Based Facial  
+  Expression Generator for 3D Speaking Virtual Characters ”, IEEE Transactions on  
+  Affective Computing , Vol. X, No. X , 1 October 2015, pp.1 –1. 
+ 
+[23] Livings tone, S.R. and Russo, F.A., 2018 , “The Ryerson Audio -Visual Database of  
+  Emotional Speech and Song (RAVDESS)  : A Dynamic, Multimodal Set of Facial  
+  and Vocal Expressions in North American English ”, PloS one , Vol.13, No. 5,  
+  p.e0196391.  
+ 
+[24] Cowie, R. , 2000, “Describing the Emotional States Expressed in Speech”, ISCA  
+  Workshop on Speech & Emotion, 5-7 September , Northern Island, United  
+  Kingdom, pp. 11 -18. 
+ 
+[25] RUSSELL, J. A., 1980 , “A Circumplex Model of Affect”,  Journal of Personality  
+  and Social Psychology , Vol.39, No.6, pp. 1161 –1178.  
+ 
+ 51 
+[26] Ahmed, Z., Steiner, I., Székely, É. and Carson -Berndsen, J., 2013, “A System for  
+  Facial Expression -based Affective Speech Translation ”, Proceeding s of the  
+  Companion   Publication of the 2013 Internati onal Conference on Intelligent User  
+  Interfaces Companion , 19-22 March,  2013,  Santa Monica, CA, USA , pp. 57 -58. 
+ 
+[27] Xu, Y. and Wang, Q.E., 2001 , “Pitch Targets and their Realization: Evidence from  
+  Mandarin Chinese ”, Speech Communica tion, Vol.33, No. 4, pp.  319-337. 
+ 
+[28] Prom -on, S., Xu, Y. and Thipakorn, B., 2009, “Modeling Tone and Intonation in  
+  Mandarin and English as a Process of Target Approximation”, The Journal of the  
+  Acoustical Society of America , Vol. 125, No. 1, pp. 405-424. 
+ 
+[29] Xu, Y., 2013, “ProsodyPro – A Tool for Large -scale Systematic Prosody  
+  Analysis” , Tools and Resources for the Analysis of Speech Prosody  , 30 August  
+  2013, Aix -en-Provence, France, pp. 7 -10. 
+ 
+[30] Boe rsma, P. and Weenick D., 2019, Praat : Doing Phonetics b y Computer   
+  [Online], Available: http://www.praat.org [2019, November 16].  
+ 
+[31] Kasuriya S., Teeramunkong T., Wutiwiwatchai C.,  2013, “ Developing a Thai 
+emotional speech corpus ”, Proceeding s of 2013 International Conference Oriental 
+COCOSDA held jointly with 2013 Conference on Asian Spoken Language 
+Research and Evaluation , 25-27 November,  2013 . 
+ 
+[32] Xu, Y. and Gao, H. , 2018 , FormantPro as a Tool for Speech Analysis and 
+Segmentation , Revista de Estudos da Linguagem , pp. 1435 –1454.  
+  52 
+CURRICULUM VITAE  
+ 
+ 
+NAM E   Miss Metita Onsri  
+Date o f Birth   30 APRIL 1994  
+ 
+EDUCATIONAL RECORD   
+HIGH SCHOOL   High School Graduation  
+   Benchamaratrangsarit Chachoengsao School, 2012  
+BACHELOR’S DEGREE  Bachelor of Engineering (Computer Engineering)  
+   King Mongkut’s University of T echnology 
+Thonburi, 2016  
+MASTER’S DEGREE  Master of Engineering (Computer Engineering)  
+   King Mongkut’s University of Technology 
+Thonburi, 2019  
+ 
+PUBLICATION S  S. Prom -on and M.  Onsri, "Effects of Facial 
+Movements to Expressive Speech Productions: A 
+Computa tional Study," 2019 IEEE 2nd 
+International Conference on Knowledge 
+Innovation and Invention (ICKII) , 13-15 July 
+2019,  Seoul, Korea (South), pp. 481 -484. 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+APPENDIX A 
+  54 
+Data Collected Visualization   
+The examples of visualized of data collecte d showed in another sentence.  
+ 
+ 
+ 
+ 
+Figure A. 1 The collected data visualized of person 1 – sentence 1  – neutral  
+55 
+ 
+ 
+ 
+Figure A. 2 The collected data visualized of person 1 – sentence 1  – happy emotion  
+56 
+ 
+ 
+ 
+Figure A. 3 The collected data visualized of person 1 – sentence 2 – sad emotion  
+ 
+ 
+57 
+ 
+ 
+ 
+Figure A. 4 The collected data visualized of person 1 – sentence 1 – angry emotion  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+APPENDIX B  
+  59 
+Correlation Results of a Person in F0 and X -Y Coordination  
+The facial features can optimize from 29 x -y coordination to 15 feature points; there are 
+P1, P2, P3, P4, P5, P6 for movement of a mouth, then P8, P10 for chin, next are P12, P13, 
+P14, P15 for c heeks, and P25, P27, P29 for eyes and eyebrows movement.  
+ 
+ 
+ 
+ 
+Figure B. 1 Illustration of facial feature trackers   
+ 
+1) Person 4: 
+1.1) Sentence 1,  
+1.1.1)  Word 1,  
+- Emotion 1  
+ 
+ 
+ 
+Figure B. 2 Correlation of F0 and XY1, XY2 - Person 4 Sentence 1, word 1, emotion 1  
+60 
+ 
+ 
+ 
+Figure B. 3 Correlation of F0 and XY3, XY4 - Person 4 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 4 Correlation of F0 and XY5, XY6 - Person 4 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 5 Correlation of F0 and XY8, XY10 - Person 4 Sentence1, word1, emotion1  
+61 
+ 
+ 
+ 
+Figure B. 6 Correlation of F0 and XY12, XY13 - Person 4 Sentence1, word1, emo tion1  
+ 
+ 
+ 
+Figure B. 7 Correlation of F0 and XY14, XY15 – Person4 Sentence1, word1, emotion1  
+ 
+ 
+ 
+Figure B. 8 Correlation of F0 and XY25, XY27 - Person 4 Sentence1, word1, emotion1  
+62 
+ 
+ 
+ 
+Figure B. 9 Correlation of F0 and XY29 - Person 4 Sentence 1, word 1, emotion 1  
+ 
+- Emotion 2  
+ 
+ 
+ 
+Figure B. 10 Correlation of F0 and XY1, XY2 - Person 4 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 11 Correlation of F0 and XY3, XY4 - Person 4 Sentence 1, word 1, emotion 2  
+63 
+ 
+ 
+ 
+Figure B. 12 Correlation of F0 and XY5, XY6 – Person 4 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 13 Correlation of F0 and XY8, XY10 - Person 4 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 14 Correlation of F0 and XY12, XY13 - Person 4 Sentence 1, word 1, emotion 2  
+64 
+ 
+ 
+ 
+Figure B. 15 Correlation of F 0 and XY14, XY15 - Person 4 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 16 Correlation of F0 and XY25, XY27 - Person 4 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 17 Correlation of F0 and XY29 - Person 4 Sentence 1, word 1, emotion 2  
+  
+65 
+- Emotion 3  
+ 
+ 
+ 
+Figure B. 18 Correlation of F0 and XY1, XY2 - Person 4 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 19 Correlation of F0 and XY3, XY4 - Person 4  Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 20 Correlation of F0 and XY5, XY6 - Person 4 Sentence 1, word 1, emotion 3  
+66 
+ 
+ 
+ 
+Figure B. 21 Correlation of F0 and XY8, XY10 - Person 4 Sentence 1, word  1, emotion 3  
+ 
+ 
+ 
+Figure B. 22 Correlation of F0 and XY12, XY13 - Person 4 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 23 Correlation of F0 and XY14, XY15 - Person 4 Sentence 1, word 1, emotion 3  
+67 
+ 
+ 
+Figure B. 24 Correlation of F0 and XY25, XY27 - Person4 Sentence1, word1, emotion3  
+ 
+ 
+ 
+Figure B. 25 Correlation of F0 and XY29 - Person 4 Sentence 1, word 1, emotion 3  
+ 
+- Emotion 4  
+ 
+ 
+ 
+Figure B. 26 Correlation of F0 and XY1, XY2 - Person 4 Sentence 1, word 1, emotion 4  
+68 
+ 
+ 
+ 
+Figure B. 27 Correlation of F0 and XY3, XY4 - Person 4 Sentence 1, word 1, emotion 4  
+ 
+ 
+ 
+Figure B. 28 Correlation of F0 and XY5, XY6 - Person 4 Sentence 1, word 1, emotion 4  
+ 
+ 
+ 
+Figure B. 29 Correlation of F0 and XY8, XY10 - Person 4 Sentence1, word1, emotion4  
+69 
+ 
+ 
+Figure B. 30  Correl ation of F0 and XY12, XY13 - Person4 Sentence1, word1, emotion4  
+ 
+ 
+ 
+Figure B. 31  Correlation of F0 and XY14, XY15 - Person4 Sentence1, word1, emotion4  
+ 
+ 
+ 
+Figure B. 32 Correlation of F0 and XY25,  XY27 - Person 4 Sentence 1, word 1, emotion 4  
+70 
+ 
+ 
+Figure B. 33 Correlation of F0 and XY29 - Person 4 Sentence 1, word 1, emotion 4  
+ 
+2) Person 6:  
+2.1) Sentence 1,  
+2.1.1)  Word 1,  
+- Emotion 1  
+ 
+ 
+ 
+Figure B. 34 Correl ation of F0 and XY1, XY2 - Person 6 Sentence 1, word 1, emotion 1  
+  
+71 
+ 
+ 
+Figure B. 35 Correlation of F0 and XY3, XY4 - Person 6 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 36 Correlation of F0 and X Y5, XY6 - Person 6 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 37 Correlation of F0 and XY8, XY10 - Person 6 Sentence 1, word 1, emotion 1  
+72 
+ 
+ 
+Figure B. 38 Correlation of F0 and XY12, XY13 - Person  6 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 39 Correlation of F0 and XY14, XY15 - Person 6 Sentence 1, word 1, emotion 1  
+ 
+ 
+ 
+Figure B. 40 Correlation of F0 and XY25, XY27 - Person 6 Sentence 1,  word 1, emotion 1  
+73 
+ 
+ 
+ 
+Figure B. 41 Correlation of F0 and XY29 - Person 6 Sentence 1, word 1, emotion 1  
+ 
+- Emotion 2  
+ 
+ 
+ 
+Figure B. 42  Correlation of F0 and XY1, XY2 - Person 6 Sentence 1, word 1, em otion 2  
+ 
+ 
+ 
+Figure B. 43 Correlation of F0 and XY3, XY4 - Person 6 Sentence 1, word 1, emotion 2  
+74 
+ 
+ 
+ 
+Figure B. 44 Correlation of F0 and XY5, XY6 - Person 6 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 45 Correlation of F0 and XY8, XY10 - Person 6 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 46 Correlation of F0 and XY12, XY13 - Person 6 Sentence 1, word 1, emotion 2  
+75 
+ 
+ 
+ 
+Figure B. 47 Correlation of F0 and XY14, XY15 - Person 6 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 48 Correlation of F0 and XY25, XY27 - Person 6 Sentence 1, word 1, emotion 2  
+ 
+ 
+ 
+Figure B. 49 Correlation of F0 and XY29 – Person 6 Sentence 1, word 1, emotion 2  
+ 
+  
+76 
+- Emotion 3  
+ 
+ 
+ 
+Figure B. 50 Correlation of F0 and XY1, XY2 - Person 6 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 51 Correlation of F0 and XY3, XY4 - Person 6 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 52 Correlation of F0 and XY5, XY6 - Person 6 Sentence 1, word 1, emotion 3  
+77 
+ 
+ 
+ 
+Figure B. 53 Correlation of F 0 and XY8, XY10 - Person 6 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 54 Correlation of F0 and XY12, XY13 - Person 6 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 55 Correlation of F0 and XY14, XY1 5 - Person 6 Sentence 1, word 1, emotion 3  
+78 
+ 
+ 
+ 
+Figure B. 56 Correlation of F0 and XY25, XY27 - Person 6 Sentence 1, word 1, emotion 3  
+ 
+ 
+ 
+Figure B. 57 Correlation of F0 and XY29 - Person 6 Sentence  1, word 1, emotion 3  
+ 
+- Emotion 4  
+ 
+ 
+ 
+Figure B. 58 Correlation of F0 and XY1, XY2 - Person 6 Sentence 1, word 1, emotion 4  
+79 
+ 
+ 
+ 
+Figure B. 59 Correlation of F0 and XY3, XY4 - Person 6 Sentence 1, wor d 1, emotion 4  
+ 
+ 
+ 
+Figure B. 60 Correlation of F0 and XY5, XY6 - Person 6 Sentence 1, word 1, emotion 4  
+ 
+ 
+ 
+Figure B. 61 Correlation of F0 and XY8, XY10 - Person 6 Sentence 1, word 1, emotion 4  
+80 
+ 
+ 
+ 
+Figure B. 62 Correlation of F0 and XY12, XY13 - Person 6 Sentence 1, word 1, emotion 4  
+ 
+ 
+ 
+Figure B. 63 Correlation of F0 and XY14, XY15 - Person 6 Sentence 1, word 1, emotion 4  
+ 
+ 
+ 
+Figure B. 64 Correlation of F0 and XY25, XY27 - Person 6 Sentence 1, word 1, emotion 4  
+81 
+ 
+ 
+Figure B. 65 Correlation of F0 and XY29 - Person 6 Sentence 1, word 1, emotion 4  
+ 

@@ -1,12 +1,3 @@
-Thesis Title Coreference Resolution and Entity's Action in Legislative Corpus 
-Thesis Credits 12 
-Candidate Mr. Surawat Pothong 
-Thesis Advisor Asst. Prof. Dr. Nuttanart Facundes 
-Program Master of Engineering 
-Field of Study Computer Engineering 
-Department Computer Engineering  
-Faculty Engineering Academic Year 2021  Abstract_Meaning_Representation, BERT, Coreference_Resolution, Legal_Processing, , Semantic_Meaning_Representations, SpanBERT
-Abstract  
 Understanding and interpretation of legislative corpus has problems 
 related to unclear entity actions and coreference. Coreference is a 
 linguistic expression in the corpus that refers to the same object, 
@@ -33,5 +24,3 @@ with AMR parsing, the legal text is simplified, and AMR is a potential tool to
 perform legal text meaning representation. The AMR graphs after complexity being reduced 
 can be applied for further legal text processing tasks with Neural Network such as legal 
 inferencing.
-Keywords: 
-Natural_Language_Processing

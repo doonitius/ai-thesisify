@@ -1,13 +1,3 @@
-Thesis Title   Automatic Hyper -Parameter Tuning for Gradient Boosting Machine   
-Thesis Credits   12 
-Candidate   Mr. Kankawee Kiatkarun  
-Thesis Advisor  Asst. Prof. Dr. Phond  Phunchongharn  
-Program   Master of  Engineering  
-Field of Study   Computer Engineering  
-Department   Computer Engineering  
-Faculty    Engineering  
-Academic Year  2020  , Hyper-Parameter_Tuning, Optimization
-Abstract  
 Machine learning and predictive modeling have become widely us ed in many fields. 
 Utilizing algorithm without tuning  hyper -parameter can lead to inefficient performance 
 of model . Gradient Boosting Machine (GBM) is one of the tree -based models in which 
@@ -23,5 +13,3 @@ optimization, and random approach over four sets of data. Our proposed algorithm
 competitive performance and outperformed the other algorithms in the dataset with a high 
 dimension while requiring smaller com putation time at the optimum point on the majority 
 of experimental datasets.  
-Keywords:
-Genetic_Algorithm, Gradient_Boosting  

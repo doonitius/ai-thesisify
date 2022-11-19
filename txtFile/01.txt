@@ -1,13 +1,3 @@
-Thesis Title  Solving Vehicle Routing Problem with Hard Time Windows by Genetic Algorithm  
-Thesis Credits  12 
-Candidate  Miss Aye Thant May  
-Thesis Advisor  Asst. Prof. Dr. Jumpol  Polvichai  
-Program  Master of Engineering  
-Field of Study  Computer Engineering  
-Department  Computer  Engineering  
-Faculty  Engineering  
-Academic Year  2021 Combinatorial_Optimization, Vehicle_Routing_Problem, Hard_Time_Windows, Meta_heuristic,
-Abstract  
 In the logistic management, the cost reduction for delivering the  goods to customer s is crucial 
 to save the budget of the company . Since decades ago, various Vehicle Routing Problems  
 (VRPs ) have been emerged enormously to improve the productivity and to reduce the logistic 
@@ -22,6 +12,4 @@ customer datasets. The results show that the proposed GA is quite comparable  wi
 known solutions on the C set of Solomon benchmark and even better than the best -known 
 solutions on the R and RC sets. The motivation behind this research is to find a new problem -
 specific configurations of GA for VRP TW domain which can have the desirable outputs that 
-can be applied in most of the real -world use cases.  
-Keywords:
-Artificial_Intelligence, Genetic_Algorithm   
+can be applied in most of the real -world use cases.   

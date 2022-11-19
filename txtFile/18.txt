@@ -1,13 +1,3 @@
-Thesis Title         A Synthetic Minority Based on Probabilistic Distribution (SyMProD) Oversampling for Imbalanced Datasets 
-Thesis Credits     12 
-Candidate            Mr. Intouch Kunakorntum 
-Thesis Advisor    Asst. Prof. Phond Phunchongharn, Ph.D.  
-Program              Master of Engineering 
-Field of Study     Computer Engineering 
-Department         Computer Engineering 
-Faculty                Engineering 
-Academic Year   2019 Imbalanced_Dataset, Machine_Learning, Oversampling, 
-Abstract 
 Handling an imbalanced class problem is a challenging task in real-world applications. 
 This problem affects various prediction models that predict only the majority classes and 
 fail to identify the minority classes because of the skewed data. The oversampling 
@@ -25,5 +15,3 @@ problems. Our proposed technique is validated using 17 benchmark datasets and th
 classifiers. Moreover, this study compares the performance of the method with other eight 
 conventional oversampling algorithms. The empirical results show that our method 
 achieves better performance than other oversampling techniques. 
-Keywords:    
-Classification, Probabilistic_Distribution  

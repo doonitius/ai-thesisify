@@ -1,13 +1,3 @@
-Thesis Title Thai Character-Word LSTM Language Models with  Dropout and Batch Normalization 
-Thesis Credits   12 
-Candidate  Miss Nuttanit Keskomon 
-Thesis Advisor Lect. Jaturon Harnsomburana, Ph.D. 
-Program   Master of Engineering 
-Field of Study  Computer Engineering 
-Department  Computer Engineering 
-Faculty   Engineering 
-Academic Year  2019   , Neural_Language_Model, Natural_Language_Processing  
-Abstract  
 Due to the emerging of Long Short-Term Memory neuron network (LSTM) which is a variation of deep neuron network, 
 it is proven to be essential to the improvement of Natural Language Processing especially Language Modelling. 
 Many researches applied LSTM to model many well-defined languages and gain performance in term of accuracy. 
@@ -18,5 +8,3 @@ have been designed and compared the results with word-level LSTM model. The expe
 LSTM can improve the performance of Natural Language Modelling (NLM) on Thai dataset. Especially when using 
 character-word LSTM with dropout value of 0.75 and batch normalization, the perplexity is lower than baseline 
 word-level LSTM up to 21.10%.  
-Keywords:
-Deep_Learning, Long_Short_Term_Memory

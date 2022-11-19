@@ -1,13 +1,3 @@
-Thesis Title  Thai Tokenization with Attention Mechanism            
-Thesis Credits   12 
-Candidate Mr. Jednipat Atiwetsakun 
-Thesis Advisor  Asst . Prof. Dr. Santitham  Prom-on 
-Program  Master of Engineering   
-Field of Study Computer Engineering 
-Department Computer Engineering 
-Faculty  Engineering 
-Academic Year  2021  , Thai_Language, Word_Segmentation ,Attention, 
-Abstract  
 Word segmentation is an important pre-processing step in natural language processing 
 applications, particularly in languages with no demarcation indicators including such as 
 Thai. Dictionary-based segmentation, while simple, does not consider the context of the 
@@ -18,5 +8,3 @@ problems and then tokenize them into word vectors. The goal of this research is 
 two different types of attention mechanisms to determine the effectiveness of word 
 tokenization. The visualization of attention for each attention mechanism is also included 
 as an outcome. 
-Keywords:  
-Deep_Learning

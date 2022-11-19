@@ -1,0 +1,2153 @@
+QUANTUM RANDOM WALK ON A NUMBER LINE IMPLEMENTATION ON 
+DIFFERENT SIMULATORS WITH WALL- TIME BENCHMARKING 
+M
+R. WARAT PUENGTAMBOL
+A
+ THESIS SUBMITTED IN PARTIAL FULFILLMENT  
+OF THE REQUIREMENTS FOR  
+THE DEGREE OF MASTER OF ENGINEERING  
+(COMPUTER ENGINEERING)  
+FACULTY OF ENGINEERING  
+KING MONGKUT’S UNIVERSITY OF TECHNOLOGY THONBURI  
+2020 
+Quantum Random Walk on A Number Line Implementation on 
+Different Simulators with Wall-Time Benchmarking 
+Mr. Warat 
+Puengtambol B.Eng. (Computer Engineering) 
+A Thesis
+ Submitted in Partial Fulfillment  
+of The Requirements for 
+the Degree of Master of Engineering (Computer Enginee ring)  
+Faculty of Engineering 
+King Mongkut’s University of Technology Thonburi 
+2020 
+Thesis Com
+mittee 
+......................................................................... Chairma
+n of Thesis Committee 
+     (Asst.Prof . Sujin Suwanna, Ph.D.) 
+......................................................................... Member a
+nd Thesis Advisor 
+       (Lect. Unchalisa Taetragool, Ph.D.) 
+......................................................................... Member 
+    
+(Lect. Jaturon Harnsomburana , Ph.D.)  
+......................................................................... Member 
+   (
+Lect. Pruet Kalasuwan, Ph.D.) 
+......................................................................... Member 
+          
+(Lect. Tanapat Deesuwan, Ph.D.) 
+Copyright re
+served 
+ii 
+ 
+ 
+ Thesis Title  Quantum Random Walk on A  Number Line Implementation on 
+Different Simulators with Wall- Time Benchmarking  
+Thesis Credits   12 
+Candidate   Mr. Warat Puengtambol  
+Thesis Advisor  Dr. Unchalisa Taetragool  
+Program   Master of Engineering  
+Field of Study   Computer Engineering 
+Department   Computer Engineering 
+Faculty   Engineering 
+Academic Year  2020 
+ 
+Abstract  
+ 
+Since a cl assical computer has a limitation to solve a large size of data and complex 
+problems, researchers have be en trying to find new solutions. Q uantum computing is one 
+of them. A number of quantum algorithms have been invented. Some of them were 
+theoretically proved that they could solve problems faster than their classical versions. 
+According to the literature review, a quantum random walk has various advantages. 
+Moreover, it can be a tool to construct other quantum algorithms. In this thesis, the one -
+dimensional quantum random walk is studied. Then, the quantum random walk circuit is 
+implemented. Forest from Rigetti and Qiskit from IBM, which are quantum programming 
+platforms, are explored. Two experiments are conducted. First, the circuits are examined 
+on quantum computer simulators from IBM and Rigetti. The sizes of the circuits are 4, 5, 
+6, and 7- qubits position state s. For each size, the circuit is constructed with 5 different 
+types of shift operators. The results show that computing wall -time from IBM’s qua ntum 
+computer simulator is significantly lower than Rigetti’s quantum computer simulator for 
+the same size and circuit type. Moreover, on the same circuit type, a positive linear 
+relationship between the computing wall -time and the circuit depth is presented. Second, 
+the same circuit sizes and types from the first experiment were deployed on an actual 
+IBM quantum computer, named ibmq_16_melbourne . However, the returned result is 
+only for the 4- qubit position state. The other sizes of position state s return error due to 
+the capacity of the quantum computer. Furthermore, the returned measurement results are 
+disturbed by the noise from the operation of the actual quantum computer . 
+ 
+Keywords: Circuit D epth/ Computing Wall -Time/  Quantum Random W alk/ Quantum 
+Computer Simulator  
+ iii 
+ 
+ 
+ หัวข้อวิทยานิพนธ์  การนําการเคลื่อนที่แบบสุ ่มเชิงควอนตัมบนเส้นจํานวนไปปฏิบัติการบน
+เครื่องจําลองต ่าง ๆ โดยมีการเปรียบเทียบเวลาในการประมวลผล  
+หน่วยกิต  12 
+ผู ้เขียน    นายวรัตถ์  พึ่งตําบล  
+อาจารย์ที่ปรึกษา  ดร.อัญชลิสา  แต้ตระกูล 
+หลักสู ตร   วิศวกรรมศาสตร มหาบัณฑิต  
+สาขาวิชา  วิศวกรรมคอมพิวเตอร์  
+ภาควิชา   วิศวกรรมคอมพิวเตอร์  
+คณะ    วิศวกรรมศาสตร์  
+ป ี การศึกษา   2563  
+ 
+บทคัดย ่อ 
+ 
+จากข้อจําก ัดของการประมวลผลข้อมูลที่มีขนาดใหญ ่ รวมถึงปัญหาที่มีความสลับซับซ้อนมากบน
+เครื่องคอมพิวเตอร์ในยุคปัจจุบันทําให้นักวิจัยต้องค้นหาวิธี การใหม ่ ๆ เพื่อให้ได้มาซึ่งประสิทธิภาพ
+การประมวลผลที่เพิ ่มมากขึ ้น การประมวลผลเชิงควอนตัม เป ็ นหนทางหนึ ่งที่จะทําให้ได้ การ
+ประมวลผลที่มีประสิทธิภาพสูงขึ ้น ดังนั ้นอัลกอร ิทึมเพื่อสนับสนุนการประมวลผลด้วยเคร ื่อง
+ควอนตัมคอมพิวเตอร ์จึงได้ถูกค้นคว้าและพัฒนา  ควอนตัมอัลก อร ิทึมได้ถูกพิส ูจน์แล้วว ่ามี
+ประสิทธิภาพในการทํางานดีกว ่าอัลกอริทึมสําหรับแก ้ปัญหาแบบที่เคยมีอยู ่เดิมซึ่งหนึ่งในนั ้นคือ การ
+เคลื่อนที่แบบสุ ่มเชิงควอนตัม อัลกอริทึมดังกล ่าวมีประสิทธิภาพในการแก ้ไขปัญหาที่เก ี่ยวข้องก ับ
+กราฟ ซึ่งปัญหาสําคัญหลาย ๆ ปัญหาสามารถจําลองรูป แบบของปัญหาให้อยู ่ในรูปของกราฟได้ ใน
+วิทยานิพนธ์ฉบับนี ้ได้ทําการศึกษาอัลกอริทึมการเคลื่อนที่แบบสุ ่มเชิงควอนตัมบนพื ้นที่หนึ่งมิติ  และ
+พัฒนาวงจรให้สามารถประมวลผลด้วยเครื่องจ ําลอง ควอนตัมคอมพิวเตอร์  วิทยาพนธ์ฉบับนี ้ประกอบ
+ไปด้วย  2 การทดลอง  การทดลองแรกเพื่อหาความแตก ต่างของการประมวลผลด้วยเคร ื่องจําลอง
+ควอนตัมคอมพิวเตอร์จากทั ้ง 2 บริษัทคือ  IBM  และ Rigetti โดยการทดลองได้มีการออกแบบวงจร
+การเคลื่อนที่แบบสุ ่มเชิงควอนตัมออกมาจํานวน  5 ขนาดคือ  4 5 6 และ 7 โดยขนาดที่เพิ ่มขึ้นคือขนาด
+ของคิวบิตสําหรับแสดงตําแหน ่งของการเคลื่อนที่บนพื ้นที่หนึ่ งมิติ  นอกจากความแตกต ่างจากขนาด
+ของวงจร ในการทดลองยังมีการเพิ ่มความแตกต ่างของวงจรเปลี่ยนตําแหน ่งในแต ่ละขนาดอีก  5 iv 
+ 
+ 
+ ประเภท สําหรับผลจากการประมวลผลจากวงจรทั ้งหมดพบว ่าในวงจรประเภทเดียวก ันเวลาที่ใช้ใน
+การประมวลผลผ ่านเครื่องจําลองควอนตัมคอมพิวเตอร์จาก IBM  มีระยะเ วลาน้อยกว ่า Rigetti และ
+สําหรับ การทดลองด้วยวงจรขนาดเดียวก ันแต ่มีความแตกต ่างที่ประเภทของวงจรสลับตําแหน ่งพบว ่า 
+ระยะเวลาที่ใช้ในการประมวลผลแปรผันตามความลึกของวงจร สําหรับการทดลองที่ 2 วงจรที่ถูก
+ออกแบบสําหรับทดลองในการทดลองที่ 1 จะถูกนําไปประมวลผลบนเครื่องควอนตัมคอมพิวเตอร์
+จาก IBM  ชื่อ ibmq_16_melbourne  จากผลการทดลองพบว ่าเฉพาะการประมวลผลโดยใช้วงจรที่มีการ
+เก็บตําแหน ่งขนาด  4 คิวบิตเท ่านั้นที่สามารถได้รับผลจากการประมวลผล สําหรับวงจรขนาดอื่นๆมี
+การส ่งค่าผิดพลาดกลับมา อย่างไรก ็ตามผลการคํานวณพบว ่าผลลัพธ์ที่ได้กลับมาจากเครื่องควอนตัม
+คอมพิวเตอร์มีค ่าผิดพลาดไปจากทฤษฏี  (noise) ร่วมอยู ่ 
+ 
+คําสําคัญ : การเคลื่อนที่แบบสุ ่มเชิงควอนตัม/  ความลึกของวงจร / เครื่องจําลองควอนตัมคอมพิวเตอร์ / 
+ระยะเวลาที่ใช้ในการประมวลผล  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ v 
+ 
+ 
+ CONTENTS  
+ 
+PAGE  
+ 
+ENGLISH ABSTRACT                ii 
+THAI ABSTRAC T               iii  
+CONTENTS                  v 
+LIST OF TABLES                vii 
+LIST OF FIGURES               viii 
+ 
+CHAPTER  
+1. INTRODUCTION 1 
+1.1 Statement of the Problem 1 
+1.2 Objectives  5 
+1.3 Scope  3 
+ 
+2. BACKGROUND STUDY ON QUANTUM COMPUT ING  4 
+2.1 Quantum Mechanics  4 
+2.2 Quantum Circuits  5 
+2.3 Quantum Processi ng Unit and Programming 7 
+2.4 IBM Single Qubit Gate and Multi -Control Toffoli Function  13 
+ 
+3. QUANTUM RANDOM WALKS  16 
+3.1 Quantum Random Walk 16 
+ 
+4. SHIFT OPERATOR FOR QUANTUM RANDOM  WALK  19 
+4.1 Incrementer Circuits  19 
+4.2 A Design of Shift Operator for Quantum Random Walk 22 
+4.3 Shift Operator Circuit Verification  24 
+ 
+5. EXPERIMENT RESULTS  AND DISCUSSION 28 
+5.1 A Benchmarking of Quantum Computer Simulators  28 
+5.2 A Quantum Random Walk Computing on Quantum Computer  50 vi 
+ 
+ 
+ CONTENTS  (Cont'd)  
+ 
+PAGE  
+ 
+6. CONCLUSION 53 
+ 
+REFERENCES  55 
+ 
+CURRICULUM  VITAE  58 
+ 
+  vii 
+ 
+ 
+ LIST OF TABLES  
+ 
+TABLE                    PAGE  
+ 
+2.1 Commonly used quantum gates  7 
+4.1 The truth table of the three -qubit incrementer circuit 20 
+4.2 The comparis on among the notation  22 
+4.3 The comparison between increment er and incrementer in this thesis  23 
+5.1 The analysis of wall -time from running the quantum random walk  
+on four -qubit position state on the number line between  
+IBM’s Qasm_simulator and Rigetti’ s QVM  31 
+5.2 The analysis of wall -time from running the quantum random walk on  
+five-qubit position state on the number line between  
+IBM’s Qasm_simulator  and Rigetti’s QVM  34 
+5.3 The analysis of wall -time from running the quantum random walk on  
+six-qubit  position state on the number line between  
+IBM’s Qasm_simulator  and Rigetti’s QVM  36 
+5.4 The analysis of wall -time from running the quantum random walk on  
+seven -qubit position state on the number line between  
+IBM’s Qasm_simulator  and Rigetti’s QVM  39 
+5.5 The increasing rate of the computing wall -time from the circuit depth  
+in Figure  5.32  50 viii 
+ 
+ 
+ LIST OF FIGURES  
+ 
+FIGURE                    PAGE  
+ 
+1.1 Example quantum circuit  2 
+2.1 Quantum circuit for creating a maximally entangled two -qubit state  7 
+2.2 Coupling map of IBM 16- qubits  8 
+2.3 Coupling map of IBM 5- qubits  8 
+2.4 Quantum circuit for the establishment of entanglement between  
+2 qubits with Qiskit  10 
+2.5 The connectivity (topology) of 16 qubits Aspen- 1 QPU 10 
+2.6 Quantum circuit for the establi shment of entanglement between  
+2 qubits with PyQuil  12 
+2.7 MCT -basic with 𝑞𝑞 00,𝑞𝑞01,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞02 as control qubits, 𝑞𝑞03 as an  
+ancilla, and 𝑞𝑞04  as a target qubit  14 
+2.8 MCT - basic- dirty -ancilla  with 𝑞𝑞 10,𝑞𝑞11,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞12 as control qubits, 
+𝑞𝑞13 as an ancilla, and 𝑞𝑞14  as a target qubit (the second part of the  
+circuit is continued from the first part)  14 
+2.9 MCT -advanced with 𝑞𝑞 20,𝑞𝑞21,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞22 as control qubits, 𝑞𝑞 23 as an  
+ancilla,  and 𝑞𝑞24  as a target qubit  14 
+2.10 MCT - no-ancilla  with 𝑞𝑞 30,𝑞𝑞31,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞32 as control qubits, 𝑞𝑞 33 as an  
+ancilla, and 𝑞𝑞34  as a target qubit(the second part of the circuit is  
+continued from the first part)  15 
+3.1 One -dimensional quantum random walk 17 
+4.1 n- qubit incrementer  19 
+4.2 A three- qubit incrementer gate  20 
+4.3 Four -qubits incrementer with notation ( 𝑎𝑎:0) 20 
+4.4 Four -qubits incrementer circuit reconstruction with Toffoli, CNOT and  
+NOT gates  21  ix 
+ 
+ 
+ LIST OF FIGURES  (Cont’ d)  
+ 
+FIGURE                    PAGE  
+ 
+4.5 Four -qubits incrementer circuit with notatio n (n:n- 1:RE) after reducing  
+two equivalent adjacent quantum gates  21 
+4.6 Four -qubits incrementer circuit with notation (n:n -1: RD)   21 
+4.7 n- qubit decrementer circuit  22 
+4.8 Four -qubits incrementer  circuit  23 
+4.9 Four -qubits decrementer circuit  24 
+4.10 The conditional shift operator for four -qubit state  24 
+4.11 The probability distribution of one -dimensional quantum random walk  
+with Hadamard coin after 1 00 walks starting at position 0  25 
+4.12 The number line wit h 28 possible vertices  25 
+4.13 The initial set up of walking with an eight -position state and one coin state  26 
+4.14 The coin and condition shift operator for walking on the number line  
+with eight- position states. The vertical dashed line separates the co in  
+and the shift operator  26 
+4.15 The probability distribution of one -dimensional quantum random walk  
+with Hadamard coin after 100 walks starting from the 0 position  27 
+5.1 The number line of a one -dimension quantum random walk with four  
+qubits position state  29 
+5.2 The initial set up of walking with a four -position state and one coin state  29 
+5.3 The conditional shift operator for four -qubit state and the position of  
+MCT  modification (in the square)  30 
+5.4 The probability distributions of four -qubit position state one -dimensional  
+quantum random walk with 7 walking steps  30 
+5.5 T he number line of a one -dimension quantum random walk with five  
+qubits  position state  32 
+ x 
+ 
+ 
+ LIST OF FIGURES  (Cont’ d)  
+ 
+FIGURE                    PAGE  
+ 
+5.6 The initial set up of wa lking with a five -position state and one coin state  32 
+5.7 The coin and condition shift operator for walking on the number line  
+with five -position states; the vertical dashed line separates the coin  
+and the shift operator  32 
+5.8 The probability distribut ions of five -qubit position state one -dimensional  
+quantum random walk with 15 walking steps  33 
+5.9 T he number line of a one -dimension quantum random walk with six  
+qubits  position state  34 
+5.10 The initial set up of walking with a six -position state and one coin -state 35 
+5.11 The coin and condition shift operator for walking on the number line  
+with six -position states. The vertical dash line separated between coin  
+and shift operator  35 
+5.12 The probability distributions of six -qubit position state one -dimensional  
+quantum random walk with 31 walking steps  36 
+5.13 T he number line of a one -dimension quantum random walk with  
+seven qubits  position state  37 
+5.14 The initial set up of walking with a seven -position state and one coin- state 37 
+5.15 The coin and condition shift operator for walking on the number line  
+with seven -position states. The vertical dash line separates the coin  
+from the shift operator  38 
+5.16 The probability distributions of seven- qubit position state one -dimensional  
+quantum random walk with 63 walking steps  38 
+5.17 The peak of position - 43 from seven -qubit position state walk  39 
+5.18 The computing wall -time from Qiskit and Rigetti quantum computer  
+simulator  40 
+ xi 
+ 
+ 
+ LIST OF FIGURES  (Cont’ d)  
+ 
+FIGURE                    PAGE  
+ 
+5.19 The circuit depth and computing wall -time of 4 -qubit position state for  
+each type of conditional shift operator  41 
+5.20 The circuit depth and computing wall -time of 5 -qubit position state for  
+each type of conditional shift operator  42 
+5.21 The circuit depth and computing wall- time of 6 -qubit position state for  
+each type of conditional shift operator  42 
+5.22 The circuit depth and computing wall -time of 7 -qubit position state for  
+each type of conditional shift operator  43 
+5.23 The circuit depth and computing wall -time of 4 -qubit position state for  
+each type of conditional shift operator after unrolling the circuit  44 
+5.24 The circuit depth and computing wall -time of 5 -qubit position state for  
+each type of conditional shift operator after unrolling the circuit  44 
+5.25 The circuit depth and computing wall -time of 6 -qubit position state for  
+each type of conditional shift operator after unrolling the circuit  45 
+5.26 The circuit depth and computing wall -time of 7 -qubit position state for  
+each type of conditional shift operator after unrolling the circuit  45 
+5.27 The circuit depth and computing wall -time of Toffili- CNOT -NOT  
+conditional shift operator for each size of qubit position state  46 
+5.28 The circuit depth and computing wall -time of MCT -Basic conditional  
+shift operator for each size of qubit position state  47 
+5.29 The circuit depth and computing wall -time of MCT -Basic -Dirty -Ancilla  
+conditional shift operator for each size of qubit position state  47 
+5.30 The circuit depth and computing wall -time of MCT -Advanced  
+conditional shift operator for each size of qubit position state  48 
+5.31 The circuit depth and computing wall -time of MCT -NoAncilla  
+conditional shift operator for each size of qubit position state  48 xii 
+ 
+ 
+ LIST OF FIGURES  (Cont’ d)  
+ 
+FIGURE                    PAGE  
+ 
+5.32 The conclusion of a relation between circuit depth and computing  
+wall-time for each type of conditional shift operator  49 
+5.33 The probability distribution of four -qubits position state from each  
+computation 51 
+    CHAPTER 1 INTRODUCTION  
+ 
+ 
+In this chapter, we give an introduction to  the thesis. First, a brief description of the thesis, 
+including an addressed issue, related works from a quantum  random walk , the 
+significance of the study, and an experimental method , is described . Second, four thesis 
+objectives are illustrated. Last, we clarify the scope of study, including a selected 
+algorithm, quantum computing platforms, and significant parameters.  
+ 
+1.1 Statement of the Problem  
+According to Moore’s Law, the number of transistors on an integrated circuit will doubly 
+increase every two years  [1]. The trend seemed to be consistent with the law until several 
+years ago. The computing power from classical computers is reaching its limit because 
+the size of transistors integrated into a circuit is close to the atomic size of silicon. Some  
+researchers have been t rying to solve this problem. Hassan , et al. [2] stated that there are 
+other computing technologies, including optical computing / com puters, molecular 
+computing / computers, DNA computing / computers, and quantum computing / 
+computers. Since 1998, several quantum computers have been developed using various 
+qubit technologies such as Superconducting qubit, Trapped ion qubit, and Photonic  qubit 
+[3]. According to Quantum Computing Report [3], the superconducting qubit is the most 
+widely adopted qubit technology. More importantly, the superconducting qubit is suitable 
+for la rge scale integration of the quantum computer [4] . The superconducting material 
+exhibits superconductivity properties at very low temperatures. With the benefit of 
+superconducting qubit technologies, a variety of companies and organizations maintained 
+the quantum computing devices based on this technology. Both IBM and Rigetti construct 
+their quantum computers using the superconducting qubits technology. Both of them 
+provide a quantum computer simulator and a channel to interact with their quantum 
+computers. However, different quantum computer simulators and provided f rameworks 
+might affect experimental results and other variables of the computation . 
+ 
+Among the numerous quantum computer technologies that have been researched, 
+quantum algorithms have been proposed to perform quantum computati on. The 
+“Quantum Algorithm Zo o” [5] website presents  a collection of quantum algorithms in 
+multiple categories. Many quantum algorithms have been  proven to have better 
+performance than classical algorithms [6] . The Quantum random walk is an interesting 
+tool that  can also be used to construct other quantum algorithms [7] . For instance, t o find 
+𝑘𝑘 equal numbers from the list of given 𝑀𝑀 elements , the element distinctness algorithm 
+[8] uses the quantum random walk to move among the formulated Hamming gr aph 
+vertices and perform a check algorithm. Quantum random walk can be categorized into 
+discrete and continuous quantum random walks. Both types have been broadly adopted 
+by several researchers. The discrete quantum random walk algorithms can be applied to  
+various kinds of problems. Roy , et al. [9]  developed a quantum algorit hm using the 2 
+ 
+ 
+ discrete quantum random walk to solve a clustering problem. The results show that the 
+the proposed algorithm speeds up exponentially over existing classical algorithms. In 
+addition, the continuous quantum walk can be employed in multiple algor ithms. Muklen, 
+et al. [10]  constructed an algorithm that travels among the vertices on a one -dimensional 
+ring with additional bounds, using the cont inuous quantum walk. They showed that the 
+traveling among the vertices can be faster than classical algorithm when provided 
+appropriated additional bounds .  
+ 
+According to Venegas -Andraca [11], a book described the quantum random walk from 
+the computer scientist's perspective. Also, it demonstrated the advantage of the study on 
+a one -dimensional quantum random walk on the line with the following three reasons. 
+Firstly, the one -dimensional quantum random walk on the line can be used to formulate 
+a walk on more complex graphs such as a circle or general graph. Secondly, the one -
+dimensional quantum random walk on the line can be a simple model to study the 
+quantum random walk properties, which will have a positive impact on a quantum 
+algorithm construction. Thirdly, the one -dimensional quantum random walk on the line 
+can be a quantumness testing tool for quantum computing devices .  
+ 
+In this thesis, we study a model of a one -dimensi onal quantum random walk. Quantum 
+computing circuits are implemented and tested on quantum computer simulators from 
+IBM and Rigetti. Then, the results and computing wall -time (which is the time spent only 
+in the quantum simulator computation excluding the communication and SDK’s compile 
+time) of the two quantum computer simulators are compared.  The effect of the different 
+architectures is also inspected. Moreover, the relationship between the circuit depth and 
+the computing wall -time is studied.  In conduct ing this study, it was assumed that the 
+computing wall -time depends on the circuit depth. For IBM ’s quantum   computer 
+simulator, computing wall- time is extracted from the return value after execution. For the 
+Rigetti, computing wall- time is acquired from a  simulator’s log. The circuit depth can be 
+computed by counting the highest number of gates that apply on the same qubit and 
+counting the gate that has to perform before. For example, the function wi ll return 9 for 
+the circuit in f igure 1.1. However, the c ircuit depth can be acquired from IBM’s depth()  
+function. 
+ 
+ 
+Figure 1.1 Example quantum circuit  
+3 
+ 
+ 
+ Experiments on the real quantum computer are also conducted. To find the real quantum 
+computer's capability, similar circuits from the simulators will be computed on the real 
+quantum computer from IBM as Rigetti’s quantum computer cannot be accessed. The 
+probability distributions are then collected . 
+ 
+1.2 Objectives  
+1. To study the discrete quantum random walk. 
+2. To study programming on different quantum computers . 
+3. To stud y the effect and performance of the different quantum computer architectures  
+upon implementation of a one -dimensional quantum random walk.  
+4. To study the relation ship between computing wall -time and circuit depth of  one-
+dimensional quantum random walk circui ts. 
+ 
+1.3 Scope  
+In this thesis, the one -dimensional  quantum random walk is  studied. The quantum circuit s 
+are developed and implemented on the quantum computer  and quantum computer 
+simulators  using software development kits provided by IBM and Rigetti . The computing 
+wall-time and circuit depth  of the quantum circuits tested on the different quantum 
+computers simulators are  scrutinized . 
+ 
+The rest of this thesis is organized as follows: Chapter 2 presents the basic of  quantum 
+computing and quantum computer programm ing from IBM and Rigetti. Chapter 3 gives 
+a simple explanation of the classical random walk and describes  the one -dimensional 
+quantum random walk. The demonstration of the shift operator and circuit 
+implementation are provided in Chapter 4. Chapter 5 conta ins experiments on our 
+quantum circuits, including 5 sizes of one -dimensional quantum random walk and the 
+investigation on the Multi -Control Toffoli function. Lastly, we offer our conclusion in 
+Chapter 6.   CHAPTER 2 BACKGROUND STUDY ON QUANTUM 
+COMPUTING  
+ 
+ 
+In this chapter, we introduce three subjects of background knowledge. First, we briefly 
+introduce quantum mechanics, including  qubits, quantum entanglement , and quantum 
+measurement. Second, we describe quantum gates and circuits. Last, we explain two 
+quant um computers (from IBM and Rigetti) including their architecture and resources for 
+programming . 
+ 
+2.1 Quantum Mechanics  
+While data in classical computing is represented by a series of bits, a set of qubits is used 
+in quantum computing. A classical bit can represent only one of two possible values at a 
+time ( either  0 or 1), but a qubit can represent the two values at the same time .  
+ 
+A state of a qubit can be denoted by a Ket notation, “ |⟩”. Therefore, the qubit in state 0 
+and 1 is represented by |0⟩ and |1⟩, respectively . The state that a qubit contains two 
+possible values at the same time, called “superposition”, is shown in (2.1)  
+ 
+ |Ψ⟩=𝛼𝛼|0⟩+𝛽𝛽|1⟩ (2.1)  
+ 
+where Ψ denotes any qubit state. 𝛼𝛼 and 𝛽𝛽 can be arbitrary complex numbers, but they 
+must  satisfy |𝛼𝛼|2+|𝛽𝛽|2=1. The state of the qubit can also be represented by matrix 
+notation as follows : 
+ 
+ 
+|0⟩=�1
+0� and |1⟩=�0
+1� (2.2) 
+ 
+Information in a qubit can be processed by a unitary operator  that performs a unitary 
+transformation . The unitary operator 𝑈𝑈 must  satisfy  the following propert y: 
+ 
+ 
+𝑈𝑈𝑈𝑈†=𝑈𝑈†𝑈𝑈=𝐼𝐼, (2.3) 
+ 
+where 𝐼𝐼 is an identity matrix and 𝑈𝑈† is a transpose complex conjugate of  𝑈𝑈 . 
+ 5 
+ 
+ 
+ Equation 2.5 presents a unitary transformation on a qubit, where  𝑈𝑈 is a unitary ma trix of 
+the one -qubit quantum operator . 
+ |Ψ⟩→𝑈𝑈|Ψ⟩=�𝑈𝑈00𝑈𝑈01
+𝑈𝑈10𝑈𝑈11��𝛼𝛼
+𝛽𝛽�=�𝑈𝑈00𝛼𝛼+𝑈𝑈01𝛽𝛽
+𝑈𝑈10𝛼𝛼+𝑈𝑈11𝛽𝛽� (2.5) 
+ 
+To oper ate more than one qubit, dimensions  of the unitary matrix  can be increased by a 
+tensor product  as shown in (2.6) .  
+ 
+|Ψ1Ψ2⟩= |Ψ1⟩⨂|Ψ2⟩=𝛼𝛼1𝛼𝛼2|00⟩+𝛽𝛽1𝛼𝛼2|10⟩+𝛼𝛼1𝛽𝛽2|01⟩+𝛽𝛽1𝛽𝛽2|00⟩ (2.6) 
+ 
+Quantum entanglement is one of the most significant quantum phenomena. When two or 
+more qubit s are entangled, the state of qubits cannot be specified separately. However, 
+the quantum entanglement proper ty is not used in this thesis. Equation 2.7 shows an 
+example of the two entangled qubits :  
+ 
+ |Ψ𝐴𝐴⟩=1
+√2(|01⟩−|10⟩) 
+|Ψ𝐵𝐵⟩=1
+√2(|01⟩+|10⟩) 
+|Ψ𝑐𝑐⟩=1
+√2(|00⟩−|11⟩) 
+|Ψ𝐷𝐷⟩=1
+√2(|00⟩+|11⟩) 
+ (2.7)  
+ 
+Quantum measurement is a process of  readout  information from the quantum state. When 
+a qubit , in (2.1) , is measured, for example, the superposition state |Ψ⟩ will be collapsed 
+to eith er 0 with probability |𝛼𝛼|2or 1 with probability |𝛽𝛽|2. The result of the measurement 
+is then a classical bit of information, 0 or 1. In measurement, { |0⟩,|1⟩} is used as a 
+measurement basis. To measure multiple qubits, the measurement basis need ed to be 
+defined. If { |00⟩, |10⟩, |01⟩,|11⟩} is our measurement basis for the two joint qubits, four 
+possible outcomes will be given with  probabilities |𝛼𝛼1𝛼𝛼2|2, |𝛽𝛽1𝛼𝛼2|2, |𝛼𝛼1𝛽𝛽2|2 and 
+|𝛽𝛽1𝛽𝛽2|2, respectivel y. Therefore, the measurement of n - multiple qubits will result in 2𝑛𝑛 
+possible outcomes. 
+ 
+2.2 Quantum Circuits  
+Classical gates such as AND , OR, and NOT  are used to implement a classical computation 
+circuit.  Similarly, quantum gates are also used to co nstruct a quantum circuit. The  
+quantum gates are unitary transformation 𝑈𝑈  that can be described by unitary matri ces.  
+ 6 
+ 
+ 
+ The Hadamard gate corresponds to Hadamard transformation  that produces the 
+superposition state from the computational basis. If the comp utational basis is {|0⟩,|1⟩}, 
+applying Hadamard to |0⟩ and |1⟩ will transf orm the state to 1
+√2(|0⟩+|1⟩), and 
+1
+√2(|0⟩−|1⟩), respectively.  
+ 
+The set of Pauli operator s includes  Pauli -I, Pauli -X, Pauli -Y, and Pauli -Z. Pauli -I is the 
+identity transformation represent ed by the identity matrix. Pauli- X or a bit-flip operator  
+will map |0⟩ to |1⟩ and |1⟩ to |0⟩. Pauli -Z or a phase flip operator  will change the phase 
+of the qubit state  from  |1⟩ to -|1⟩, but it  does  nothing to |0⟩. Pauli -Y is a combination of 
+Pauli -X and Pauli -Z. The n, Pauli -Y performs a bit-flip and phase -shift that maps |0⟩ to 
+𝑖𝑖|1⟩ and |1⟩ to −𝑖𝑖|0⟩. 
+ 
+The r otation operators are a set of parameterized single- qubit operators. The set of 
+rotation operators includes 𝑅𝑅𝑥𝑥(𝜃𝜃), 𝑅𝑅𝑦𝑦(𝜃𝜃), and 𝑅𝑅𝑧𝑧(𝜃𝜃) that rotates around the x, y, and z 
+axis, respectively, on a Bloch sphere.  The angle 𝜃𝜃 must be given to specify a rotation 
+angle . It can be positive or negative but must be in radians. 
+ 
+Regarding two -qubit gates, the CNOT  or controlled- NOT  gate operates on two qubits. 
+One qubit, called a control qubit, controls the operati on, while another is a target qubit. 
+If the state of the control qubit is |1⟩, the target qubit will be flipped. The control phase 
+gate is a two -qubit gate that the target qubit makes a change when the control qubit is |1⟩;  
+the operating is that done to the target qubit is a phase manipulation. The swap gate is 
+also a two -qubit gate that swaps the state of the two qubits. The gate maps |01⟩ to |10⟩ 
+and |10⟩ to |01⟩.  
+ 
+The Toffoli gate is a 3-qubit quantum gate. Like CNOT , the 3 operated qubits can be 
+separated into control and target qubit s. Two qubits are the control qubit s and the other 
+is the target qubit.  The target qubit is flipped when all control qubits are in the state |1⟩. 
+Otherwise, the Toffoli gate does nothing .  
+ 
+Quantum gat e can b e represented  in graphical notation and matrix, as illustrated in Table 
+2.1. The quantum circuit can be constructed by assigning any quant um gate to qubits. As 
+shown in f igure 2.1, Hadamard and CNOT  are assigned to 2 qubits. The circuit creates 
+entanglemen t between the two -qubits.  
+ 
+ 
+ 7 
+ 
+ 
+ Table 2.1 Commonly used quantum gates  
+ 
+Gate name  Graphical notation  Unitary Matrix representation  
+Hadamard gate  
+ 1
+√2�1 1
+1−1� 
+Pauli -X or NOT gate  
+ �01
+10� 
+S gate  
+ �10
+0𝑖𝑖� 
+CNOT Gat e 
+ �1000
+0
+0
+00
+0
+10
+1
+01
+0
+0� 
+Toffoli  Gate  
+ 
+⎣⎢⎢⎢⎢⎢⎢⎡10
+0100
+00
+00
+0010
+0000
+0000
+00
+00
+0000
+01
+00
+0000
+00
+00
+0000
+0110
+0100
+00
+00
+0010
+00⎦⎥⎥⎥⎥⎥⎥⎤
+ 
+ 
+ 
+Figure  2.1 Quantum circuit for creating a maximally entangled two -qubit state  
+ 
+2.3 Quantum Processing Unit  and Programming 
+Several techniques can be used to construct a quantum computer, such as Optical [12], 
+trapped ions [13-15], and superconducting qubit. Superconducting qubit technology is 
+widely adopted by many large companies such as Intel, Google, IBM, and Rigetti. Some 
+of them have published documents and have made computing services available for 
+public use and research. Among the available super conducting qubit quantum computers, 
+IBM and Rigetti were selected to be studied in this thesis for 3 main reasons. Firstly, both 
+companies have actual quantum computers. Secondly, the same quantum circuit can 
+compute on simulators and real quantum computers of both companies. Thirdly, their 
+quantum computing platforms are provided with all pertinent documents .  
+ 
+ 
+8 
+ 
+ 
+ 2.3.1 IBM  
+ 
+IBM is one of the major companies that has been intensively involved in the field of 
+quantum computing. According to quantum computing devices [16], IBM has five 
+quantum computers and one quantum simulator. Both  can be operated with open quantum 
+assembly language (openQASM) [17]. Their 4 quantum computers that are open to access 
+contain 5 and 16 qubits. The other 20- qubit quantum computer is only for IBM’s clients. 
+In superconducting qubit technol ogy, the qubit is controlled by conducting microwave 
+pulses. The connection of qubits is subjected to a coplanar waveguide (CPW) resonator 
+for readout and control. CPW is a transmission line that can transfer microwave -
+frequency signals .  
+ 
+To apply a circu it of quantum gates, the system has a limitation on a physical quantum 
+computer. As shown in Figures 2.2 and 2.3, IBM [18 -19] the arrows connected between 
+qubit nodes indicate the frequency signal of a qubit. An arrow is pointing from a higher 
+frequency qubit to a lower frequency qubit. The difference in frequency produces the 
+limitation of deploying quantum gates. IBM suggested that using a higher frequency bit 
+as a controlled bit can prevent the inverse of the operation. For example, if we want to 
+deploy the CNOT gate to the quantum computer in Figure 2.3, the qubit at position 0 
+should be used as a control qubit while the qubit at position 1 can be a target. However, 
+the quantum circuit setup will be managed and optimized by the framework. 
+ 
+ 
+Figure 2.2 coupling map of IBM 16 -qubits  
+ 
+ 
+ 
+Figure 2.3 coupling map of IBM 5 -qubits  
+ 
+IBM provides a software development kit (SDK) called Quantum Information Software 
+Kit ( Qiskit). Qiskit is an open- source framework that communicates between quantum 
+computer s and quantum program s. The programming  language used for communicating 
+with Qiskit can be Python, JavaScript, and swift. In this thesis, we use Python language.  
+ 
+9 
+ 
+ 
+ Qiskit consists of  four parts : Terra, Aqua, Ignis , and Aer . Each of them  is responsible for 
+different  jobs as follows .  
+1. Terra is the foundation of the framework. The input of Terra is  in a level of circuit 
+and pulses. Terra will optimize the input due to the constraint of the physical 
+quantum processor and will also manage the execution.   
+2. Aqua is an element  that contains a library of several quantum algorithms and  
+multiple  extensions such as Qiskit Optimization, Qiskit Chemistry, and Qiskit 
+Finance.   
+3. Ignis is designed to understand and mitigate noise in quantum circuits and 
+devices. It also has tools to m easure noise parameters, and to generate and analyze 
+the circuits . 
+4. Aer is the high -performance simulator framework. It helps Terra to optimize and 
+comply with circuits . It can  also perform a realistic noise simulation from   
+quantum computer noise  models . 
+In order to use  Python with Qiskit (which is similar to writing a regular Python program) 
+the related libraries have to be imported. The following list presents the primary Qiskit 
+libraries . 
+1. QuantumRegister  defines  a number of the required qubit s.  
+2. Classica lRegister  defines a number of the required classical bit s.  
+3. QuantumCircuit  is for a circuit construction with the parameter s from 
+QuantumRegister  and ClassicalRegister . The collection s of quantum gates are 
+bundled with QuantumCircuit .  
+4. Aer uses for a quant um computer simulator selection. 3 simulators, namely 
+Qasm_simulator , Statevector , and Unitary are available.  
+- Qasm_simulator  simulates multiple  shots of quantum computation on the 
+circuit and returns counts. The noise model of the quantum computer backend 
+can be applied to the Qasm_simulator  for the computation under the specific 
+noise behavior.  
+- Statevector  provides a single -shot execution of the circuit and returns a final 
+state vector.  
+- Unitary  also provides a single -shot execution. The result of the Uni tary 
+simulator is the unitary matrix of the circuit.  
+5. Execute is a function for quantum circuit execution.  
+Figure 2.4 presents an example source code of the quantum circuit implementation with 
+Qiskit. After importing the libraries  (lines 1-4), a quantum circuit can be constructed by 
+adding  quantum gate s to the QuantumCircuit  variables  (lines 10-13). To compute  the 
+circuit, a simulator has  to be selected . In this example, Qasm_simulator  is chosen to 
+simulate a quantum computation.  
+ 
+2.3.2 Rigetti  
+Rigetti, wh ich is another company involved in the field of quantum computing, aims to 
+provide quantum cloud services. Currently, Rigetti has two operating quantum devices, 10 
+ 
+ 
+ 8-qubit and 16- qubit [20]. Similar to IBM, Rigetti’s devices are also constructed with 
+superconducting technology, but are different in the topology as shown in Figure 2.5. 
+ 
+ 
+Figure 2. 4 Quantum circuit for the establishment of entanglement between   
+2 qubit s with Qiskit  
+ 
+ 
+Figure 2.5 The connectivity  (topology)  of 16 qubits Aspen- 1 QPU 
+ 
+Forest is Rigetti’s  SDK for the communicat ion between the quantum processing unit 
+(QPU) and Quil [21]. Different from QISKit, Rigetti adopts Quil programming language. 
+The Forest SDK did not separate into elements like QISKit, but it has three essential 
+components.  
+1. PyQuil is a Python library that helps to construct a Python program with Quil 
+programming language .  
+2. Quil compiler is responsible for translating Quil into the instruction code that can 
+operate with any Rigetti quantum machine . 
+3. The quantum virtual machine  can simulate a quantum computer and execute Quil 
+on a classical computer.  
+11 
+ 
+ 
+ To program with Forest, the major libraries , including  Program , get_qc , and set of 
+quantum gates , have to be imported.  
+1. Program  contain s a list of instructions to compose a quantum  program such as a 
+quantum gate concatenation, classical bit declaration, a measurement, and 
+running shot specification.  
+2. The get_qc  function is responsible for selecting a quantum computer or specif ying 
+the size and topology of the quantum computer simula tor.  
+3. For a set of quantum gates, unlike Qiskit, the required quantum gate s should be 
+specified  separately.  A quantum circuit can be construct ed by concatenating 
+quantum gates into the  Program ’s variables .  
+To compute a quantum circuit, Quil compiler (Quil c) and quantum virtual machine 
+(QVM) have to start. Quil compiler and QVM operate as a computing server for their 
+task. Because of the quantum gate limitation on the quantum computer, the set of quantum 
+gates in the circuit has to be complied with the gate  that able to operate on a quantum 
+computer or simulator. QVM, then, computes the compiled version of the quantum circuit 
+from Quilc and returns the measurement result of each shot to the program. Figure 2.6 
+presents the source code of a quantum circuit im plementation with PyQuil. After 
+importing the libraries (lines 1 -2), a variable p is declared as a space for quantum gates 
+(line 3). A classical register is then declared (line 4). The quantum circuit is constructed 
+by adding quantum gates (lines 6 – 10). The number of measurement shots is set to 10 
+(line 11). Since this program requires 2 qubits, the 2- qubit quantum computer simulator 
+2q-qvm is selected (line 13 ).  
+ 
+Both IBM and Rigetti quantum computers support a common quantum gate set as 
+follows:  
+1. Pauli gates including Pauli- I, Pauli -X, Pauli -Y, and Pauli -Z 
+2. Hadamard gate  
+3. Toffoli gate  
+4. Phase gates  
+5. Control phase gate  
+6. Controlled X gate  
+7. Swap gate  
+As mentioned above, both IBM and Rigetti provide a quantum computer simulator. 
+However, the operating techniques of  the two platforms are different.  Qasm_simulator  
+operates on C++, but QVM  operates on LISP. In addition to their default configuration, 
+multiple elements in Qasm_simulator  and QVM  are configurable. In this thesis, only the 
+default configuration is used. 12 
+ 
+ 
+  
+Figure 2.6 Quantum circuit for the establishment of entanglement between  
+2 qubits with PyQuil  
+LaRose  [22] compared the quantum computing resources from big companies in the 
+quantum computing area, including Microsoft, Rigetti, IBM, and ProjectQ. His work 
+described the softwar e library support, quantum hardware, quantum compiler, and  
+simulator performance. The list of quantum algorithms, which were added to each 
+company’s software library, was as well presented. IBMQX5  from IBM and Agave  from 
+Rigetti, which were the largest pub licly available quantum computers at that time, were 
+selected for discussion. Regarding the actual quantum computers, each quantum 
+computer has a basic set of quantum gates and connectivity. The quantum compiler is an 
+operator that compiles program source code into a quantum circuit for a specific quantum 
+computer and simulator. Again, only compilers from IBM and Rigetti were discussed. 
+The discussion indicated that the two platforms have a different basic set of gates. IBM’s 
+quantum computer supports 𝑈𝑈 1, 𝑈𝑈2, 𝑈𝑈3, and CNOT  while Rigettti’s quantum computer 
+supports 𝑅𝑅𝑥𝑥, 𝑅𝑅𝑧𝑧, and Controlled- Z (CZ) . Finally, this research compared the performance 
+of quantum computer simulators from IBM and ProjectQ. A state vector simulator from 
+IBM and C++ simulator from ProjectQ were chosen. The comparison described the 
+performance of circuit depth, the number of qubits, and computing wall -time. Unlike that 
+work, this thesis compares circuit depth and computing wall -time between 
+Qasm_simulator  from IBM and QVM  from Rigetti. The quantum circuits depend on the 
+type and size of the one -dimensional quantum random walk. 
+13 
+ 
+ 
+ 2.4 IBM Single Qubit Gate a nd Multi -Control Toffoli Function  
+According to  Y. Aharonov [23] , the IBM quantum computing platform operates on the 
+implementation of a Controlled -NOT gate and three parameter ized single -qubit gates , 
+including  𝑈𝑈1, 𝑈𝑈2 and 𝑈𝑈3. The 𝑈𝑈1 gate is a one-parameter gate. The parameter can be 
+assign ed to the gate by 𝑈𝑈1(𝜆𝜆). An operation of 𝑈𝑈1 is equivalent to the rotatio n gate 𝑅𝑅 𝑧𝑧(𝜆𝜆). 
+𝑈𝑈2 is a two-parameter gate. The parameter s can be assi gned  to the gate by 𝑈𝑈2(𝜙𝜙,𝜆𝜆). An 
+operation of 𝑈𝑈2 is equivalent to the set of rotation gate 𝑅𝑅 𝑧𝑧(𝜙𝜙+𝜋𝜋
+2)𝑅𝑅𝑥𝑥(𝜋𝜋
+2)𝑅𝑅𝑧𝑧(𝜆𝜆−𝜋𝜋
+2). 𝑈𝑈3 is 
+a three -parameter gate. The parameters for 𝑈𝑈3 includes  𝜃𝜃, 𝜙𝜙, and 𝜆𝜆 that can be assigne d 
+to the gate by 𝑈𝑈3(𝜃𝜃,𝜙𝜙,𝜆𝜆). An operation of 𝑈𝑈3 gate is equivalent to the set of rotation gate 
+𝑅𝑅𝑧𝑧(𝜙𝜙+3𝜋𝜋)𝑅𝑅𝑥𝑥(𝜋𝜋
+2)𝑅𝑅𝑧𝑧(𝜃𝜃+𝜋𝜋)𝑅𝑅𝑥𝑥(𝜋𝜋
+2)𝑅𝑅𝑧𝑧(𝜆𝜆). A major differen ce among these three gates is 
+how the  microwave pulse  is applie d. 𝑈𝑈1 can change a phase of qubit without apply ing 
+any pulses.  The 𝑈𝑈2 gate appli es single 𝜋𝜋
+2 pulse. For 𝑈𝑈 3, two 𝜋𝜋
+2 pulses are applied for making 
+an operation. However, both of 𝑈𝑈 1and 𝑈𝑈2 can be convert ed into the 𝑈𝑈3 gate as fo llows.   
+𝑈𝑈1(𝜆𝜆)∶=𝑈𝑈3(0,0,𝜆𝜆)      (2.8) 
+𝑈𝑈2(𝜙𝜙,𝜆𝜆)∶=𝑈𝑈3(𝜋𝜋
+2,𝜙𝜙,𝜆𝜆)    (2.9) 
+Besides , any single -qubit gate can  also be transformed into 𝑈𝑈 3. For example:  
+𝑃𝑃𝑎𝑎𝑃𝑃𝑃𝑃𝑖𝑖−𝑋𝑋 ∶=𝑈𝑈3(𝜋𝜋,0,𝜋𝜋)               (2. 10) 
+𝐻𝐻𝑎𝑎𝑎𝑎𝑎𝑎𝐻𝐻𝑎𝑎𝐻𝐻𝑎𝑎 ∶=𝑈𝑈3(𝜋𝜋
+2,0,𝜋𝜋)               (2.11)  
+𝑆𝑆 𝑔𝑔𝑎𝑎𝑔𝑔𝑔𝑔 ∶=𝑈𝑈3(0,0,𝜋𝜋
+2)                (2. 12) 
+Moreover, Qiskit offers a useful function named multi -controlled- Toffoli (MCT). The 
+MCT function works as applying the Toffoli operation with multiple control qubits. MCT 
+consists of four main parameters: a list of control qubits, the target qubit, a list of ancilla, 
+and mode of use. The modes of use in the MCT function are basic, basic -dirty -ancilla, 
+advanced, and no- ancilla. The different modes require different numbers of ancilla. After 
+applying the function, the set of quantum operations will be generated based on the 
+selected mode and input parameters.  
+For the basic mode, four main parameters must be determined. A member of ancilla’s list 
+must be |0⟩. The number of ancillae must be equal to 𝑥𝑥 −2, where 𝑥𝑥 is the number of 
+control qubits. The MCT with basic mode will generate a circuit that consists of 𝑈𝑈1, 𝑈𝑈2, 
+𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶  and 𝐶𝐶𝑇𝑇𝑇𝑇𝑇𝑇𝑇𝑇𝑃𝑃𝑖𝑖  gate, as shown in Figure 2.7.  
+For the basic- dirty -ancilla mode, t he required parameters are similar to the basic mode. 
+However, a state of ancilla is not necessary to be |0⟩. The number of required ancilla is 
+still similar to the basic mode. The applying of MCT with basic mode will generate a 
+circuit that consists of 𝑈𝑈 1, 𝑈𝑈2, and 𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶  gate, as illustrated in Figure 2.8.  
+ 14 
+ 
+ 
+  
+Figure 2.7 MCT -basic with 𝑞𝑞 00,𝑞𝑞01,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞02 as control qubits, 𝑞𝑞 03 as an 
+ancilla, and 𝑞𝑞04  as a target qubit  
+ 
+Figure 2.8 MCT - basic- dirty -ancilla  with 𝑞𝑞10,𝑞𝑞11,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞12 as control qubits, 
+𝑞𝑞13 as an ancilla, and 𝑞𝑞14  as a target qubit  (the second part of the 
+circuit is continued from the first part)  
+In the advanced mode, the required number of parameters remains four. However, the 
+number of ancilla  qubits will be 𝑥𝑥 −4, where 𝑥𝑥 is the number of control qubits. Still, the 
+state of ancilla doesn’t have to be |0⟩. The application of MCT  with basic mode will 
+generate a circuit that consists of 𝐻𝐻𝑎𝑎𝑎𝑎𝑎𝑎𝐻𝐻𝑎𝑎𝐻𝐻𝑎𝑎, 𝐶𝐶𝑇𝑇𝑎𝑎𝑔𝑔𝐻𝐻𝑇𝑇𝑃𝑃𝑃𝑃𝑔𝑔𝑎𝑎 −𝑈𝑈1, and CNOT ga te, as 
+displayed in Figure 2.9.  
+ 
+Figure 2.9 MCT -advanced with 𝑞𝑞 20,𝑞𝑞21,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞22 as control qubits, 𝑞𝑞 23 as an 
+ancilla, and 𝑞𝑞24  as a target qubit  
+ 
+With the no- ancilla mode, the required number of parameters decreases to three. As the 
+name of the mode, this mode requires zero ancillae. Then, the remaining three parameters 
+include a list of control qubits, the target qubit, and the mode of use. The (application / 
+15 
+ 
+ 
+ applying) of MCT with basic mode will generate a circuit that consists of 𝐻𝐻 𝑎𝑎𝑎𝑎𝑎𝑎𝐻𝐻𝑎𝑎𝐻𝐻𝑎𝑎, 
+𝑈𝑈1, and CNOT gate, as shown in Figure  2.10.  
+ 
+Figure 2. 10 MCT - no-ancilla  with 𝑞𝑞 30,𝑞𝑞31,𝑎𝑎𝑎𝑎𝑎𝑎  𝑞𝑞32 as control qubits, 𝑞𝑞 33 as 
+an ancilla, and 𝑞𝑞34  as a target qubit (the second part of the circuit is 
+continued from the first part)
+  CHAPTER 3 QUANTUM RANDOM WALKS  
+ 
+ 
+This chapter introduces the one -dimensional quantum random walk.  The concept of 
+quantum random walk and the  relevant research literature are reviewed. Subsequently, 
+the one -dimensional quantum random walk i s focused. Main operators and quantum state 
+evolution are lastly presented . 
+ 
+3.1 Quantum Random Walk  
+A quantum  random walk is a quantum computing version of a classical random walk. 
+The quantum random walk can be classified into two categories: discrete -time quantum 
+random walk and continuous -time quantum random walk. According to Venegas -
+Andraca [11], the main difference between  the two categories is the times at which 
+evolution operators are applied. The evolution operator is a set of operators that applies 
+change to the system of quantum random walk. Details of the evolution operator will later 
+be described in this section. The evolution operators are applied in discrete ti me steps in 
+a discrete quantum random walk, while it can be applied anytime in a continuous quantum 
+random walk.  
+ 
+The concept of the quantum random walk was first introduced in 1993 by Aharonov, et 
+al.[23]. They also demonstrated that, wi th the nature of quantum characteristics, the 
+average length of the walking path on a line can be longer than the length a classical 
+random walk can produce. This quantum random walk algorithm was later considered a 
+discrete model.  After this work, the quantum random walk has gained more attention. 
+Kempe [24] overviewed the development of quantum walks for quantum computing. The 
+work described both discrete and continuous quantum random walks and compared them 
+to a classical random walk. Her work also  presented the physical quantum random walk 
+implementation point of view. Lovett , et al. [25]  implemented  a universal quantum 
+computation gate from the discrete quantum random walk algorithm. They also proved 
+that both continuous and discrete quantum random walks  could be efficiently used to 
+simulate other quantum algorithms .  
+ 
+This thesis focuses only on the  discrete quantum random walk on a one -dimensional 
+graph. The main structure of the discrete quantum random walk consists of  a walker, a 
+coin, and the evolution operators. Similar to the classical random walk, a walker walks 
+on the graph. The possible walking paths are the concatenated vertices and edges. The 
+coin is a state that is considered a decision -maker space. The next step of the walk to any 
+of the concatenated vertices and edges can be determined by the coin state. The evolution 
+operators can be separated into two parts, including coin and shift operators. The coin 
+operator is a function that operates the coin state. Similarly, the shift operation operates 
+the state of the walker.  The shift operator considers the change of the walker state from 17 
+ 
+ 
+ the coin state that was manipulated by the coin operator.  The two operations are 
+repeatedly operated without performing a measurement. The measurement is only 
+performed at the final position of the walking process. Figure 3.1 displays the flowchart 
+of the disc rete quantum random walk on the one -dimensional graph.  
+ 
+ 
+Figure 3.1 One-dimensional quantum random walk 
+The entire state of the quantum  walk  𝐻𝐻 consists of two Hilbert spaces, 𝐻𝐻𝑝𝑝and 𝐻𝐻𝑐𝑐, in the 
+Hilbert space that 𝐻𝐻=𝐻𝐻𝑝𝑝⊗𝐻𝐻𝑐𝑐 , where 𝐻𝐻𝑝𝑝 represents the Hilbert space of the walker’s 
+position state and 𝐻𝐻 𝑐𝑐 represents the Hilbert space for the coin state.  
+ 
+The walker is a quantum state that occupies a space 𝐻𝐻 𝑝𝑝. The 𝐻𝐻𝑝𝑝 spanned with basis  |𝑖𝑖⟩𝑝𝑝 
+where 𝑖𝑖 is a position on  the one -dimensional graph (the number line). To initialize the 
+position, the origin of the walker is usually at position zero on the number line that can 
+be represented as  |0⟩𝑝𝑝. The coin state basis, however, can be spanned by { |0⟩𝑐𝑐, |1⟩𝑐𝑐}, in 
+which the number of basis is equal to the number of edges connected to the vertex in the 
+number line . 
+ 
+The application sequence of the evolution operators on each step of the walk is a coin 
+operator followed by a conditional shift operator. In our  experiments, the coin operator 
+is performed using the Hadamard gate that transforms the coin state into a superposition 
+of its state,  as shown in the following equations .  
+18 
+ 
+ 
+ 𝐶𝐶( |0⟩𝑐𝑐)→1
+√2( |0⟩𝑐𝑐+ |1⟩𝑐𝑐)     (3.1)  
+𝐶𝐶( |1⟩𝑐𝑐)→1
+√2( |0⟩𝑐𝑐− |1⟩𝑐𝑐)     (3.2)  
+where Cis the coin operator. 
+Next, the conditional shift operator operates based on the state of coin space, which could 
+be defined as:  
+𝑆𝑆( |0⟩𝑐𝑐⊗|𝑖𝑖⟩𝑝𝑝)⟶ |0⟩𝑐𝑐⊗|𝑖𝑖+1⟩𝑝𝑝   (3.3) 
+𝑆𝑆( |1⟩𝑐𝑐⊗|𝑖𝑖⟩𝑝𝑝)⟶ |1⟩𝑐𝑐⊗|𝑖𝑖−1⟩𝑝𝑝   (3.4)  
+where Sis the conditional shift operator.  
+Accordingly, Equation 3.5 presents the evolution operators on one step of the walk.  
+𝑈𝑈=𝑆𝑆(𝐶𝐶⊗𝐼𝐼𝑝𝑝)    (3.5)  
+where 𝑈𝑈 is the evolution operators of the one -dimensional quantum random walk, 𝑆𝑆  
+represents the conditional shift operator, 𝐶𝐶  represents the coin operator, and  𝐼𝐼  represents 
+the vector space of the position state. The tensor operator ⊗ is used to state that 𝐶𝐶  applies 
+only the coin state without direct action to the position state. For example, if the walk 
+start with  |Ψ⟩0=|0⟩𝑐𝑐⊗|0⟩𝑝𝑝, two walking step with Hadamard as a coin operator can 
+be derived as follows : 
+ |Ψ⟩1=𝑈𝑈(|0⟩𝑐𝑐⊗|0⟩𝑝𝑝)    (3.6)  
+ |Ψ⟩1=𝑆𝑆�1
+√2( |0⟩𝑐𝑐+ |1⟩𝑐𝑐)⊗|0⟩𝑝𝑝�   (3.7)  
+ |Ψ⟩1=1
+√2 |0⟩𝑐𝑐|1⟩𝑝𝑝+1
+√2 |1⟩𝑐𝑐|−1⟩𝑝𝑝    (3.8)  
+ |Ψ⟩2=𝑆𝑆�1
+√2�1
+√2( |0⟩𝑐𝑐+ |1⟩𝑐𝑐)�|1⟩𝑝𝑝+1
+√2�1
+√2( |0⟩𝑐𝑐− |1⟩𝑐𝑐)�|−1⟩𝑝𝑝� (3.9)  
+ |Ψ⟩2=1
+2 |0⟩𝑐𝑐|2⟩𝑝𝑝+1
+2 |1⟩𝑐𝑐|0⟩𝑝𝑝+1
+2 |0⟩𝑐𝑐|0⟩𝑝𝑝−1
+2 |1⟩𝑐𝑐|−2⟩𝑝𝑝            (3.10)    CHAPTER 4 SHIFT OPERATOR FOR QUANTUM RANDOM  
+WALK  
+ 
+ 
+In the one -dimensional quantum random  walk, the shift operator  is a key function that 
+manipulates the walker’s position state to go forward or backward according to the 
+condition of the coin state. In this chapter, we firstly describe a family of quantum 
+incrementer circuits derived by Li, et al. [26]. After that, we design a shift operator circuit 
+based on the idea of Li. Lastly, we verify the implementation of our designed shift 
+operator circuit.  
+ 
+4.1  Incrementer Circuits  
+Li, et al. [2 6] introduced the first quantum incrementer circuit with the notation (𝑎𝑎:0) 
+where n denotes the number of qubits, as shown in Figure 4.1. The operation of the 
+incrementer is to increment the value of the input state by one.  The gates presented in 
+the figure are the control -flip gates where the “ ⊕” signs represent the target qubit, and 
+the black dots represent the control qubits. The target qubit will be flipped if every 
+quantum state of the connected black- dot is |1⟩. 
+ 
+ 
+Figure 4.1  n -qubit incrementer  
+ 
+They also gave an example of a simple three- qubit incrementer circuit, as displayed in 
+Figure 4.2. After passing through the circuit, the input qubits |𝐴𝐴2𝐴𝐴1𝐴𝐴0⟩ become 
+�𝐴𝐴2+𝐴𝐴1+𝐴𝐴0+�. The state of � 𝐴𝐴2+𝐴𝐴1+𝐴𝐴0+� is obtained from Equations (4.1) -(4.3) where 
+“¬”, “*”, and “+” represent Boolean logic NOT, AND, and XOR gates, respectively. The 
+results of all possible three -qubit states are displayed in Table 4.1.  
+𝐴𝐴2+=𝐴𝐴2+𝐴𝐴1∗𝐴𝐴0      (4.1)  
+𝐴𝐴1+=𝐴𝐴1+𝐴𝐴0     (4.2)  
+𝐴𝐴0+=¬𝐴𝐴0       (4.3)  
+ 
+20 
+ 
+ 
+  
+Figure 4.2 A three -qubit incrementer gate  
+ 
+Table 4.1 The truth table of the three -qubit incrementer circuit  
+ 
+Input  |000⟩ |001⟩ |010⟩ |011⟩ |100⟩ |101⟩ |110⟩ |111⟩ 
+Output  |001⟩ |010⟩ |011⟩ |100⟩ |101⟩ |110⟩ |111⟩ |000⟩ 
+ 
+The quantum gate with more than two- control qubits, however, does not exist in the 
+common quantum computing operators. Thus, they generalized the incrementer ( 𝑎𝑎:0)  
+circuit into two circuit types, namely  (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅) and  (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅), that are 
+constructed from the standard quantum computing gates, including NOT, CNOT, and 
+Toffoli gates. Note that for the notion ( 𝐶𝐶:𝑀𝑀:𝑅𝑅𝑅𝑅/𝑅𝑅𝑅𝑅 ): 𝐶𝐶 denotes the number of  qubits, 
+𝑀𝑀 denotes  the number of carrying bits, and 𝑅𝑅𝑅𝑅 /𝑅𝑅𝑅𝑅 denotes the enabled/disabled reset 
+carry qubit . 
+ 
+The (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅) circuit is generalized from the ( 𝑎𝑎:0) circuit using the “full ancilla 
+qubits” technique. The main idea of this technique is to add one ancilla qubit between 
+every two control qubits. For the four -qubit incrementer circuit as an example, Figure 4.3 
+illustrates the ( 𝑎𝑎:0)  circuit where 𝑎𝑎=4 that consists of, from left to right, three -control -
+not, Toffoli, CNOT, and NOT gates. Fi gure 4.4 presents the reconstructions of the four -
+qubit incrementer circuit for the  ( 𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅)  notation using only Toffoli, CNOT, and 
+NOT gates. It can be seen in the figure that the input qubits |𝐴𝐴3𝐴𝐴2𝐴𝐴1𝐴𝐴0⟩ become 
+“�𝐴𝐴3+𝐴𝐴2+𝐴𝐴1+𝐴𝐴0+�” where 𝐶𝐶 𝑖𝑖 represents the ancilla qubit with 𝑖𝑖=0,1,2. However, due 
+to the unitary properties of quantum gates, the two adjacent mirror -images quantum gates 
+can be canceled out. The final circuit after the cancelation is then shown in Figure 4.5.  
+ 
+  
+Figure 4.3 Four-qubits incrementer circuit with notation (n:0)  
+21 
+ 
+ 
+  
+Figure 4.4 Four -qubits incrementer circuit reconstruction with Toffoli, 
+CNOT and NOT gates  
+ 
+Figure 4.5 Four -qubits incrementer circuit w ith notation (n:n- 1:RE) after 
+reducing two equivalent adjacent quantum gates  
+ 
+The ancilla qubits in the ( 𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅) circuit will always be reset to |0⟩ after being 
+transformed by CNOT or Toffoli gates. However, the ancilla qubits in the (𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅) 
+circuit will not be reset. The four -qubit incrementer circuit with the ( 𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅) 
+notation is shown in Figure 4.6.  
+ 
+ 
+Figure 4.6 Four -qubits incrementer circuit with notation (n:n -1: RD)  
+ 
+22 
+ 
+ 
+ According to X. Li , et al. [26], the comparison between the three notations was presented, 
+as shown in Table 4.2.  
+Table 4.2 The comparison among the notation 
+ 
+Type of the circuits  (𝑎𝑎:0) (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅) (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅) Before reduce  reduced  
+Amount of gates  n 2n 32n− 21n− 
+Number of 
+carried(ancilla) 
+qubits  0 1n− 1n− 1n− 
+Time Complexity  N/A 2()On  ()On  ()On  
+ 
+In addition, Li , et al. [26]  briefly mentioned a decrementer circuit that was constructed 
+from the multiple -control -not gates as displayed in Figure 4.7. The target qubits at the       
+“⊕” sign will be flipped when the qubits state at all connected white dots is 0.   
+ 
+ 
+Figure 4.7  n -qubit decrementer circuit  
+ 
+4.2  A Design of Shift Operator for Quantum Rand om Walk  
+In accordance with the incrementer and decrementer design presented by X. Li , et al. 
+[26], in this section we present the construction of the shift operator with the properties 
+of forward, backward, and conditional operator . 
+ 
+In order to build the forward, our proposed incrementor is newly designed based on the 
+idea of the incrementor with the notation (𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅). However, there are three main 
+differences between our design and the incrementor with the notation (𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅). 
+Firstly, in our design, the first 3 qubits can be placed next to each other without having 
+an ancilla qubit in between. Sec ondly, the number of required ancilla will only be 
+increased when the number of qubits is more than three. Thirdly, the number of required 
+gates were less than the previous approach. The comparison between our approach 
+𝑎𝑎𝑎𝑎𝑎𝑎  (𝑎𝑎:𝑎𝑎−1: 𝑅𝑅𝑅𝑅) is concluded i n Table 4.3. The incrementor circuit can be constructed 
+as shown in Figure 4.8.  
+23 
+ 
+ 
+ Table 4.3 The comparison between increment er and incrementer in this thesis  
+Type of the circuits  (𝑎𝑎:𝑎𝑎−1:𝑅𝑅𝑅𝑅) 
+reduced  In this thesis  
+Amount of gates  32n− 36n− 
+Number of carried 
+(ancilla) qubits  1n− 3; 4nn−≥  
+0 otherwise  
+Time Complexity  ()On  ()On  
+ 
+ 
+ 
+Figure 4.8 Four -qubits incrementer  circuit  
+ 
+For the backward, we apply a decrementer circuit to the shift operator. As shown in Figure 
+4.7, the decrementer is the opposite of the incrementer circuit. However, adding the 
+decrementer to the previous incrementer on the same circuits can generate a consider able 
+depth of the circuit. The idea of the classical complement operator is then adopted.  
+The classical complement operator can be classified into one’s complement and two’s 
+complement. The one’s complement is the operation that inverts all bits in a bit string 
+(turn 0s to 1s and vice versa). Two’s complement is the operator that performs one’s 
+complement process and adds the output by one. Equations (4.4) -(4.9) describe an 
+example of decrementing 0001 that should result in 0000:  
+ X = 0001          (4.4)  
+ X’1 complement = 1110       (4.5)  
+ X’2 complement = X’1 complement +1    (4.6)  
+ X’2 complement = 1110 +1       (4.7)  
+ X’2 complement = 1111       (4.8)  
+ If we one’s complement all bits again, the result will be 0000.  (4.9)  
+As the two’s complement has an addition by one, it then can take advantage of our 
+incrementor  circuit. For each of complement, we used the NOT gate that applies on all 
+24 
+ 
+ 
+ qubits. Then, the decrementer circuit can be constructed as shown in Figure 4.9. The gates 
+in the red boxes are responsibl e for the complement operations . 
+ 
+ 
+Figure 4.9 Four -qubits decrementer circuit  
+ 
+Further, the additional  operation  is applied by replacing  the NOT gate in the complement 
+operation with the CNOT gate where the coin qubit  is the control qubit . As 
+aforementio ned, the shift operator of the quantum random walk will be operated based 
+on the state of the coin. When the coin state is |0⟩, the condition of CNOT will not be 
+applied and the shift circuit will operate only the increment. When the coin state is  |1⟩, 
+on the other hand, the circuit operates the decrementer by initially flipping the target 
+qubits, performing the increment, and eventually flipping the qubits again. Our design of 
+the shift operator circuit is displayed in Figure 4.10, where 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents the coin state . 
+ 
+Figure 4.10 The conditional shift operator for four -qubit state  
+ 
+4.3  Shift Operator Circuit Verification  
+To verify our design of the conditional shift operator in the previous section, the quantum 
+random walk on the number line is s imulated. The probability distribution from the 
+measured final position state will be compared with the probability distribution from [11]  
+as shown in Figure 4.11.  
+25 
+ 
+ 
+  
+Figure 4.11 The probability distribution of one -dimensional quantum random 
+walk with Hadamard coin after 100 walks , starts at position 0  
+ 
+As displayed in Figure 4.11, the walking space required at least 100 positions to the left 
+and right of the starting point. The number line with possible 28 positions is then defined 
+as shown in Figure 4.12. Thus, eight qubits of the position state are needed along with 
+one qubit of the coin state. The experiment was run on the IBM’s quantum computer 
+simulator, “ Qasm_simulat or.”  
+Initially, the walker is placed at position 0 on the number line, which was mapped to the 
+|01111111 ⟩𝑝𝑝 position state , as shown in Figure 4.12. Figure 4.13 presents the initial 
+setup of the walk, where the |01111111 ⟩𝑝𝑝 position state can be mapped to the qubits as 
+|𝑞𝑞7,𝑞𝑞6,𝑞𝑞5,𝑞𝑞4,𝑞𝑞3,𝑞𝑞2,𝑞𝑞1,𝑞𝑞0⟩𝑝𝑝. The set of NOT gates are applied on the specific qubits to 
+initialize the starting point of the walker.  The 𝐶𝐶0, 𝐶𝐶1, 𝐶𝐶2, 𝐶𝐶3, and 𝐶𝐶 4 in Figure 4.13 are the 
+carried or ancilla qubits. 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents space of coin state. The state of the coin is 
+initiali zed with 1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐) because the compared distribution is  symmetric , as 
+demonstrated in Figure 4.11.   
+ 
+ 
+ 
+Figure 4.12 The number line with 82possible vertices  
+The Hadamard gate is selected as an operation of a coin operator because of the two 
+possible directions of the walk.  The shift operator is constructed from the design in 
+section 4.2. However, the shift operator was scaled up from the example in Figure 4.10 
+26 
+ 
+ 
+ by adding more position states and ancilla. The circuit with Hadamard coin and shift 
+operator is illustrated in Figure 4.14. During the execution, the coin and shift operators 
+are repeatedly operated one- hundred times, which are equal to the number of walking 
+steps.  
+ 
+  
+ 
+Figure 4.13 The initial set up o f walking with an eight- position state and one coin state  
+ 
+ 
+Figure 4.14  The coin and condition shift operator for walking on the number line 
+with eight- position states. The vertical dashed line separates the coin 
+and the shift operator . 
+ 
+27 
+ 
+ 
+ Figure 4.15 prese nts the probability distribution of our circuit implementation. The 
+probability distribution complies with the characteristic of probability distribution in the 
+previous literature  [11] as shown in Figure 4.11. Thus, we can conclude that our 
+conditional shift operator circuit can be used to simulate the one -dimensional quantum 
+random walk.  
+ 
+  
+ 
+Figure 4.15 The probability distribution of one -dimensional quantum random 
+walk with Hadamard coin after 100 walks starting from the 0 
+position.  
+  CHAPTER 5 EXPERIME NTAL RESULT AND DISCUSSION  
+ 
+ 
+In this section, we present experiments of one -dimensional quantum random walk on 
+quantum simulators and on the IBM’s quantum computer. All of the experiments are 
+conducted under the following environments:  
+- Rigetti Quil Compile r (quilc) version 1.12.1  
+- Rigetti Quantum Virtual Machine (QVM) version 1.12.0 
+- IBM Qiskit 0.13.0 
+o Qiskit- terra 0.10.0  
+o Qiskit- aer 0.3.2  
+- Python version 3.7.3  
+- Ubuntu version 19.04 
+- Virtual Machine Specification:  
+o 3 CPU Cores  
+o 4 GB of Memory  
+- Virtual Box Version 6.0.10 
+- Computer Specification:  
+o CPU: Intel I5 -6400, 2.70 GHz  
+o Memory: 16 GB, DDR 4 1066 MHz  
+The one -dimensional quantum random walk circuits in the experiments consist of 3 main 
+steps. Firstly, the initial walker and the coin state are set up. Secondly, the unitary operators, 
+including coin and conditional shift operators, are placed with multiple trials depend on the 
+number of walking steps. Lastly, the measurement operators are placed at the last operation 
+of each qubit position state. For all of the experim ents, the coin state is always initialized 
+with 1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐) using the  Hadamard and S gates .  
+Two main experiments have been executed. First, the benchmarking of quantum computer 
+simulators between IBM’s Qasm_simulator  and Rigetti’s QVM  using a one -dimensional 
+quantum random walk. Both of the quant um computer simulators operate under their default 
+configuration. Second, the execution of a one -dimensional quantum random walk on an 
+actual quantum computer. 
+ 
+5.1  A Benchmarking of Quantum Computer Simulators  
+The benchmarking is tested on the quantum com puter simulators from IBM and Rigetti with 
+4 different sizes, including 4, 5, 6, and 7 qubits position state, of the one -dimensional 
+quantum random walk. For each size, 6 circuits are tested. 2 circuits are made of the 
+common quantum gates from Qiskit’s qa sm_simulator and Rigetti’s QVM . The other 4 29 
+ 
+ 
+ circuits are built using the 4 different modes of the Qiskit’s Multi Control Toffoli function 
+and compute only on Qasm_simulator . 
+ 
+5.1.1 A Benchmarking on Four -qubit Quantum Random Walk  
+For the four -qubit position state, a walker can walk along the 24=16 possible positions on 
+the number line as displayed in Figure 5.1. Initially, the walker is placed at position 0 on the 
+number line, which was mapped to the |0111〉𝑝𝑝 position state. The walking step was set to 
+7 due to the capacity of the number line. 6 qubits and 4 classical bits are used in this 
+experiment. The position state uses 4 qubits, while the coin state uses 1 qubit. The last qubit 
+is used for an ancilla in the shift operator. As shown in Figure 5.2, 𝑞𝑞0,𝑞𝑞1,𝑞𝑞2 and 𝑞𝑞3 represent 
+the qubit for the position states, 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents the qubit for the coin, and 𝐶𝐶0 represents an 
+ancilla. For the initialization process, the NOT gates are ap plied to the 𝑞𝑞0,𝑞𝑞1,  and 𝑞𝑞2 qubits 
+so that the initial position state becomes |0111〉𝑝𝑝. The Hadamard  and S gates are applied 
+to initial the coin state to 1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐). Figure. 5.3 illustrates the shift operator for 
+walking on the four -qubit position state.  
+ 
+ 
+ 
+Figure 5.1 The number line of a one -dimension quantum random walk with four 
+qubits position state  
+ 
+  
+ 
+Figure 5.2 The initial set up of walking with a four -position state and one coin state  
+30 
+ 
+ 
+ The one -dimensional quantum random walk circuit is composed of the initialization gates, 
+seven (as the maximum walking steps) sequential sets of the coin and shift operators, and 
+the measurement operators. The measurement operators are only applied to the 𝑞𝑞0,𝑞𝑞1,𝑞𝑞2 
+and 𝑞𝑞3 qubits at the very last step. In the modification with MCT, the MCT with 4 modes 
+of operation will replace the circuit in the red square in Figure 5.3. The initialization and the 
+measurement are still the same. To make a re asonable comparison, the walking process is 
+performed 100,000 times on each quantum computer simulator. The computing wall -time, 
+which is the time spent for the computation, is collected at every 1,000 measurement shots. 
+Therefore, 100 computing wall -times  are kept.  
+ 
+ 
+ 
+Figure 5.3 The conditional shift operator for four -qubit state and the position of 
+MCT modification (in the square)  
+ 
+ 
+Figure 5.4 The probability distributions of four -qubit position state one -
+dimensional quantum random walk with 7 walking s teps 
+00.20.4
+-7-6-5-4 -3 -2 -1 0 1 2 3 4 5 67The Probablity distributions from four qubit position state one -
+dimensional quantum random walk with 7 walking steps
+Qiskit Common Gates Rigetti Common Gates
+MCT-Basic MCT-Basic-Dirty-Ancilla
+MCT-Advanced MCT-NoAncilla31 
+ 
+ 
+ Figures 5.4 display the probability distributions of the measured results from the 100,000 
+walking processes performed on the Qiskit’s Qasm_simulator  and Rigetti’s QVM using the 
+quantum circuits with common gates and and Qiskit’s with MCT functions. T he results from 
+the measurements show that the probability distributions from the two quantum computer 
+simulators and four -mode of MCT function are similar. Moreover, both probability 
+distributions agree with the theory that the distribution should be symm etrically spread for 
+this experimental setting. However, the computing wall -times on the two quantum computer 
+simulators are significantly different, as shown in Table 5.1. The computing wall -time from 
+the Qasm_simulator  is remarkably less than the wall -time from the QVM . The discussion 
+on this issue will be given in Section 5.1.5.2. 
+ 
+Table 5.1 The analysis of wall -time from running the quantum random walk on four -qubit 
+position state on the number line between IBM’s Qasm_simulator  and Rigetti’s 
+QVM  
+ 
+ Commo n quantum gates  MCT  
+ Qasm_simulator  QVM  Basic  Basic -
+Dirty -
+Ancilla  Advanced  NoAncilla  
+Mean  0.093  11.395  0.166  0.239  0.207  0.291  
+S.D. 0.004  0.856  0.012  0.0096  0.007  0.0094  
+Median  0.092  11.051  0.162  0.237  0.206  0.288  
+Circuit 
+Depth  99 99 175 316 225 323 
+Ancilla  1 1 1 1 0 0 
+ 
+5.1.2 A Benchmarking on Five- qubit Quantum Random Walk  
+In this experiment, the size of the position state is extended to five qubits. Figure 5.5 displays 
+the number line with 25=32 walking positions. The maximum number of walking s teps is 
+increased to 15 because of the number line expansion. The walker is, again, initialized at 
+position 0 represented by the |01111〉𝑝𝑝 position state. The coin state at initializing is 
+1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐). This experiment requires 8 qubits, as shown in Figure 5.6, where 
+𝑞𝑞0,𝑞𝑞1,𝑞𝑞2,𝑞𝑞3 and 𝑞𝑞4 represent the position state, 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents the coin state, and 𝐶𝐶0,𝐶𝐶1  
+represent two ancilla qubits. The extra ancilla is required as the shift operator for the five -
+qubit position state has to be redesigned. The shift operator for the four -qubit position state 
+is expanded by adding one ancilla and multiple Toffoli gates, as demonstrated in Figure 5.7. 
+In this experiment, the one -dimensional quantum random walk circui t for the five -qubit 
+position state is composed of the initialization gates, fifteen duplicated sets of the coin and 32 
+ 
+ 
+ shift operators, and the measurement operator at the end of the circuit. Again, the MCT with 
+4 modes of operation will replace the circuit in the red square in Figure 5.7. The initialization 
+and the measurement are still the same. In a similar manner, the walking process is executed 
+100,000 times, and the computing wall -time is collected at every 1,000 measurement shots . 
+ 
+ 
+ 
+Figure 5.5 T he nu mber line of a one -dimension quantum random walk with five 
+qubits position state  
+ 
+  
+ 
+Figure 5.6  The initial set up of walking with a five -position state and one coin state  
+ 
+ 
+ 
+Figure 5.7 The coin and condition shift operator for walking on the number line  with five -
+position states; the vertical dashed line separates the coin and the shift 
+operator  
+33 
+ 
+ 
+ Figures 5.8 displays the probability distributions of the measured results from the 100,000 
+walking processes performed on the Qiskit’s Qasm_simulator  and Rigett i’s QVM using the 
+quantum circuits with common gates and and Qiskit’s with MCT functions. Same as the 
+previous experiment,  the probability distributions from the two quantum computer 
+simulators and four -mode of MCT functions are similar and are consistent  with the theory .  
+The computing wall -times on the two quantum computer simulators, however, are different 
+as shown in Table 5.2. The computing wall -time from the Qasm_simulator  is still less than 
+the wall -time from the QVM . Moreover, according to further i nvestigation into the 
+relationship between circuit depth and computing wall -time, it was found that the circuit 
+composed of the MCT function with Advanced mode spent more computation time than the 
+circuit MCT function with Basic -Dirty -Ancilla mode although  the Advanced mode has 
+smaller circuit depth. More details on this issue will be discussed in Section 5.1.5.3.  
+ 
+  
+ 
+Figure 5.8 The probability distributions of five -qubit position state one -
+dimensional quantum random walk with 15 walking steps  
+ 
+ 
+00.050.10.150.20.25
+-15 -13 -11 -9 -7 -5 -3-1 13579111315The Probability distributions from five qubit position state one -
+dimensional quantum random walk with 15 walking steps
+Qiskit Common Gates Rigetti Common Gates MCT-Basic
+MCT-Basic-Dirty-Ancilla MCT-Advanced MCT-NoAncilla34 
+ 
+ 
+ Table 5.2 The analysis of wall -time from running the quantum random walk on five -qubit 
+position state on the number line between IBM’s Qasm_simulator  and Rigetti’s 
+QVM  
+ 
+ Common quantum gates  MCT 
+ Qasm_simulator  QVM  Basic  Basic -
+Dirty -
+Ancilla  Advanced  NoAncilla  
+Mea n 0.261  114.181  0.512  1.207  1.374  1.593  
+S.D. 0.014  0.962  0.018  0.054  0.035  0.039  
+Median  0.26 114.074  0.510  1.190  1.367  1.584  
+Circuit 
+Depth  270 270 885 1605 1380 1770 
+Ancilla  2 2 2 2 0 0 
+ 
+5.1.3 A Benchmarking on Six -qubit Quantum Random Walk  
+In this ex periment, the position state is increased to six qubits. The space on the number line 
+is also extended to 26 walking positions as shown in Figure 5.9. Then, The maximum 
+number of walking steps is increased to 31. The walker starts on position 0 with the 
+|011111〉𝑝𝑝 position state . The initialization of the coin state is still 1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐). The 
+total number of a required qubit is 10, including 6 qubits for the position state, 3 qubits for 
+the ancilla, and 1 qubit for the coin. The init ialization of the circuit can be seen in Figure 
+5.10 where  𝑞𝑞 0,𝑞𝑞1,𝑞𝑞2,𝑞𝑞3,,𝑞𝑞4 and 𝑞𝑞5 represent the position state, 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents the coin 
+state, and 𝐶𝐶 0,𝐶𝐶1𝑎𝑎𝑎𝑎𝑎𝑎  𝐶𝐶2  represent 3 ancilla qubits. Again, the shift oper ator for the six -
+position state has to be redesigned by adding ancilla  𝐶𝐶 2 and multiple Toffoli gates as 
+illustrated in Figure 5.11. Similar to the previous experiments, the MCT with 4 modes of 
+operation will replace the circuit in the red square in Fi gure 5.11. The initialization and the 
+measurement are the same as before.  
+ 
+ 
+ 
+Figure 5.9 T he number line of a one -dimension quantum random walk with six 
+qubits  position state  
+ 
+35 
+ 
+ 
+   
+ 
+Figure 5.10 The initial set up of walking with a six -position state and one  coin- state 
+ 
+Figure 5.12 illustrates the probability distributions of the measured results from the 100,000 
+walking processes performed on the Qiskit’s Qasm_simulator  and Rigetti’s QVM using the 
+quantum circuits with common gates and and Qiskit’s with MCT functions. Unsurprisingly, 
+the results from the measurements show that the probability distributions from the two 
+quantum computer simulators and four modes of MCT function are similar. Moreover, both 
+probability distributions are consistent with the theor y. The computing wall -times on the 
+two quantum computer simulators are still different, as shown in Table 5.3. The computing 
+wall-time from the Qasm_simulator  is also less than the wall- time from the QVM .  
+ 
+ 
+ 
+Figure 5.11 The coin and condition shift opera tor for walking on the number line with 
+six-position states. The vertical dash line separated between coin and shift 
+operator  
+36 
+ 
+ 
+  
+ 
+ 
+Figure 5.12 The probability distributions of six -qubit position state one -dimensional 
+quantum random walk with 31 walking steps  
+ 
+Table 5.3 The analysis of wall -time from running the quantum random walk on six -qubit 
+position state on the number line between IBM’s Qasm_simulator  and Rigetti’s 
+QVM  
+ 
+ Common quantum gates  MCT  
+ Qasm_simulator  QVM  Basic  Basic -
+Dirty -
+Ancilla  Advanced  NoAncilla  
+Mean  0.637  1617.956  1.369  4.234  5.107  7.473  
+S.D. 0.021  38.484  0.064  0.162  0.198  0.186  
+Median  0.633  1596.643  1.345  4.148  5.016  7.442  
+Circuit 
+Depth  682 682 3317  6108  4619  8370  
+Ancilla  3 3 3 3 1 0 
+ 
+00.020.040.060.080.10.120.14
+-27
+-25
+-23
+-21
+-19
+-17
+-15
+-13
+-11
+-9
+-7
+-5
+-3
+-1
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+27The Probability distributions from six qubit position state one -dimensional 
+quantum random walk with 31 walking steps
+Qiskit Common Gates Rigetti Common Gates MCT-Basic
+MCT-Basic-Dirty-Ancilla MCT-Advanced MCT-NoAncilla37 
+ 
+ 
+ 5.1.4 A Benchmarking on Seven -qubit Quantum Random Walk  
+In order to achieve robust experimental  results, the size of the examination circuit is 
+increased to 7. With the extended size, the total position on the number line is escalated to 
+27, as displayed in Figure 5.13. The number of walking steps i s 63. The walker starts at 
+position 0 with the position state |0111111 〉𝑝𝑝. The initial coin state is 1
+√2(|0⟩𝑐𝑐+𝑖𝑖|1⟩𝑐𝑐). The 
+circuit is then constructed by 12 qubits, including 7 qubits -position- state, 4 qubits -ancilla, 
+and 1 qubit -coin-state. The circuit initialization can be seen in Figure 5.14, 
+𝑞𝑞0,𝑞𝑞1,𝑞𝑞2,𝑞𝑞3,𝑞𝑞4,𝑞𝑞5 and 𝑞𝑞6 represent the position states; 𝐶𝐶𝑇𝑇𝑖𝑖𝑎𝑎  represents the coin state; and 
+𝐶𝐶0,𝐶𝐶1,𝐶𝐶2𝑎𝑎𝑎𝑎𝑎𝑎  𝐶𝐶3  represent 4 the Ancilla qubits. Again, 4 modes of MCT function will 
+replac the quantum gate in the red rectangular as illustrated in Figure  5.15.  
+ 
+ 
+ 
+Figure 5. 13 The number line of a one -dimension quantum random walk with 
+seven qubits  position state  
+ 
+ 
+ 
+Figure 5.14 The initial set up of walking with a seven -position state and one coin- state 
+38 
+ 
+ 
+  
+ 
+Figure 5.15 The coin and condition shift operator for walking on the number line with 
+seven -position states. The vertical dash line separates the coin from the shift 
+operator  
+ 
+Figure 5.16 displays t he probability distributions of the measured results from the 100,000 
+walking processes performed on the Qiskit’s Qasm_simulator  and Rigetti’s QVM using the 
+quantum circuits with common gates and and Qiskit’s with MCT functions. Like the 
+previous 3 sizes, the probability distributions from the two quantum computer simulators 
+and 4 MCT function modes  are similar. Furthermore, the characteristic of the distribution is 
+symmetrically spread from the starting point. Still, the computing wall- time between IBM 
+and Rigetti quantum computer simulator is different.  
+ 
+Figure 5.16 The probability distributions of seven- qubit position state one -dimensional 
+quantum random walk with 63 walking steps  
+00.050.1
+-51
+-47
+-43
+-39
+-35
+-31
+-27
+-23
+-19
+-15
+-11
+-7
+-3
+1
+5
+9
+13
+17
+21
+25
+29
+33
+37
+41
+45
+49The Probability distributions from seven qubit position state one -
+dimensional quantum random walk with 63 walking steps
+Qiskit Common Gates Rigetti Common Gates MCT-Basic
+MCT-Basic-Dirty-Ancilla MCT-Advanced MCT-NoAncilla39 
+ 
+ 
+ Table 5.4 The analysis of wall -time from running the quantum random walk on seven -
+qubit position state on the number line between IBM’s Qasm_simulator  and 
+Rigetti’s QVM  
+ 
+ Common quantum gates  MCT  
+ Qasm_simulator  QVM  Basic  Basic -
+Dirty -
+Ancilla  Advanced  NoAncilla  
+Mean  1.42 10908.271  3.268  12.65  19.171  30.537  
+S.D. 0.029  36.558  0.038 0.194  0.244  0.25 
+Median  1.412  10913.062  3.261  12.605  19.155  30.535  
+Circuit 
+Depth  1641  1641  10650  19848  18840  36669  
+Ancilla  4 4 4 4 2 0 
+ 
+5.1.5 Experimental Discussion  
+This section discusses the results from Section 5.1.1 -  5.1.4 based on 3 following points: the 
+average probability distribution, the computing wall -time, and the relationship between the 
+circuit depth and the computing wall -time.  
+ 
+5.1.5.1 Probability Distribution  
+Considering the position state with the same number of qubits, the probability distributions, 
+as displayed in Figures 5.4, 5.8, 5.12, and 5.16, from different circuit implantations have 
+similar trend. The probability distributions consistency proves that one -dimensional 
+quantum random walk circuits, which are computed on Qiskit ’s Qasm_simulator  and 
+Rigetti’s QVM , correspond to the theory in Section 3.2. However, peaks of the graph at the 
+same position on the number line are slightly different, as shown in Figure 5.17. It might be 
+assumed that the difference was occurred from a d eviation from the average measurement 
+values . The different trials of measurement are then conducted for a further analysis. Two 
+additional experiments with 50 and 150- thousand shots are computed and measured. The 
+results show that the difference among pe aks still exists; the difference might due to the 
+deviation.  
+ 
+ 
+Figure 5.17 The peak of position - 43 from seven- qubit position state walk  
+40 
+ 
+ 
+ 5.1.5.2 Computing wall -time (Qasm_simulator  vs QVM ) 
+For the identical circuits computed on IBM’s Qasm_simulator  and Rigetti’s QVM , the 
+computing wall -times are significantly distinct as illustrated in Figure 5.18. Note that the 
+average computing wall -time from Qasm_simulator  and QVM  are shown, respectively, on 
+the primary (left side) and secondary (right side) vert ical axes.  
+ 
+Although the computing circuits are equivalent, the computing architectures of the two 
+simulators are dissimilar. Both quantum computer simulators need to be analyzed. 
+Unfortunately, both simulator are displayed with a binary file format, which is human 
+unreadble file. Therefore, the detail of a circuit execution cannot be received by the source 
+code analysis. We then try to study program documents from both simulators. However, the 
+documents are not described in the detail of the circuit execut ion. Hence, resource utilization 
+are inspected. Both simulators use 100% of single core CPU. For a memory usage, QVM 
+takes 7.2% and Qasm_simulator  takes 5.2% when computing the circuit. In the aspect of 
+compiled programming language, moreover, the two simulators use different lanuguages. 
+As described in Section 2.3, the python program for the Qasm_simulator  is compiled into a 
+Qasm instruction set. The Qasm program is constructed from C++ programming language 
+to computes on the Qasm_simulator . Differently, t he python program for the QVM  is 
+compiled into a native Quilc. The native Quil program is constructed from Lisp 
+programming language to be computed on the QVM . As mentioned, both of the quantum 
+computer simulators are computed with the default configuration. Then, with the difference 
+of underlying programming language of the simulator, the computing wall -time from the 
+identical circuit on different platforms can be different .  
+ 
+ 
+Figure 5.18 The computing wall -time from Qisk it and Rigetti quantum computer 
+simulator  0.0930.2610.6371.42
+11.395
+114.1811617.95610908.271
+020004000600080001000012000
+00.20.40.60.811.21.41.6
+4 qubits 5 qubits 6 qubits 7 qubitsComputing wall -time (second)
+Size of qubit position stateAverage Computing wall -time
+Qiskit common gates Rigetti common gates (Secondary Axis)41 
+ 
+ 
+ 5.1.5.3 Circuit Types Vs Circuit Depth and Computing Wall -time  
+The circuit depths on each size of the one -dimensional quantum random walk are various 
+as it depends on the depth of the conditional shift operator. In our experiments, 5 different 
+types of conditional shift operators are used, including common quantum gates and 4 modes 
+of MCT. However, the circuit depths of circuits that are made up of the common gates and 
+run on the Qasm_simulator  and QVM  are equivalent because those circuits are identical. In 
+this section, the discussion then focuses only on the results from Qasm_simulator  because 
+MCT is a special function of Qiskit.  
+Figures 5.19 – 5.22 show the computed circuit depth (on the primary  vertical axis) and the 
+computing wall -time (on the  secondary vertical axis ) of the 4- , 5-, 6-, and 7- qubit position 
+state circuits, respectively. The circuit modes (on the horizontal axis) are sorted in an 
+increasing order of the circuit depths, which are the same for all sizes of the position state, 
+as: common gates (Toffoli -CNOT -NOT), MCT -Basic, MCT -Advanced, MCT -Basic -Dirty -
+Ancilla, and MCT -NoAncilla. It can be observed that the computing wall -time tends to 
+increase when the circuit depth is growing. However, on the 5- , 6-, and 7- qubit position 
+state in  Figures 5.20 -5.21, the pair of computing wall -time and circuit depth from MCT -
+Advanced and MCT -Basic -Dirty -Ancilla present a contradictory fashion. Even though the 
+circuit depths of using MCT -Advance are smaller than those using the MCT -Basic -Dirty -
+Ancilla, the MCT -Advance’s computing wall -times are longer than MCT -Basic -Dirty -
+Ancilla.  
+ 
+ 
+ 
+Figure 5.19 The circuit depth and computing wall -time of 4 -qubit position state for each 
+type of conditional shift operator  99175225316 323
+0.0930.1660.2070.2390.291
+00.050.10.150.20.250.30.35
+050100150200250300350
+Computing Wall -timeCircuit Depth4-qubit position state
+Circuit Depth Computing Wall-time42 
+ 
+ 
+  
+ 
+Figure 5.20 The circuit depth and computing wall -time of 5 -qubit position state for each 
+type of conditional shift operator  
+ 
+ 
+Figure 5.21 The circuit depth and computing wall -time of 6 -qubit position state for each 
+type of conditional shift operator  
+ 2708851380 16051770
+0.2610.5121.3741.2071.593
+00.20.40.60.811.21.41.61.8
+0200400600800100012001400160018002000
+Computing Wall -TimeCircuit Depth5-qubit position state
+Circuit Depth Computing Wall-time
+6823317461961088370
+0.637
+1.3695.107
+4.2347.473
+012345678
+0100020003000400050006000700080009000
+Computing Wall -timeCircuit Depth6-qubit position state
+Circuit Depth Computing Wall-time43 
+ 
+ 
+  
+ 
+Figure 5.22 The circuit depth and computing  wall-time of 7 -qubit position state for each 
+type of conditional shift operator  
+For further investigation, all the implemented circuits are transformed into a circuit that 
+contains only a single -qubit (𝑈𝑈3) and two -qubits gate ( 𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶 ). According to Kobayashi  
+[27], the quantum circuit can be reassembled into a circuit that contains only those 
+fundamental gates. The transformations are done using a function provided by IBM .  
+After the compilation and execution, the probability distribution from each circ uit type is 
+similar to its previous version. However, the computing wall -time seems not to depend on 
+the circuit depth. For example, in the four -qubit position state as displayed in Figure 5.23, 
+the MCT -Basic -Dirty -Ancilla has more depth than the common- quantum -gate circuit, but 
+the MCT -Basic -Dirty -Ancilla circuit spends less time in computation. The inconsistency 
+also occurs in comparing other types of the circuit with each size of qubit position state as 
+shown in Figures 5.24 – 5.26. Note that the order of circuit modes on the horizontal axis is 
+changed due to the circuit depth after unrolling the circuits .   
+ 16411065018840
+1984836669
+1.42 3.26819.17112.6530.537
+05101520253035
+0500010000150002000025000300003500040000
+Computing Wall -timeCircuit Depth7-qubit position state44 
+ 
+ 
+  
+ 
+Figure 5.23 The circuit depth and computing wall -time of 4 -qubit position state for each 
+type of conditional shift operator after unrolling the c ircuit  
+ 
+ 
+ 
+Figure 5.24 The circuit depth and computing wall -time of 5 -qubit position state for each 
+type of conditional shift operator after unrolling the circuit  346304 3813744370.33
+0.2620.27 0.324 0.323
+00.050.10.150.20.250.30.35
+0200400600
+Computing wall -timeCircuit Depth4-qubit position state (Unrolled)
+Circuit Depth Computing Wall-time
+1113129317431878
+2763
+1.199
+0.8381.148
+1.6162.06
+00.511.522.5
+050010001500200025003000
+Computing wall -timeCircuit Depth5-qubit position state (Unrolled)
+Circuit Depth Computing Wall-time45 
+F
+igure 5.25 The circuit depth and computing wall -time of 6 -qubit position state for each  
+type of conditional shift operator after unrolling the circuit 
+F
+igure 5.26 The circuit depth and computing wall -time of 7 -qubit position state for each 
+type of conditional shift operator after unrolling the circuit 32584436638985909489
+3.3472.314.0637.2617.825
+0123456789
+010002000300040005000600070008000900010000
+Computing Wall -timeCircuit Depth6-qubit position state (Unrolled)
+Circuit Depth Computing Wall-time
+857113485
+204153711038433
+8.9076.19613.48932.627
+33.706
+0510152025303540
+050001000015000200002500030000350004000045000
+Computing Wall -timeCircuit Depth7-qubit position state (Unrolled)
+Circuit Depth Computing Wall-time46 
+ 
+ 
+ 5.1.5.4 Size of Qubit Position Stat e Vs Circuit Depth and Computing Wall -time (on 
+different circuit Types)  
+Instead of studying the relation between the circuit depth and the computing wall -time of 
+the different circuit types, this section discusses another aspect of the that relation. The 
+analysis of circuit depth and computing wall -time for the same type of conditional shift 
+operator shows intriguing relation.  For the same type of conditional shift operator, the 
+computing wall -time increases as the circuit depth is increasing as demonstrated in Figures 
+5.27 – 5.31. A curve fitting for each graph is also presented.  
+From the graph fittings, both the computing wall -time and the circuit depth from the circuit 
+that constructed from Toffoli -CNOT -NOT show a positive polynomial trend with the 
+chang e in number of qubits position state. For the MCT -Advanced and MCT -NoAncilla, 
+both the computing wall -time and the circuit depth present an exponential growth with the 
+change in number of qubits position state. For the MCT -Basic and MCT -Basic -Dirty -
+Ancilla , the number of qubits position state has a positive polynomial trend with the 
+computing wall -time, while having an increasing exponential trend with the circuit depth.  
+It can then be concluded that when the number of qubits position state increases, the circuit  
+constructed from Toffoli -CNOT -NOT will have the lowest amount of both computing wall -
+time and circuit depth acco rding to their polynomial trends.  
+ 
+ 
+ 
+Figure 5.27 The circuit depth and computing wall -time of Toffili- CNOT -NOT conditional 
+shift opera tor for each size of qubit position state  
+ 992706821641
+0.093
+0.2610.6371.42
+R² = 0.9967R² = 0.9981
+00.511.5
+0500100015002000
+4 Qbits 5 Qbits 6 Qbits 7 Qbits
+Computing Wall -timeCircuit DepthToffoli -CNOT -NOT before unrolled
+Circuit Depth Computing Wall-time
+Poly. (Circuit Depth) Poly. (Computing Wall-time)47 
+ 
+ 
+  
+ 
+Figure 5.28 The circuit depth and computing wall -time of MCT -Basic conditional shift 
+operator for each size of qubit position state  
+ 
+ 
+ 
+Figure 5.29 The circuit depth and computing wall -time of MCT -Basic -Dirty -Ancilla 
+conditional shift operator for each size of qubit position state  175885331710650
+0.1660.5121.3693.268
+R² = 0.9944R² = 0.9976
+00.511.522.533.5
+02000400060008000100001200014000
+4 Qbits 5 Qbits 6 Qbits 7 Qbits
+Computing Wall -timeCircuit DepthMCT -Basic
+Circuit Depth Computing Wall-time
+Expon. (Circuit Depth) Poly. (Computing Wall-time)
+316
+1605610819848
+0.2391.2074.23412.65
+R² = 0.9947R² = 0.9942
+02468101214
+02000400060008000100001200014000160001800020000
+4 Qbits 5 Qbits 6 Qbits 7 Qbits
+Computing Wall -timeCircuit DepthMCT -Basic -Dirty -Ancilla
+Circuit Depth Computing Wall-time
+Expon. (Circuit Depth) Poly. (Computing Wall-time)48 
+F
+igure 5.30 The circuit depth and computing wall -time of MCT -Advanced conditional shift 
+operator for each size of qubit position state 
+F
+igure 5.31 The circuit depth and computing wall -time of MCT -NoAncilla conditional shift 
+operator for each size of qubit position state 2251380461918840
+0.2071.3745.10719.171 R² = 0.993
+R² = 0.9912
+05101520
+0500010000150002000025000
+4 Qbits 5 Qbits 6 Qbits 7 Qbits
+Computing Wall -timeCircuit DepthMCT -Advanced
+Circuit Depth Computing Wall-time
+Expon. (Circuit Depth) Expon. (Computing Wall-time)
+3231770837036669
+0.291
+1.5937.47330.537
+R² = 0.999R² = 0.9982
+05101520253035
+050001000015000200002500030000350004000045000
+4 Qbits 5 Qbits 6 Qbits 7 Qbits
+Computing Wall -timeCircuit DepthMCT -NoAncilla
+Circuit Depth Computing Wall-time
+Expon. (Circuit Depth) Expon. (Computing Wall-time)49 
+5
+.1.5.5 The relation between computing wall -time and circuit depth  
+In this section, the relationships between circuit depth and computing wall -time are 
+analyzed . As illustrated in Figure 5.32, it can be obviously seen that the computing wall -
+time and circuit depth have a linear relationship. The increasing rates, however, are different 
+for each type of conditional shift operator. An increasing rate value presents  the growth of 
+the computing wall -time when the circuit depth is increasing, as shown in Table 5.5. For the 
+same size of qubit position state, MCT -Advanced is the type that has more circuit depth and 
+computing wall -time. However, the increasing rate is equ al to the MCT -NoAncilla. The 
+highest increasing rate among all types is the circuit constructed with Toffoli- CNOT -NOT. 
+Nonetheless, for the same size of qubit position state, the circuit with Toffoli- CNOT -NOT, 
+still takes less time than other type of conditional shift operator. 
+F
+igure 5.32 The conclusion of a relation between circuit depth and computing wall -time 
+for each type of conditional shift operator 0510152025303540
+0 5000 10000 15000 20000 25000 30000 35000 40000 45000Computing wall -time
+Circuit Depth
+Toffoli-CNOT-NOT MCT-Basic MCT-Basic-Dirty-Ancilla
+MCT-Advanced MCT-NoAncilla50 
+ 
+ 
+ Table 5.5 The increasing rate of the computing wall -time from the circuit depth in Figure 
+5.32 
+ 
+Circuit types  Computing wall -time increasing rate  from  
+the Circuit depth  
+Toffoli -CNOT -NOT  0.001  
+MCT -Basic  0.0005  
+MCT -Basic -Dirty -Ancilla  0.0007  
+MCT -Advanced  0.0009  
+MCT -NoAncilla  0.0009  
+ 
+5.2  A Quantum Random Walk Computing on Quantum Computer  
+In this experiment, 4 different sizes of quantum random walk circuits, which are including 
+4, 5, 6, and 7 qubits position state, are computed on the real IBM’s quantum computer, 
+named IBM_Q_16_Melbourne . The objective of this study is to find a possibility to c ompute 
+quantum circuits on the actual quantum computer.   
+The circuits in this experiment are identical to those in Section 5.1. T he 5 different shift 
+operator settings including common quantum gate, MCT -basic, MCT -basic -dirty -ancilla, 
+MCT -advanced, and MC T-noancilla, are adopted. The coin operator is the Hadamard 
+operator. The measurement operators are placed at the last operator on each qubit position 
+state. The measurement shots are 8192, which is the maximum number of ther measurement 
+shots from  IBM_Q_1 6_Melbourne. The walking steps for the circuit with 4, 5, 6, and 7 
+qubits position states are 7, 15, 31, and 63, respectively.  
+ 51 
+F
+igure 5.33 The probability distribution of four -qubits positi on state from each 
+computation  
+T
+o compute on ibm_q_16_melbourne , all circuits are submitted to the quantum computer 
+by Qiskit’s framework. The measurement results are then returned and the probability 
+distribution from the measur ement results was collected and displayed . As shown in Figure 
+5.33, blue line  represents  the probability distribution from ibm_q_16_melbourne , red line  
+represents the probability distribution from quantum computer simulator without noise model, grey line represents the probability distribution from quantum computer simulator 
+with noise model and 8192 measurement shots, orange line  represents the probability 
+distribution from quantum computer simulator with noise model and 100 million measurement shots.  However, only the measurement results from the 4- qubits position state 
+are returned from the  computation, while the other circuit’s size return the 8020 error code. 
+According to Qiskit’s document, the error 8020 is related to a longer circuit depth than the 
+quantum computer's capability.  
+As illustrated in Figure 5.33, the returned probability distribution (the blue line) from 
+ibm_q_16_melbourne  is inconsistent with the results from the simulator (the red line). The 
+inconsistency could come from the noise that occurred in the real quantum computer 00.050.10.150.20.25
+-7 -6 -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8Probability distribution from MCT -Basic computed on 
+IBMQ_16_Melbourne VS Simulator
+IBMQ_16_Melbourne Simulator Noise-Model-8192 Noise-Model-100M52 
+ope
+ration. To investigate further, the ibm_q_16_melbourne ’s noise model was imported into 
+Qasm_simulator . The circuits are computed again with 8,192 measurement shots. The 
+probability distribution from the results (the grey line) is, however, still similar to the 
+distribution from ibm_q_16_melbourne . Then, the measurement shots are increased to 100 
+million. The probability distribution is still in the same manner.  Therefore, it might be 
+concluded that noise is the variable that makes the probability distribution from the quantum 
+computer different from the simulator.  CHAPTER 6 CONCLUSION  
+Q
+uantum computing is one of the solutions that might break the limitation of computational 
+power. Many quantum algorithms have been invented. Some of them have proved to be better 
+than the classical algorithms when so lving the same size and complexity of problems. In 
+quantum computing, qubits are used to store information. A qubit can be in |0⟩, |1⟩, or the 
+superposition state. Moreover, the multiple qubits can be joined together by a tensor product. The measuremen t operator can be applied to acquire the state of the qubit.  After the 
+measurement, the state of qubit will be projected to the measurement basis. To process 
+qubit’s information, a unitary transformation can be performed by employing quantum gates 
+to qubits. For more complex computations, a collection of quantum gates can be used to 
+construct a quantum circuit.  
+F
+or quantum computing devices, several technologies can be used to construct a quantum 
+processing unit. In this thesis, the computation are performed on the quantum devices using 
+superconducting technology from IBM and Rigetti. These two companies have quantum 
+processing units that are publicly available to researchers and also have complete  documents. 
+Moreover, the two companies provide an SDK to communicate between a programming 
+language and the quantum processing unit. Qiskit and Forest are the quantum computing 
+SDK provided by IBM and Rigetti respectively.   
+A
+ccording to the literature, a quantum random walk is an analog to the classical random  
+walk, which can be a tool to construct many other quantum algorithms. The shift operator is 
+a significant part of the quantum random walk that operates to move the walker position. To 
+construct a shift operator, the quantum circuit, which can operate as a n incrementor and 
+decrementer, is designed. The special function from IBM’ Qiskit is explored as an alternative 
+shift operator construction. 
+I
+n this thesis, the one -dimensional quantum random walk algorithm is studied . The walking 
+space, coin, and shift operators of the one-dimensional quantum random walk are analyzed . 
+After that , the circuit of the one -dimensional quantum random walk is implemented . The 
+shift operator  is inspired by the incrementer circuit proposed by  Li, et al. in 2013. Moreover, 
+the different shift operators are constructed using  Qiskit’s  MCT function with 4 distinct  
+modes, namely Basic, Basic- Dirty -Ancilla, Advanced, and No Ancilla . Then, our shift 
+operator s are verified  by setting up a quantum random walk calculation. The probability 
+distribution s obtained  from testing the shift operator s were consistent with one in the research 
+paper by  Kempe in 2003. 54 
+T
+he benchmarking in IBM and Rigetti’s quantum computer simulators are performed using 
+the implemented quantum random walk circuit. The benchmark uses 4 sizes of the one -
+dimensional quantum random walk. For the equivalent position state size, the results show 
+that they are not significantly different in the probability distributions measured from the two quantum computer simulators and four  modes of the MCT function. For the computing wall -
+time, the results
+ demonstrate that the computing wall -time depends on the circuit depth. 
+However, even with the identical circuit depth, the computing wall -time on the different 
+quantum computer simulators  can be contrasted. From multiple trials, the results show that 
+the computing wall -time of IBM’s quantum computer simulator is significantly less than 
+Rigetti’s.  Both quantum computer simulators are operated with the binary execution; 
+therefore, the actual  cause that accounts for the difference cannot be accurately defined .  
+The relationship between circuit depth and the number of qubits position state is observed on IBM’s quantum computer simulator. The circuit depths are exponentially increasing except fo r the circuit constructed by Toffoli -CNOT -NOT that is rising in polynomial trend, 
+when the number of qubits position state grows. Moreover, the relationship between 
+computing wall -time and the number of qubit position state are investigated. The results 
+show that the computing wall -times of Toffoli- CNOT -NOT, MCT -Basic and MCT -Basic -
+Dirty -Ancilla are increasing in a polynomial trend when the number of qubits position state 
+is growing. Also, the circuit that has a larger depth spends a longer computing wall -time than 
+a smaller one. Furthermore, the linear relationships between computing wall -time and circuit 
+depth are examined. The circuit with MCT -Basic takes shorter computing wall -time when 
+the circuit depth is increased. In contrast, the circuit with Toffol i-CNOT -NOT takes longer 
+computing wall -time when the circuit depth is increased. However, for the same size of qubit 
+position state, the circuit with Toffoli- CNOT -NOT, has the smallest depth and takes the least 
+time than the other types of conditional shift operators. 
+Finally, an other experiment  is conducted to compare the circuit comput ed on 
+Qasm_simulator  and ibmq_16_melbourne . The acquired probability distributions are 
+different , which could be the effect of the noise. The ibmq_16_melbourne ’s noise model  is 
+imported to Qasm_simulator  to confirmed that ibmq_16_melbourne is  disturbed by  the 
+noise.   
+REFERENCES  
+1. Moore, G.E., 1965, "Cramming More Components onto Integrated Circuits",
+Electronics , Vol.  38, Issue 8.
+2. H
+assan, S., Hum aira and Asghar , M., 2010, " Limitation of Silicon Based
+Computation and Future Prospects", Proceedings of 2nd ICCSN International
+Conference on Communication Software and Networks , Singapore, pp. 559-561.
+3. Q
+uantum Computing Report, 2019, Qubit Technolog y, [Online],
+Available:https://quantu  mcomputingreport.com/scorecards/qubit-technology/
+[2019, April 18].
+4. K
+orotkov, A., 2009, "Special Issue on Quantum Computing with Superconducting
+Qubits", Quantum Information Processing - QUANTUM INF PROCESS , Vol.
+8, Issue, pp. 51-54 .
+5. Jordan, S., 2020, Q uantum Algorithm Zoo, [Online], Available:
+https://quantumalgorith mzoo.org/ [2020, April 22].
+6
+. Raj, G., Singh , D. and Madaan, A., 2018, "Analysis of Classical and Quantum
+Computing Based on Grover and Shor Al gorithm",  Smart Computing and
+Informatics , pp. 413-423.
+7
+. Ambainis, A., 2008, "Quantum Random Walks – New Method for Designing
+Quantum Algorithms",  SOFSEM 2008: Theory and Practice of Computer
+Science, Berlin, Heidelberg: Springer Berlin Heidelberg, pp. 1-4.
+8
+. Ambainis, A., 2007, "Quantum Walk Algorithm for Element Distinctness", SIAMJournal on Computing , Vol.  37, Issue 1, pp. 210-239.
+9
+. Roy, S.G. and Chakrabarti, A., 2017, "A Novel Graph Clustering Algorithm Basedon Discrete- Time Quantum Random W alk",
+ Quantum Inspired Computational
+Intelligence, pp. 361-389.
+1
+0. Mülken, O., Pernice, V. and Blumen, A., 2007, "Quantum Transport on Small -World
+Networks: A Continuous -Time Quantum Walk Approach", Physical Review E , Vol.
+76, Issue 5, pp. 051125.
+1
+1. Venegas -Andraca, S., 2008, Quantum Walks for Computer Scientists , Morgan &
+Claypool Publishers, pp. 61-77 .
+12. O'Brien, J.L., 2007, "Optical Quantum Computing", Science,Vol.  318, pp. 1567-
+1570.56 
+ 
+ 
+ 13. Cirac, J.I. and Zoller, P., 1995, "Quantum Computations with Cold Trapped Ions", 
+Physical Review Letters .Vol.  74, Issue 20, pp. 4091- 4094 . 
+ 
+14. Kielpinski, D., Monroe , C. and Wineland , D.J., 2002, "Architecture for a Large -Scale 
+Ion-Trap Quantum Computer", Nature, Vol.  417, Issue 6890, pp. 709- 711. 
+ 
+15. Häffner, H., Ro os, C.F. and Blatt, R., 2008, "Quantum Computing with Trapped 
+Ions", Physics Reports , Vol.  469, Issue 4, pp. 155- 203. 
+ 
+16. IBM, 2019, List of Ibm Quantum Devices,  [Online], Available: https://quantumex  
+perience.ng.bluemix.net/qx/devices [2019, March 18].  
+ 
+17. Cross, A ., Bishop, L ., Smolin, J . and Gambetta J ., 2020, Open Quantum Assembly 
+Language , [Online ],  Available: https://arxiv.org/abs/1707.03429 [ 2020, May 18] . 
+ 
+18. IBM, 2019, Backend Information of Ibm  Quantum Devices,  [Online], Available: 
+https://github.com/Qiskit/ibmq -device- information [2019, March 18]. 
+ 
+19. IBM, 2019, 16-Qubit Backend: Ibm Q Team, “Ibm Q Melbourne Backend 
+Specificatio n V1.1.0,”, [Online], Available: https://github.com/Qiskit/ibmq -device -
+information/tree/master/backends/melbourne/V1  [2019, March 18]. 
+ 
+20. Rigetti, 2019, Qpu Specificatoins,  [Online], Available: https://www.rigetti.com/qpu  
+[2019, March 18] . 
+ 
+21. Smith, R .S., Curtis, M .J. and Zeng, W .J., 2016, A Practical Quantum Instruction 
+Set Architecture, [Online], Available: https://arxiv.org/abs/1608.03355 [2020, May 
+18] 
+ 
+22. LaRose, R., 2018, "Overview and Comparison of Gate Level Quantum Software 
+Platforms", Quantum ,Vol.  3, p. 130. 
+ 
+23. Aharonov, Y., Davidovich, L. and Zagury, N., 1993, "Quantum Random Walks", 
+Physical Review , Vol.  48, pp. 1687- 1690 . 
+ 
+24. Kempe, J., 2003, "Quantum Random Walks: An Introductory Overview", 
+Contemporary Physics ,Vol.  44, pp. 307- 327. 
+ 
+25. Lovett, N.B., Cooper, S.,Everitt, M., Trevers, M. and Kend on, V, 2010, "Universal 
+Quantum Computation Using the Discrete -Time Quantum Walk", Physical Review 
+A, Vol.  81, Issue 4, p. 042330. 
+ 
+26. Xiaoyu, Li, Guowu, Y., Carlos, M. T. JR., Desheng, Z. and Kang, L. W., 2014, "A 
+Class of Efficient Quantum Incrementer Gates for Quantum Circuit Synthesis", 
+International Journal of Modern Physics B , Vol.  28, p 1350191. 
+ 57 
+ 
+ 
+ 27. Kobayashi, Y., 2019, How to Calculate Quantum Costs Using an Unroller,  
+[Online], Available:https://github.com/quantum -challenge/2019/blob/master / 
+/problems/ week1/week1_en.ipynb [2020, May 18] .  
+  58 
+ 
+ 
+  
+CURRICULUM VITAE  
+ 
+NAME  Mr. Warat Puengtambol  
+DATE OF BIRTH  22 April 1989 
+ 
+EDUCATIONAL RECORD 
+HIGH SCHOOL  High School Graduation  
+ Potisarnpittayakorn  School, 2006 
+BACHELOR’S DEGREE  Bachelor of Engineering (C omputer Engineering)  
+ King Mongkut's University of Technology  
+ Thonburi, 2010 
+MASTER ’S DEGREE  Master  of Engineering (Computer Engineering)  
+ King Mongkut's University of Technology  
+ Thonburi, 2020 
+ 
+EMPLOYMENT RECORD  - Programmer  
+  The Digital STM Limited Par tnership  
+2021 – present  
+ 
+ - Computerist  
+King Mongkut’s University of Technology 
+Thonburi 2016 – 2020 
+ 
+ - Network and System Administrator  
+Department of Computer Engineering,  
+Faculty of Engineering  
+King Mongkut’s University of Technology 
+Thongburi 2014 – 2016  59 
+ 
+ 
+ PUBLICATION   Puengtambol, W., Prechaprapranwong, P. and 
+Taetragool , U., 2020 , “Implementation of 
+Quantum Random Walk on a Real Quantum 
+Computer ”, The 15th Siam Physics Congress 
+SPC2020, 4- 5 June 2020, T hailand . 
+ 

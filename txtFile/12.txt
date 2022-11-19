@@ -1,13 +1,3 @@
-Thesis  Title  Effects of Facial Movements to Expressive Speech Productions: A Computational Study  
-Thesis  Credits  12 
-Candidate  Miss Metita   Onsri   
-Thesis  Advisor s Asst.  Prof.  Dr. Santithum   Prom -on  
-Program  Master of Engineering  
-Field of Study  Computer Engineering  
-Department  Computer Engineering  
-Faculty  Engineering  
-Academic Year  2019 , Facial_Movement, Speech_Production, Thai_Language  
-Abstract  
 This thesis  presents a computational study on the relation between the movement of visual 
 facial and acoustic features. Audio -visual corpus on expressive speech production was 
 collected for the study. For the corpus, the relevant stimuli consist ed of 4 fac ial 
@@ -20,5 +10,3 @@ frequency (F0) was tracked and synchronized with the facial data. Computati onal
 on the landmark and dynamic features of both visual and audio data were performed. This 
 result provides the relation  of the expressive facial movement together with the acoustic 
 adjustments.  
-Keywords:  
-Audio-synchronization, Facial_Expression 

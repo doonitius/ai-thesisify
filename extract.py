@@ -51,6 +51,7 @@ for pdf in glob1('./data/', '*'):
     count += 1
     parts = []
     path = './data/'
+    corpus = ""
     # print(i)
     # splitSlash = i.split("/")[-1]
     # print(splitSlash)
@@ -59,18 +60,52 @@ for pdf in glob1('./data/', '*'):
     # pdfFileObj = open(i, 'rb')
     # print(path + pdf)
     pdfReader = PyPDF2.PdfReader(path + pdf)
-    page = pdfReader.pages[2]
+    numPages = pdfReader.numPages
+    # wantToDelete = ["ACKNOWLEDGEMENT"]
+    # wantToRead = ["Abstract"]
+    # keepText = []
+    # condition_read = 0
+    for i in range(0, numPages):
+        condition_read = 0
+        page = pdfReader.pages[i]
+
+
     # titlePage = pdfReader.pages[0]
     # title = titlePage.extract_text()
-    text = page.extract_text()
+        ####line = j.strip()
+        text = page.extract_text()
+        # print(text)
+        # splitText = text.split()
+        # print(splitText)
+        # for j in range(len(splitText)):
+        #     if(splitText[j] in wantToDelete):
+        #         condition_read = 0
+        #     if(splitText[j] in wantToRead):
+        #         condition_read = 1
+        #         if(splitText[j] in wantToDelete):
+        #             condition_read = 0
+        #     if(condition_read == 1):
+        #         keepText.append(splitText[j])
+            # else:
+            #     condition_delete == 0
+            #     keepText.append(splitText[j])
+    #         # print(splitText[j])
+    #     # print(newTextstr)
+    # newTextstr = " ".join(keepText)
+    # print(newTextstr)
+        corpus += "".join(text)
+    # print(type(corpus))
+    # break
     # page.extract_text(visitor_text=visitor_body)
     # text_body = "".join(parts)
-    print("----------", count, "------------")
-    # print(title)
-    # print(pdf)
-    print(text)
-    print("----------", count, "------------\n")
-
+    #     print("----------", count, "------------")
+    # # print(title)
+    # # print(pdf)
+    #     print(text)
+    #     print("----------", count, "------------\n")
+        # corpus += text
+    # print(corpus)
+    # break
     # # token = nltk.sent_tokenize(text_body)
     # token = word_tokenize(text)
     # # print(len(token))
@@ -99,16 +134,45 @@ for pdf in glob1('./data/', '*'):
     #                     Abstract_word.append(word_stem)
     # print(Abstract_word)
 
+    # # ตรงนี้คือพออ่านเสร็จแล้วก็ยัดเข้าไฟล์ .txt
+    # txtFileName = pdf.split('.')[-2]
+    # # print(txtFileName)
+    # txtFileNoSpace = txtFileName.replace(" ", "_")
+    # running_no = str(count)
+    # if len(running_no) < 2:
+    #     running_no = '0' + running_no
+    # txtFile = running_no
+    # print(txtFile)
+    # pathTxt = './txtFile2/'
+    # with open(pathTxt + txtFile + '.txt', 'w', encoding='utf-8') as f:
+    # #     for line in corpus:
+    # #         f.write(corpus[line])
+    # #         f.write('\n')
+    #     f.write(corpus)
+    # # print(glob('/content/data/*.pdf'))
+
+
+
+
+# ไอลินลอกโค๊ด
+   # ตรงนี้คือพออ่านเสร็จแล้วก็ยัดเข้าไฟล์ .txt
+
+    # newTextstr = "".join(keepText)
+    # print(newTextstr)
+
+
     txtFileName = pdf.split('.')[-2]
     # print(txtFileName)
     txtFileNoSpace = txtFileName.replace(" ", "_")
     running_no = str(count)
+    if len(running_no) < 2:
+        running_no = '0' + running_no
     txtFile = running_no
     print(txtFile)
-    pathTxt = './txtFile/'
+    pathTxt = './txtFile4/'
     with open(pathTxt + txtFile + '.txt', 'w', encoding='utf-8') as f:
-    #     # for line in token:
-    #     #   f.write(line)
-    #     #   f.write('\n')
-        f.write(text)
+    #     for line in corpus:
+    #         f.write(corpus[line])
+    #         f.write('\n')
+        f.write(corpus)
     # print(glob('/content/data/*.pdf'))

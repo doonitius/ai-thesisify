@@ -1,13 +1,3 @@
-Thesis Title  Log Data Traffic Characterization for Packet Loss Estimation in ALICE O2 System  
-Thesis Credits  12 
-Candidate  Ms. Napatsorn Pitakkotchakorn  
-Thesis Advisor  Assoc . Prof. Peerapon Siripongwutikorn, Ph .D. 
-Program  Master of Engineering  
-Field of Study  Computer Engineering  
-Department  Computer Engineering  
-Faculty  Engineering  
-Academic Year  2020 , Traffic_Model, Queuing_Network, Stochastic_Model  
-Abstract  
 Loss estimation is considerably significant for network planning processes and plays a 
 main role in bandwid th allocation optimization, network design, guaranteeing quality of 
 service (QoS), etc. According to The European Organization for Nuclear Research 
@@ -25,5 +15,3 @@ number of FLP s and traffic intensity that the network can sustain for different
 tasks running on FLPs. Lastly, in order to find the best represented model compared to 
 the real trace result, we performed model verification and took into account the end-to-
 end packet loss and queue utilization of each task.  
-Keywords:  
-Network_Resource_Planning
