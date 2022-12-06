@@ -1,0 +1,18 @@
+Pseudo-random bit generator for high-speed cryptography
+Pseudorandom generator is the important cryptographic primitive. 
+It expands the real short random sequence to the longer sequence that is hard to predict. 
+These random sequences from pseudorandom generator are used as the secret keys, salts, nonces, and so on. 
+It is impossible to construct the cryptosystems that do not use any random numbers. 
+This thesis mainly devotes to theoretical analysis on pseudorandom generators and stream ciphers. 
+The theoretical analysis on the distinguishing attack is also involved in this dissertation. 
+The proposed distinguishing attack is based on binomial hypothesis testing, which is differ from the traditional distinguishing attack. 
+This approach has an advantage when the memory is limited. 
+The hybrid method between pseudorandom generator and stream cipher is proposed. 
+The hybrid generator obtains high performance over the prototype pseudorandom generator. 
+Moreover, the security proof shows that the hybrid generator also gains high security over the prototype stream cipher.
+This research also proposes the construction of extremely secure pseudorandom generator. 
+The proposed pseudorandom generator is based on the hardness assumption of Learning with Error problem. 
+The proof shows that the problem of distinguishing the random outputs from the proposed generator is at least as hard as solving Learning with Error problem, which cannot efficiently solve by any quantum computers. 
+This research also works on theoretical analysis of the robustness of Learning Parity with Noise assumption when the secret information is leaked. 
+The theoretical analysis shows that Learning Parity with Noise remains secure in the leaky-key environment but the security parameter is reduced to the min-entropy that is left in the secret key. 
+The robustness property of Learning Parity with Noise assumption can be used to construct the leakage-resilient cryptosystems.

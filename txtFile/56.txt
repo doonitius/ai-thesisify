@@ -1,0 +1,5 @@
+Quantum circuits for shor’s algorithm
+The prime factorization algorithm by Peter Shor is one of the most famous algorithms for quantum computers. 
+The goal of this thesis is to study the behavior of Shor’s algorithm and design quantum circuits to run it on existing quantum computers. 
+The proposed quantum circuits are developed from the circuit by Stephane Beauregard. 
+The experiment is done on IBM 15 qubits quantum computer.
