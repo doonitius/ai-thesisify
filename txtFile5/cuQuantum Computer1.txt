@@ -1,0 +1,9 @@
+A design of FPGA framework for quantum computing simulation
+​We use FPGA to optimize the simulation of quantum computing in two aspects. 
+(a) The if-else state is used in place of tensor product calculation. 
+This allows the tensor product of each quantum operator to be generated in a single clock cycle. 
+(b) The pre-calculated lookup ROM is used for estimating the sine and cosine values.
+ This facilitates the computation of quantum gates that are related to angle. 
+To validate our work, we implement our design in VerilogHDL. 
+The performance is evaluated using an FPGA simulator. 
+The result shows a dramatic improvement in the simulation process comparing to those of simulation on classical computers.

@@ -1,0 +1,9 @@
+Manifold Learning and its Applications in Science
+In the age of big data, unsupervised machine learning plays crucial roles in detecting statistical patterns hidden in gigantic dataset. 
+Taking root in statistical physics of random walks and heat diffusion on networks, Diffusion Maps are one of the most efficient modern classical unsupervised algorithms for clustering high-dimensional dataset. 
+Not only it can automatically discover hidden statistical structure in a high-dimensional dataset, but it can also projects the data into a lower dimensional embedding where the majority of the data structure reside. 
+Such projections are termed nonlinear dimensionality reduction or manifold learning in machine leaning literature. In the first part of this thesis, we begin by reviewing the physics of classical random walks on a graph which motivates the construction of Diffusion Maps.
+ We will discuss how Diffusion Maps can perform clustering as well as nonlinear dimensionality reduction based on the properties of Markov transition matrix defined on a dataset-associated graph.
+ We then showcase the usefulness of Diffusion Maps to learn low dimensional embedding in some real data samples. In the second part of this thesis, we bring diffusion maps into the realm of quantum algorithms. 
+Motivated by advances in modern near-term quantum devices, we explore a construction of Quantum Diffusion Maps. By exploiting coherent state encoding scheme into Quantum RAM, we outline how to achieve both quantum computational speedup as well as quantum storage capacity reduction for quantum computations of Diffusion Maps on a quantum device. 
+Lastly, it’s known that quantum walks can spread faster than its classical counterparts; we construct quantum walk protocols that perhaps can provide an alternative way to perform unsupervised data clustering, given that one can create quantum walks on quantum devices or quantum simulators.

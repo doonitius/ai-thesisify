@@ -1,0 +1,11 @@
+Study and fabrication of InP nanostructures grown by droplet molecular beam epitaxy
+The fabrication of self-assembled InP ring-shaped QDMs has been first proposed in this thesis. 
+The influences of growth parameters on the formation and characteristics of InP ring-shaped QDMs have been intensively studied. 
+The InP ring-shaped QDMs sample were prepared using solid-source MBE via droplet epitaxy technique in In0.5Ga0.5P matrices on semi-insulating GaAs (001) substrate. 
+The investigated parameters relating to the In droplet deposition and crystallization process were deposition temperature, crystallization temperature, In deposition rate and In amount. 
+The InP ring-shaped QDMs properties were thoroughly evaluated by both in situ and ex situ monitoring including Reflection High Energy Electron Diffraction (RHEED), Atomic Force Microscopy (AFM), Transmission Electron Microscopy (TEM), and Photoluminescence Spectroscopy (PL). 
+The experimental results have shown that the formation of InP ring-shaped quantum dot molecules (QDMs) is owing to the performance of droplet epitaxy technique and the lattice mismatched between InP and In0.5Ga0.5P of 3.8%. 
+The best QD size homogeneity and the highest number of QDMs (46%) which consist of eight QDs per QDM was achieved with the deposition temperature, crystallization temperatures, In deposition rate and In coverage of 250 °C, 200 °C, 1.6 ML/s and 3.2 ML, respectively. 
+The PL peaks and FWHMs of these InP ring-shaped QDMs are1.68 eV and 4 meV at 20 K and 1.61 eV and 60 meV at room temperature. 
+InP ring-shaped QDMs grown by droplet epitaxy technique has been investigated and shows the feasibility as an alternative material system for quantum computing technologies. 
+The achievement on this thesis should renew the interest of InP ring-shaped QDMs as a promising system and also be an important mile stone in the development of ring-shaped QDM structure.

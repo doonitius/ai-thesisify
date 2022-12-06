@@ -1,0 +1,11 @@
+Cryptosystem for textual message by using malleable neural network with secret dimensions
+Most of the current cryptography is based on modulo computing with predefined public and private keys. 
+The robustness of this approach is controlled by the size of the prime divider. 
+The encryption and decryption processes of this modulo computing are rather fast and rather robust to any attack. 
+However, it is still possible to crack the encrypted message by using meta-heuristic algorithm, very high performance parallel machines, and also quantum computing concept. 
+This thesis takes another approach in order to enhance the robustness of encrypted messages by deploying the structure of a feedforward neural network with augmented secret dimensions concurred by both sender and receiver. 
+The network structure can be adjusted to make it difficult to guess. The proposed concept differs from weight synchronization and weight representation of the encrypted message. 
+The text message is the main concern of this study. 
+However, the proposed concept can be extended to cope with other forms of input messages. 
+The experimental results showed the robustness of encrypted messages against attacks by using cryptanalysis.
+The space and time complexities of the network and process are discussed.
