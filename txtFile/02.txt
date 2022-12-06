@@ -1,15 +1,11 @@
-Machine learning and predictive modeling have become widely us ed in many fields. 
-Utilizing algorithm without tuning  hyper -parameter can lead to inefficient performance 
-of model . Gradient Boosting Machine (GBM) is one of the tree -based models in which 
-the performance can differ greatly depending on its setting. Tuning hyper -parameters of 
-the model requires background knowledge  of the algorithm. Moreover, both the 
-performance and cost of the tuning process need to be kept in consideration. In this paper, 
-we proposed an approach based on Genetic algorithm (GA) in process of GBM tuning. 
-The GA is often used in the optimization pro blem because of the ability to handle more 
-complex problems. We implemented the GA variation called hyper -genetic to tune the 
-hyper -parameter of GBM and explored the best setting possible of the genetic parameters. 
-In addition, we compared our best setting  with the results from Grid -search, Bayesian 
-optimization, and random approach over four sets of data. Our proposed algorithm had 
-competitive performance and outperformed the other algorithms in the dataset with a high 
-dimension while requiring smaller com putation time at the optimum point on the majority 
-of experimental datasets.  
+Automatic Hyper-Parameter Tuning for Gradient Boosting Machine   
+Machine learning and predictive modeling have become widely used in many fields. 
+Utilizing algorithm without tuning hyper-parameter can lead to inefficient performance of model. 
+Gradient Boosting Machine (GBM) is one of the tree-based models in which the performance can differ greatly depending on its setting. 
+Tuning hyper-parameters of the model requires background knowledge of the algorithm. 
+Moreover, both the performance and cost of the tuning process need to be kept in consideration. 
+In this paper, we proposed an approach based on Genetic algorithm (GA) in process of GBM tuning. 
+The GA is often used in the optimization pro blem because of the ability to handle more complex problems. 
+We implemented the GA variation called hyper-genetic to tune the hyper-parameter of GBM and explored the best setting possible of the genetic parameters. 
+In addition, we compared our best setting with the results from Grid-search, Bayesian optimization, and random approach over four sets of data. 
+Our proposed algorithm had competitive performance and outperformed the other algorithms in the dataset with a high dimension while requiring smaller com putation time at the optimum point on the majority of experimental datasets.  

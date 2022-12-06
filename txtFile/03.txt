@@ -1,15 +1,12 @@
-Resource estimation is a technique that has many uses. In this research, we examine how it can be 
-used to estimate computing resources of systems based on historical data in order to make them more efficient. 
-Many researchers have applied machine learning to estimate computing resources. The European 
-Organization for Nuclear Research (CERN) is currently developing a new logging system for A Large Ion 
-Collider Experiment (ALICE) detector based on the Elasticsearch, Logstash, and Kibana (ELK) software stack. 
-Beats, a shipper installed on the First Level Processor nodes, will receive the logged data and transfer it to Logstash, 
-a data preprocessing pipeline. Logstash ingests the data and sends the ingested data to Elasticsearch 
-which is used for search and analytics. The system faces difficult problems when working with large clusters 
-which are hard to estimate. Moreover, in the future, the number of nodes and the number of services in the machine 
-can increase or decrease. Resource estimation was used to estimate and plan the number of resources by using 
-Metricbeat to get the historical computing metrics of machines and by using Logstash to make the system more 
-reliable and adaptable to changes. We applied different machine learning algorithms including Random Forest 
-Regression, Multiple Linear Regression, and Multi-Layer Perceptron to create models. The efficiency of these 
-models is measured and compared using the coefficients of determination which are Mean Absolute Error and Mean 
-Square Error.   
+Computing Resource Estimation by Using Machine Learning Techniques for ALICE O2 Logging System
+Resource estimation is a technique that has many uses. 
+In this research, we examine how it can be used to estimate computing resources of systems based on historical data in order to make them more efficient. 
+Many researchers have applied machine learning to estimate computing resources. 
+The European Organization for Nuclear Research (CERN) is currently developing a new logging system for A Large Ion Collider Experiment (ALICE) detector based on the Elasticsearch, Logstash, and Kibana (ELK) software stack. 
+Beats, a shipper installed on the First Level Processor nodes, will receive the logged data and transfer it to Logstash, a data preprocessing pipeline. 
+Logstash ingests the data and sends the ingested data to Elasticsearch which is used for search and analytics. 
+The system faces difficult problems when working with large clusters which are hard to estimate. 
+Moreover, in the future, the number of nodes and the number of services in the machine can increase or decrease. 
+Resource estimation was used to estimate and plan the number of resources by using Metricbeat to get the historical computing metrics of machines and by using Logstash to make the system more reliable and adaptable to changes. 
+We applied different machine learning algorithms including Random Forest Regression, Multiple Linear Regression, and Multi-Layer Perceptron to create models. 
+The efficiency of these models is measured and compared using the coefficients of determination which are Mean Absolute Error and Mean Square Error.   

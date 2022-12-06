@@ -1,0 +1,8 @@
+Big Data Analytics for Improving Customer Win-back Rate in Townhome segment
+Thailand’s real-estate market is now facing with negative growth, where most developers are encountered with challenges in generating satisfactory revenue, particularly from new customers. 
+In order to improve the revenue stream, customer win-back approach that focuses on current customers in the sales funnel and re-engages them by offering more attractive residential projects is therefore initiated. 
+In particular, we focus on the development of predictive analytics model that potentially increases customer win-back rate by exploring the current databases, identifying significance for win-back (based on past performance), and testing the resulting predictions via several machine learning algorithms.
+The proposed method returns a propensity model that ranks customers based on likelihood to purchase if contacted. 
+We test the proposed method by running an A/B test for 3 weeks and then compare (1) average number of refer cases to sales department and (2) average customer referral rate with the base case. 
+We find that the propensity model impressively helps increase average number of refer cases to sales department by 11.8% and increase referral rate by 13.5%. 
+In terms of finance, these significant improvements lead to a revenue uplift of 20.9% year-on-year, valued at THB 253.5 million.

@@ -1,0 +1,6 @@
+Global optimization of recurrent neural networks: a comparison of the genetic algorithm and Tabu search
+To present the methodology of applying Genetic Algorithm and Tabu Search in finding the global optima in Recurrent Neural Network. 
+Then the result is compared with Backpropagation, the legacy method. 
+The result depicts that Genetic Algorithm and Tabu Search can help Recurrent Neural Network performs better than Backpropagation. 
+This is because the Genetic Algorithm has a cross-over operator to jump off of local optima whilst Tabu Search employs Tabu list to prevent re-cycling search as well as using long term memory to make the searching broader. 
+However, Genetic Algorithm and Tabu Search take more time to find out the solution. In a short time running, Backpropagation can find a solution in some dataset better than others.

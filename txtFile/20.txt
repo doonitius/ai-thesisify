@@ -1,0 +1,12 @@
+Sentiment analysis of messages on Twitter related to COVID-19 using deep learning approach
+The widespread situation of the Coronavirus-19 (COVID-19) pandemic is a tangible and pressing concern. 
+Many changes in terms of lifestyle are necessary to reduce the chance of infection. 
+While citizens have gone through different emotions, they share their thoughts and interactions on social media, especially on Twitter. 
+COVID-19 related messages can imply social emotion. 
+This study performs sentiment analysis on tweets and annotated them into six classes of positive and negative feelings consisting of anger, disgust, fear, sadness, joy, and surprise. 
+We analyzed both textual information and historical data. 
+We collected 120,642 unique tweets datasets between 1 January 2020 and 30 June 2021. 
+We compared the performance of five neural network models which are multi-layer perceptron, RNN, LSTM, Bidirectional LSTM, and GRU with several metrics consisting of accuracy, F1 score, precision, and recall. 
+The results show that LSTM perform the best on precision with 77.7% while Bidirectional LSTM model achieved the highest score on metrics with 79% on recall, 78% on F1-score and 79% on accuracy. 
+These models could be used to monitor the movement of negative emotions. 
+In addition, we provide interesting insights from sentiment analysis with tweet data and historical reports of infected cases, and vaccination data.

@@ -1,16 +1,10 @@
-Hyperparameter Tuning chooses optimal hyperparameters when training a machine 
-learning model. Once an optimization function has been defined, Hyperparameter
-Tuning would sequentially consider many sets of values that define the hyperparameters 
-for the machine learning models and select most optimal set. The process is 
-difficult and time-consuming. As such, Automated Hyperparameter Tuning has been 
-suggested to expedite the process and two well-known traditional parameter 
-optimization methods are grid search and random search. However, these methods 
-are computationally expensive for a large amount of hyperparamters. Furthermore, 
-these methods only sequentially analyze through predefined sets of hyperparameters 
-without the ability to reactively adjust the values toward an optimal solution. In 
-this thesis, the Artificial Bee Colony (ABC) optimization algorithm was adopted to 
-automatically adjust hyperparameters. ABC is a metaheuristic method based on bee 
-foraging behavior. Execution time, accuracy, F1-score, and accuracy plus F1-score 
-of using ABC were chosen as performance indicators for the comparison of different 
-hyperparameter tuning techniques for different classification algorithms against 
-those from grid search and random search.  
+Automated Hyperparameters Tuning Using the Artificial Bee Colony Algorithm
+Hyperparameter Tuning chooses optimal hyperparameters when training a machine learning model. 
+Once an optimization function has been defined, HyperparameterTuning would sequentially consider many sets of values that define the hyperparameters for the machine learning models and select most optimal set. 
+The process is difficult and time-consuming. 
+As such, Automated Hyperparameter Tuning has been suggested to expedite the process and two well-known traditional parameter optimization methods are grid search and random search. 
+However, these methods are computationally expensive for a large amount of hyperparamters. 
+Furthermore, these methods only sequentially analyze through predefined sets of hyperparameters without the ability to reactively adjust the values toward an optimal solution. 
+In this thesis, the Artificial Bee Colony (ABC) optimization algorithm was adopted to automatically adjust hyperparameters. 
+ABC is a metaheuristic method based on bee foraging behavior. 
+Execution time, accuracy, F1-score, and accuracy plus F1-score of using ABC were chosen as performance indicators for the comparison of different hyperparameter tuning techniques for different classification algorithms against those from grid search and random search.  

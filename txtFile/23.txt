@@ -1,0 +1,9 @@
+Artificial Intelligence and Copyright Law In Singapore
+A Study on the Protection of Compilations and Databases arranged by AI-systems.
+While the capability of artificial intelligence (“AI”) gains remarkable momentum in creating copyrightable materials – the questions regarding the eligibility of these new creations, at the moment, are broadly discussed and posed challenges to the regime. 
+The problem of how we fit the conventional notion of authorship and the condition of originality for AI-generated works remains a controversial topic. 
+Some might suggest that subject matter created by AI should not be granted copyright protection on the presumption that AI is not a human who could treat as authors of works. 
+At the same time, other supportive claims that the first AI algorithms were created and owned by a natural person, programmers who write codes and instruct AI to operate on specified tasks. 
+Hence, it concluded that the AI’s work product must be treated equivalent to ordinary copyright subject matter with the programmer as an identifiable human author. 
+This thesis will highlight to understand the conventional notion of the current copyright regime in granting protection to works created by a human author and emphasis the insufficiency of law in extending to protect the new nature of creations produced by artificial intelligence ("AI"). 
+In addition, this study will attempt to provide legal justifications on how current copyright law can be applied to works created by AI if the notion of authorship initially rejected to recognize AI as an author of works.

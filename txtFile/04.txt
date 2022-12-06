@@ -1,10 +1,8 @@
-Due to the emerging of Long Short-Term Memory neuron network (LSTM) which is a variation of deep neuron network, 
-it is proven to be essential to the improvement of Natural Language Processing especially Language Modelling. 
+Thai Character-Word LSTM Language Models with  Dropout and Batch Normalization
+Due to the emerging of Long Short-Term Memory neuron network (LSTM) which is a variation of deep neuron network, it is proven to be essential to the improvement of Natural Language Processing especially Language Modelling. 
 Many researches applied LSTM to model many well-defined languages and gain performance in term of accuracy. 
-However, this new approach is rarely applied to Thai language. Unfortunately, the characteristic of Thai language 
-is significantly different than other well-defined languages, particularly English or Latin-based languages. 
-This thesis applied LSTM in Language Modelling to predict the next word in the sequence. Seven LSTM models 
-have been designed and compared the results with word-level LSTM model. The experiment showed that character-word 
-LSTM can improve the performance of Natural Language Modelling (NLM) on Thai dataset. Especially when using 
-character-word LSTM with dropout value of 0.75 and batch normalization, the perplexity is lower than baseline 
-word-level LSTM up to 21.10%.  
+However, this new approach is rarely applied to Thai language. Unfortunately, the characteristic of Thai language is significantly different than other well-defined languages, particularly English or Latin-based languages. 
+This thesis applied LSTM in Language Modelling to predict the next word in the sequence. 
+Seven LSTM models have been designed and compared the results with word-level LSTM model. 
+The experiment showed that character-word LSTM can improve the performance of Natural Language Modelling (NLM) on Thai dataset. 
+Especially when using character-word LSTM with dropout value of 0.75 and batch normalization, the perplexity is lower than baseline word-level LSTM up to 21.10%.  

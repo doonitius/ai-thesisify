@@ -1,21 +1,11 @@
-Since the spread of Coronavirus disease or Covid-19 at the end of 2019,
-there has been an extensive amount of news about Covid-19,
-and it takes a long time for humans to read the news,
-process it and retrieve important information from it. 
-Therefore, automatic text summarization is necessary in this matter 
-as it can help us process information faster and use it to make 
-better decisions. Currently, there are two main approaches to 
-automatic text summarization: extractive and abstractive. 
-Extractive text summarization is conducted by identifying important 
-parts of the text and extracting a subset of sentences from the 
-original text. Abstractive text summarization is closer to the human 
-method as it is the reproduction or rephrasing based on interpretation 
-and understanding of the text using natural language processing 
-techniques. In this research, we applied an abstractive summarization 
-method on a specific dataset, namely, Canadian Broadcasting Corporation (CBC) 
-news dataset about Covid-19 news. Data augmentation was also exploited 
-in the pre-processing part to be an example case of working with data 
-that are not perfect or diverse enough. Two Long Short Term Memory (LSTM) 
-models, with and without data augmentation, were used to generate summaries. 
-The resulting summaries were analyzed and compared with related work using 
-Recall-Oriented Understudy for Gisting Evaluation (ROUGE) metrics.
+Text Summarization on Covid 19 News
+Since the spread of Coronavirus disease or Covid-19 at the end of 2019, there has been an extensive amount of news about Covid-19, and it takes a long time for humans to read the news, process it and retrieve important information from it. 
+Therefore, automatic text summarization is necessary in this matter as it can help us process information faster and use it to make better decisions. 
+Currently, there are two main approaches to automatic text summarization: extractive and abstractive. 
+Extractive text summarization is conducted by identifying important parts of the text and extracting a subset of sentences from the original text. 
+Abstractive text summarization is closer to the human 
+method as it is the reproduction or rephrasing based on interpretation and understanding of the text using natural language processing techniques. 
+In this research, we applied an abstractive summarization method on a specific dataset, namely, Canadian Broadcasting Corporation (CBC) news dataset about Covid-19 news. 
+Data augmentation was also exploited in the pre-processing part to be an example case of working with data that are not perfect or diverse enough. 
+Two Long Short Term Memory (LSTM) models, with and without data augmentation, were used to generate summaries. 
+The resulting summaries were analyzed and compared with related work using Recall-Oriented Understudy for Gisting Evaluation (ROUGE) metrics.

@@ -1,0 +1,14 @@
+A robust system for core thai natural language processing technologies
+As the amount of unstructured textual data grows, it becomes increasingly important to build an intelligent system that can process it. 
+Natural Language Processing (NLP) is a technology that allows a computer to exploit human languages to perform tasks. 
+Deep learning models have shown excellent results across fundamental tasks in NLP, such as word segmentation, part-of-speech tagging, and named-entity recognition. 
+However, in many situations, these proposed methods fail to perform well. 
+For an NLP system to be robust, it must address issues such as out-of-vocabulary and spelling-mistakes. 
+This thesis's research goal is to develop NLP models that can handle malformed texts to improve their real-world setting usability. 
+In this thesis, I propose novel models and evaluations that focus on robustness against malformed texts. 
+This dissertation proposes multiple novel training strategies and architectures to improve the robustness against malformed texts. 
+This thesis explores input data manipulation strategies that diversify training data, such as UNK masking and adversarial training. 
+It explores how sub-lexical information can improve the robustness of word embeddings. 
+Furthermore, it examines similarity constraint techniques, such as triplet loss, which constraint the similarity between the original texts and the parallel perturbed texts. 
+I also propose alternative evaluation schemes that reveal the weaknesses of NLP systems by introducing typographical adversarial examples to the test sets. 
+Our adversarial evaluation schemes show that current deep learning models are not robust against misspelled inputs, and they also show that our proposed training strategies and architectures can improve the performance over malformed texts.   

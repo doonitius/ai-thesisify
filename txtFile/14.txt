@@ -1,20 +1,20 @@
-Since a classical computer has a limitation to solve a large size of data and complex 
-problems, researchers have be en trying to find new solutions. Q uantum computing is one 
-of them. A number of quantum algorithms have been invented. Some of them were 
-theoretically proved that they could solve problems faster than their classical versions. 
+Quantum Random Walk on A Number Line Implementation on Different Simulators with Wall-Time Benchmarking
+Since a classical computer has a limitation to solve a large size of data and complex problems, researchers have be en trying to find new solutions. 
+Quantum computing is one of them. 
+A number of quantum algorithms have been invented. 
+Some of them were theoretically proved that they could solve problems faster than their classical versions. 
 According to the literature review, a quantum random walk has various advantages. 
-Moreover, it can be a tool to construct other quantum algorithms. In this thesis, the one -
-dimensional quantum random walk is studied. Then, the quantum random walk circuit is 
-implemented. Forest from Rigetti and Qiskit from IBM, which are quantum programming 
-platforms, are explored. Two experiments are conducted. First, the circuits are examined 
-on quantum computer simulators from IBM and Rigetti. The sizes of the circuits are 4, 5, 
-6, and 7- qubits position state s. For each size, the circuit is constructed with 5 different 
-types of shift operators. The results show that computing wall -time from IBM’s qua ntum 
-computer simulator is significantly lower than Rigetti’s quantum computer simulator for 
-the same size and circuit type. Moreover, on the same circuit type, a positive linear 
-relationship between the computing wall -time and the circuit depth is presented. Second, 
-the same circuit sizes and types from the first experiment were deployed on an actual 
-IBM quantum computer, named ibmq_16_melbourne . However, the returned result is 
-only for the 4- qubit position state. The other sizes of position state s return error due to 
-the capacity of the quantum computer. Furthermore, the returned measurement results are 
-disturbed by the noise from the operation of the actual quantum computer. 
+Moreover, it can be a tool to construct other quantum algorithms. 
+In this thesis, the one-dimensional quantum random walk is studied.
+Then, the quantum random walk circuit is implemented. 
+Forest from Rigetti and Qiskit from IBM, which are quantum programming platforms, are explored. 
+Two experiments are conducted. 
+First, the circuits are examined on quantum computer simulators from IBM and Rigetti. 
+The sizes of the circuits are 4, 5, 6, and 7-qubits position states. 
+For each size, the circuit is constructed with 5 different types of shift operators. 
+The results show that computing wall-time from IBM’s quantum computer simulator is significantly lower than Rigetti’s quantum computer simulator for the same size and circuit type. 
+Moreover, on the same circuit type, a positive linear relationship between the computing wall-time and the circuit depth is presented. 
+Second, the same circuit sizes and types from the first experiment were deployed on an actual IBM quantum computer, named ibmq_16_melbourne. 
+However, the returned result is only for the 4-qubit position state. 
+The other sizes of position states return error due to the capacity of the quantum computer. 
+Furthermore, the returned measurement results are disturbed by the noise from the operation of the actual quantum computer. 

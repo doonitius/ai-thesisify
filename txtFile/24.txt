@@ -1,0 +1,16 @@
+REDUCING SMART CONTRACT RUNTIME ERRORS ON THE ETHEREUM BLOCKCHAIN
+With smart contracts, a wide range of applications can be implemented on blockchains. 
+Ethereum stores smart contract byte code with the smart contract address so, the Ethereum Virtual Machine (EVM) can read and execute transactions correctly. 
+All executed transactions (both successful and failed transactions) are stored on the platform permanently. 
+Failed transactions are thrown by the EVM due to runtime errors and result in monetary waste. 
+The waste from these transactions add up to around 2 million Ethers or $634.2 million. 
+In this thesis, we propose Evitar, a warning algorithm for reducing Ethereum smart contract runtime errors, which has two mechanisms. 
+First, Evitar proposes that users send transactions with the maximum gas allowed to avoid Out of Gas errors. 
+However, this results in an extremely high transaction fee when transactions fail. 
+Second, Evitar analyzes transactions called to each method in smart contracts and marks a method as a method with a high failure rate if the number of failed transactions reaches Evitar’s threshold. 
+This mechanism prevents users from sending and paying for transactions that are likely to fail. 
+We run experiments to evaluate the performance of Evitar by replaying transactions in a private network. 
+The results show that Evitar can reduce failed transactions up to 99.52% compared to sending under default behaviour in exchange for a reduction in successful transactions by 1.78%. 
+The amount of gas used by Evitar is only one-tenth compared to sending under default behaviour. 
+Sending transactions with the maximum gas in Evitar reduces Out of Gas errors by 99.25%.
+In addition, Evitar can save up to 15.04 GB (82.32%) of storage in the Geth default node and 50.09 GB (50.09%) in the Parity full archive node.

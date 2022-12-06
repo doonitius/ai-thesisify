@@ -1,12 +1,10 @@
+Machine Learning Classifier to Differentiate the Hissing Behavior of Eastern Honeybee, Apis cerana
 The honeybee is a social insect that communicates with its nestmates when engaging in its various activities. 
-Honeybees normally emit signaling sounds to communicate information such as flight orientation, 
-the dance circuit of recruited bees and hissing in response to disturbances. As a result, 
-beehives have been monitored in numerous studies to gather audio data in order to classify the potential status of the beehive. 
-This study demonstrates the technique of a classification model for hissing behavior in Asian cavity-nesting bees, Apis cerana, 
-under different circumstances. The monitoring devices were installed to collect hissing signals related to their defensive behavior. 
-A number of feature extraction techniques in the audio processing were explored, including short-time energy, spectral transformation, 
-Mel filter banks, and Mel spectrograms. Moreover, both the traditional and deep learning-based classification models were 
-tested including the support vector machine, decision tree, random forest, and convolutional neural networks. The best model was 
-selected based on two competing objectives: the minimum number of parameters and 95% baseline accuracy. The results 
-revealed that the one-dimensional neural network trained with the temporal domain spectrogram that consists of 2 hidden 
-layers, 32 nodes for each layer, and a minimum of 3,737 trainable parameters could provide the best accuracy.   
+Honeybees normally emit signaling sounds to communicate information such as flight orientation, the dance circuit of recruited bees and hissing in response to disturbances. 
+As a result, beehives have been monitored in numerous studies to gather audio data in order to classify the potential status of the beehive. 
+This study demonstrates the technique of a classification model for hissing behavior in Asian cavity-nesting bees, Apis cerana, under different circumstances. 
+The monitoring devices were installed to collect hissing signals related to their defensive behavior. 
+A number of feature extraction techniques in the audio processing were explored, including short-time energy, spectral transformation, Mel filter banks, and Mel spectrograms. 
+Moreover, both the traditional and deep learning-based classification models were tested including the support vector machine, decision tree, random forest, and convolutional neural networks. 
+The best model was selected based on two competing objectives: the minimum number of parameters and 95% baseline accuracy. 
+The results revealed that the one-dimensional neural network trained with the temporal domain spectrogram that consists of 2 hidden layers, 32 nodes for each layer, and a minimum of 3,737 trainable parameters could provide the best accuracy.   

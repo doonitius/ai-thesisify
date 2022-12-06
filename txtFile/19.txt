@@ -1,0 +1,7 @@
+Stock Market Movement Prediction Using Enhanced Deep Learning Model with Numerical and Textual Information
+Stock market prediction is difficult because markets are volatile and influenced by many factors. Recently, many studies attempt to predict stock market trend using deep learning approach. 
+These prediction models employed two types of input as (1) numerical information of historical prices and technical indicators, and (2) textual information including news contents or headlines. 
+However, most of the studies focused on prediction model development based on a single input type, while investors analyzed market behavior based on a variety of information. 
+In this work, we proposed a deep neural network for stock market prediction, which can analyze both types of inputs. 
+The proposed model consists of convolutional neural network and long-short term memory and takes event embedding vectors extracted from news headlines, historical price data, and a set of technical indicators as input. 
+Moreover, we also introduced a new objective function that can improve annualized return based on trading simulations by using Sharpe ratio, which is a measure of return relative to risk, and Cross-entropy.

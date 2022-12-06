@@ -1,11 +1,8 @@
-In recent studies, many NLP tasks could gain better performance by applying the word 
-embedding as the representation of words. In this research , we propose Deep Word -Topic 
-Latent Dirichlet  Allocation  (DWT -LDA), a ne w process for training LDA with word  
-embedding. DWT -LDA  augment s the samp ling process of an original LDA by 
-incorporating  word embedding  technique  to allow the model to capture topics based  
-embedding.  A neural network is applied  to the Collapsed Gibbs Sampling process as 
-another choice for  word topic assignment.  A dataset crawled from Panti p.com  and 
-Amazon Customer Review . To quantitatively evaluate our model, the  topic coherence 
-framework , topic diversity , and topic quality  were  used to compare between  our approach 
-and LDA.  The experimental result on both Thai and English dataset indicate  that DWT -
-LDA  performs better than LDA on both datasets.   
+A Computational Study on The Effects of Feature Enhancement in Topic Modelling
+In recent studies, many NLP tasks could gain better performance by applying the word embedding as the representation of words. 
+In this research, we propose Deep Word-Topic Latent Dirichlet  Allocation (DWT-LDA), a ne w process for training LDA with word  embedding. 
+DWT-LDA augments the sampling process of an original LDA by incorporating word embedding technique to allow the model to capture topics based embedding. 
+A neural network is applied to the Collapsed Gibbs Sampling process as another choice for word topic assignment. 
+A dataset crawled from Pantip.com and Amazon Customer Review. 
+To quantitatively evaluate our model, the topic coherence framework, topic diversity, and topic quality were used to compare between our approach and LDA. 
+The experimental result on both Thai and English dataset indicate that DWT-LDA performs better than LDA on both datasets.   

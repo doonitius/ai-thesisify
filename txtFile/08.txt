@@ -1,10 +1,12 @@
-The number of documents in a dataset available on the Internet is increasing. However, 
-the limitation of using textual information derived from documents in data analysis 
-requires more computation time and resources as the data grow. An analysis of the 
-documents in a dataset can be conducted using other types of features. This thesis 
-presented a computational study on documents with references. The analysis chose Thai legal documents as a dataset. The data were collected from an information service system 
-of the Supreme Court of Thailand’s website. The study utilized text mining and network 
-analysis to gain insight from the corpus. The analysis method included connected component analysis, graph clustering, and induced graphs. The study also built an 
-informatio n retrieval system from the network features obtained from the network 
-analysis. The evaluation revealed an increase in the performance after incorporating the network features with textual features. This indicated the potential benefit of using 
-network fe atures in a real -world information retrieval system.  
+An Analysis on Network and Topology of Legal Documents Using Text Mining and Graph Approach
+The number of documents in a dataset available on the Internet is increasing. 
+However, the limitation of using textual information derived from documents in data analysis requires more computation time and resources as the data grow. 
+An analysis of the documents in a dataset can be conducted using other types of features. 
+This thesis presented a computational study on documents with references. 
+The analysis chose Thai legal documents as a dataset. 
+The data were collected from an information service system of the Supreme Court of Thailand’s website. 
+The study utilized text mining and network analysis to gain insight from the corpus. 
+The analysis method included connected component analysis, graph clustering, and induced graphs. 
+The study also built an information retrieval system from the network features obtained from the network analysis. 
+The evaluation revealed an increase in the performance after incorporating the network features with textual features. 
+This indicated the potential benefit of using network features in a real-world information retrieval system.  
