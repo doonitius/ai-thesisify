@@ -1,0 +1,7 @@
+Increasing of service performance for hypertext transfer protocol a case study on campus computer network of Chulalongkorn University
+This study focuses on increasing of service performance for Hypertext Transfer Protocol. 
+The Chulalongkorn University campus network is selected as a case study. 
+The Hypertext Transfer Protocol packet is used by World Wide Web service that is the most popular on Internet network. 
+Three factors were studied namely, Cache size, Hit rate, and Response time. 
+Three alternative network models and experiments were designed for these networks to find the appropriate Proxy server deployment for the best increasing service performance of World Wide Web usage. 
+Network utilization data on campus network were collected, tested and analyzed with statistical tools.

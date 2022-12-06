@@ -1,0 +1,8 @@
+Water demand forecasting using the artificial neural network
+This research presents the application of artificial neural network for forecasting water demand of the customers in the responsible area of the Metropolitan Waterworks Authority. 
+Gross Domestic Product (GDP), Increased Water Tariffs and number of customers are the input of the network that is properly trained with historical data. 
+The result of the forecasting is the water demand. 
+The network used in this study is a two layer feedforward network and the learning process is the backpropagation. 
+This network is trained to be able to forecast water demand accurately. 
+For water demand forecasting of the Fiscal Year 1999-2000, the result from artificial neural network provides more accuracy by having the percentages of error at -0.18% while the result from accrual moving average technique has the percentages of error at 4.06%. 
+Academic Year.

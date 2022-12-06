@@ -1,0 +1,8 @@
+Identifying non-binding constrints in linear programming problems using supervised learning neural networks
+This thesis proposed an approach for identifying non-binding constraints in a linear programming problem (LP). 
+A supervised learning neural network 9NN) was applied in the prediction method. 
+The inputs of neural network were composed of the coefficients of the objective function, the coefficients of the constraints and the right-hand-side constants of linear programming problems. 
+For each target of neural network, it set to 1 fif the constraint was binding and O if the constraint was non-binding. 
+We considered specifically the LP that has a unique optimal solution and fixed the problem size to m x n dimensions where n was varied from 2 to 4 and m was varied from n to n+2. 
+Moreover, the back propagation (BP) algorithm was selected for training neural networks. 
+The result of this research showed the accuracy of neural networks that identified non-binding constraint.

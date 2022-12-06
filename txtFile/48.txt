@@ -1,0 +1,18 @@
+Incomplete time-series data forecasting based on clustering fill-in technique and ensembling neural network model
+This dissertation demonstrates the problem of incomplete time-series prediction by modelling the forecasting of several natural and social phenomena. 
+The modeling consists of two main steps. 
+The first step is to estimate the collected incomplete data, which are considered as missing data or missing values. 
+The second step is to predict new data based on the nature of the data obtained from the first step. 
+Our solution is to develop a new neural network model for forecasting incomplete time-series data and improving the accuracy of prediction. 
+Two neural network models are proposed. 
+First, various versions of EM-based algorithm and smoothing spline interpolation are used to preprocess the incomplete data sets. 
+The individual networks are trained by supervised multilayer perceptron(MLP) with extended Kalman filtering. 
+The ensemble construction is used for the combination of the individual networks. 
+We name this type of network Fill-in - Generalized Ensemble Method (FI-GEM) networks. 
+Second, each individual network uses a Finite Impulse Response model to perform the prediction. 
+The outputs of all individual neural networks are combined by the genetic algorithm-based selective neural network ensemble method (GASEN). 
+We denote this network as a reconstructed missing data-finite impulse response selective ensemble (RMD-FSE) network. 
+Moreover, we proposed a new fill-in technique that is improved for estimating missing values based on clustering technique for characterizing the pattern of incomplete time-series data. 
+The main idea is the time-series data are divided into separate subsequences of different sizes and, therefore, each subsequence can be viewed as a window. 
+The imputation of missing samples is achieved by finding a complete subsequence similar to the missing sample subsequence and imputing the missing samples from this complete subsequence. 
+The imputation accuracy of the proposed algorithm, namely varied window clustering (WDC) algorithm is comparable or better than the others traditional methods such as: the spline interpolation, the multiple imputation (MI), and the optimal completion strategy fuzzy c-means algorithm (OCSFCM) in case of the non-stationary time-series data.

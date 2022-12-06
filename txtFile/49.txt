@@ -1,0 +1,9 @@
+Generalization of an elliptic radial basis function neural network
+Radial Basis Function Neural Network (RBF NN) is one of the most considered neural networks with various data classification and function approximation applications. 
+Here, we concern only the data classification applications. 
+The classification correctness of an RBF network is defined by the data and the radius of the radial basis function. 
+To cover a class of data, the data must be covered by the same neurons as much as possible without any data from the other classes. 
+However, the correct classification of the training and testing data may not mean that the network can achieve its generalization. 
+To overcome this, some statistical method for estimating the density distribution of the data must be applied to correctly adjust the center and radius of the RBF neuron. 
+Bootstrap technique is considered and applied to estimate the center and size of each RBF neuron in this thesis. 
+The experimental results show that this technique significantly increase the generalization.

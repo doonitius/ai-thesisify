@@ -1,0 +1,9 @@
+An intelligent system to recommend appropriate correlations for vertical multiphase flow
+Artificial neural networks were used to identify appropriate correlations based on given levels of accuracy of bottomhole pressure calculation as well as the most accurate computation of the bottomhole pressure under given wellbore, fluid, and flowing conditions. 
+Neural networks have ability to discriminate relationships between input of flow conditions and output of candidate correlations of vertical multiphase flow by learning from real samples. 
+Therefore, neural networks were trained with training and validating data sets. 
+After training several neural networks in several scenarios, two neural networks were chosen to provide prediction of acceptable and best multiphase flow correlation. 
+In the first scenario, the best neural network that can predict correlations that yield an error between actual pressure measurement and computed pressure less than 10% was chosen. 
+The chosen network yields 17.23% difference between the actual coded outputs and predicted coded outputs (The output is coded as 1 for correlation that has less than 10% error and 0 otherwise). 
+In the second scenario, the best neural network that can predict the errors close to the actual errors was selected. 
+The chosen neural network yields 7.84% average absolute difference between actual and predicted errors.

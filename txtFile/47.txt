@@ -1,0 +1,14 @@
+NON-GEOGRAPHICAL KNOWLEDGE DATA DISSEMINATION ON VEHICULAR AD HOC NETWORKS
+Reliable broadcasting in vehicular ad hoc networks is challenging due to its unique characteristics including intermittent connectivity and various vehicular scenarios. 
+Applications and services in intelligent transportation systems need an efficient, fast and reliable broadcasting protocol. 
+We propose a non-geographical knowledge reliable broadcasting protocol that has an efficient data forwarder selection and an efficient broadcasting mechanism. 
+The forwarder node selection algorithm is a self-decision algorithm that lets a node to know that it belongs to a member of connected dominating set or not. 
+The algorithm is a combination of density-based algorithm and topology-based algorithm, called “DTA”. 
+The algorithm does not require any geographical knowledge. 
+Therefore, it can avoid violating a privacy issue. 
+Moreover, the algorithm can resist inaccurate data than position base algorithms that need high frequent beaconing for accurate data. 
+We also propose a new broadcasting protocol, called “NoG”. 
+NoG consists of a broadcasting mechanism, a waiting timeout mechanism and a beaconing mechanism. 
+The proposed protocol operates without any geographical knowledge and provides reliable and efficient data dissemination. 
+The performance is evaluated with a realistic network simulator (NS-3). 
+Simulation results show that NoG with DTA outperforms other existing protocols in terms of reliability, overhead, and data dissemination speed.

@@ -1,0 +1,14 @@
+Hybrid GNS3 and Mininet-WiFi emulator for survivable SDN backbone network supporting wireless IoT traffic
+This thesis has designed and implemented an emulated testbed for fault-tolerant delay awareness routing for wireless sensor traffic by using software-defined networking (SDN) at the backbone network. 
+In this work, the hybrid form of GNS3 and Mininet-WiFi emulation network testbed is proposed to build an emulated SDN-based backbone network in GNS3 and an emulated IPv6 over Low Power Personal Area Network (6LoWPAN) in Mininet-WiFi. 
+Three virtual machines are used to set up the hybrid emulated SDN-based network testbed. 
+The Mininet-WiFi platform which is used to build the emulated 6LoWPAN sensor network is installed in two virtual machines separately and the third virtual machine is GNS-VM. 
+In the proposed SDN-based backbone network, there are three available paths to carry the sensor traffic from two sensor networks to the server network, and Open Virtual Switch (OVS) supporting the OpenFlow protocol is used to establish an SDN-based backbone network. 
+The python-based RYU SDN framework is used as the logically centralized SDN controller which controls eight OVS nodes located in three paths in an out-of-band connection. 
+In this thesis, the routing algorithm is based on delay, packet loss ratio, and the number of hops parameters to decide the optimal path for the sensor traffic or the data plane traffic. 
+The routing algorithm is developed and executed in the centralized RYU controller. 
+There are two main tasks for the provider edge node connected to the two sensor networks (i) to measure the delay, packet loss ratio, and the number of hops (ii) to send the measurement result to the centralized RYU controller. 
+The information which is sent by the provider edge node is important for the SDN controller to decide the optimal path and then install the necessary OpenFlow rules to the OVS node to establish the data plane. 
+In this thesis, the measurement result of delay aware routing algorithm is reported. 
+Another consideration is that the implemented routing algorithm is fault-tolerant with the measurement result of rerouting time when the selected optimal path is failed. 
+The programmability of SDN due to the separation of control and data planes is the key benefit for us as the routing behavior is easily customizable, especially for IoT sensor networks in this work.

@@ -1,0 +1,13 @@
+Use of multilayer feedforward networks for system identification, function approximation, and advanced control
+Multilayer feedforward networks for system identification, function approximation, and advanced control are studied in this research. 
+Error backpropagation and Levenberge Marquardt algorithms have been employed to train the neural networks. 
+For system identification, the neural networks are trained with actual plant input-output data to learn the plant dynamics of an industrial front-end acetylene hydrogenation system. 
+It can be seen that the trained neural networks give good prediction results in both training data set and testing data set with maximum average relative error of 8%. 
+For function approximation, the neural networks are trained with simulated data of a Continuous Stirred Tank Reactor (CSTR) in order to approximate a function in the Generic Model Control (GMC) algorithm based on the coolant temperature and the reactor temperature. 
+It can be seen that the incorporation of neural network approximator in the GMC can improve the GMC control performance under the disturbance rejection and set point tracking tests in a nominal condition and the presence of plant-model mismatches. 
+For advanced control, the neural networks are trained to learn the forward model and the inverse model of the CSTR. 
+The first one is used to simulate the process model and the other one is used as a controller in the Nonlinear Internal Model Control (NIMC) algorithm. 
+It can be seen that the neural network controller based on the inverse model can control the reactor temperture at its set point when the system is tested with set point tracking. 
+However, it produces some offsets when the system is tested with disturbance rejection. 
+Consequently, the PI controller is added into the NIMC control loop in order to get rid of the offsets. 
+As the results, offset-free control performances are obtained.
