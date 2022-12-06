@@ -1,0 +1,6 @@
+DATA AUGMENTATION FOR THAI NATURAL LANGUAGE PROCESSING USING DIFFERENT TOKENIZATION
+Tokenization is one of the most important data pre-processing steps in the text classification task and also one of the main contributing factors in the model performance.
+However, getting good tokenizations is non-trivial when the input is noisy, and is especially problematic for languages without an explicit word delimiter such as Thai.
+Therefore, we proposed an alternative data augmentation method to improve the robustness of poor tokenization by using multiple tokenizations.
+We evaluated the performance of our algorithms on different Thai text classification datasets.
+The results suggested our augmentation scheme makes the model more robust to tokenization errors and can be combined well with other data augmentation schemes.

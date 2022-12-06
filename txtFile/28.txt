@@ -1,0 +1,13 @@
+The Application of Machine Learning in Clustering Borderline Mild Cognitive Impairment among Aging Thai People Living with HIV
+Many people living with HIV (PLWH) have cognitive impairment.
+Details of cognitive impairment subtypes are lacking.
+Unsupervised machine learning (ML) can reveal hidden subgroups within heterogeneous data.
+The study aimed to determine clusters of aging Thai PLWH with borderline cognitive impairment using unsupervised ML.
+HIV-NAT 207 study enrolled Thai PLWH aged ≥50 years. 
+Cognitive performance was evaluated by the Thai-validated Montreal Cognitive Assessment (MoCA).
+This study included participants who scored between 23 and 27.
+The score of each cognitive domain served as cluster variables for the K-means algorithm.
+Among 340 PLWH, 177 (52.1%) scored between 23 and 27. 
+Median age was 54 (IQR = 51-58) years, 118 (66.7%) were male, median CD4 was 620 (IQR = 489-795) cells/µL, and 170 (96.1%) were virally suppressed. 
+K-means cluster demonstrated five clusters of all participants: 22.0% cluster 1 (marked memory with mild language impairment), 25.4% cluster 2 (mild visuospatial/executive functionlanguage-memory impairment), 19.2% cluster 3 (moderate abstraction with mild visuospatial/executive function-language-memory impairment), 18.6% cluster 4 (marked language with mild memory impairment), 14.7% cluster 5 (marked language-abstraction impairment).
+A longitudinal study is warranted to identify differences in clinical significance and prognosis between each cluster.

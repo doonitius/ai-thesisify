@@ -1,0 +1,10 @@
+A DEVELOPMENT OF THE DEADLOCK DETECTION ALGORITHM
+FOR IDENTIFYING POTENTIAL DEADLOCKS
+Currently, developing a multithreading Application Programming Interface (API) for special use is extensive.
+Deadlock in the multithreading API is the most concerned problem because we cannot find the deadlock in the application and thecost for defect fixing later on the development phase is even higher and more complex.
+Detecting deadlock in early phase of the Software Development Life Cycle or using static analysis is the way more effective.
+Since we still do not know how developer uses the API, detecting deadlock in the source code using static analysis is our selection for this research.
+We have successfully developed the Deadlock Detection Algorithm that brings the concept of five deadlock conditions by Mayur Naik published in 2009 and two code patterns by Frank Otto published in 2008.
+We present seven deadlock conditions that are the Aliasing Condition, the Reverse Order Locking Condition or the Cyclic Lock Dependency Condition, the Escaping Condition, the Parallel Condition, the Non-Guarded Lock Condition and the Superfluous Lock Condition.
+In addition, we develop the prototype of the Deadlock Detection Tool to demonstrate the use of the Deadlock Detection Algorithm.
+The result of the implementation of the Deadlock Detection Algorithm and the Deadlock Detection Tool are satisfied and provide correct result as expected.

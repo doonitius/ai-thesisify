@@ -1,0 +1,8 @@
+Designing Answer Sets For Thai Advisory Chatbot With Different Talking Styles For COVID-19 Pandemic
+This research focuses on designing a set of answers for Thai advisory chatbot using a different conversational approach from conventional chatbot for COVID-19 pandemic in order to improve user’s chatbot experience.
+The research studies how to modify the underlying interactive chatbot language to suit those extrovert and introvert personalities.
+To evaluate the correctness of answer set design, the author builds two classification models based on Extroversion Text Classification Model (ETCM).
+Both models utilize the same Logistic Regression algorithm, but different feature selection techniques.
+The first model relies solely on Term Frequency-Inverse Document Frequency (TF-IDF) property.
+In contrast, the second model utilizes both TF-IDF and a unique word component score for each speech segment as the principal features.
+Performance comparison of the study shows that the model utilizing both features is more accurate than that uses only TF-IDF.
