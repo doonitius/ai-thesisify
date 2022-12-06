@@ -1,0 +1,6 @@
+Analogous View Between Residual Networks and Partial Differential Equations
+In this project we try to explain dynamic of hidden unit in residual network with knowledge of partial differential equation and quantum mechanics. 
+By consider the change of input information over one layer of residual block as dynamics over a unit of time and consider each tensor element of input as function in the position space we see that the residual block is mathematical equivalence to partial differential equation depend on time and position, this allows us to derive Hamiltonianlike object describe dynamics of the input in the similar fashion to the Schrödinger equation. 
+We also show that output from the hidden layer of residual network can be write as sum of contribution from all paths the input has travelled in the previous layer like Feynman path integral formulation of quantum mechanics. 
+The experiment of neural network architecture from PDE is created and compared with residual network in the case that residual block is made up of skip connection over one convolution kernel. 
+Example of further development of neural network architecture from mathematical understanding of residual block is indicated here as neural ordinary differential equation.

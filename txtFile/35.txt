@@ -1,0 +1,10 @@
+Resilient heat exchanger network design of hydrodealkylation process
+Energy recovery by heat exchanger network is the important stage in chemical process. 
+The energy integration causes to the interactions and may cause the process more difficult to maintain the target temperature. 
+Therefore, in order to achieve maximum energy recovery and keep target temperatures at their desirable value, the resilient heat exchanger network that can tolerate variations are important. 
+This research, the resilient heat exchanger network design procedure provided by Wongsri (1990) is use to design resilient network for the Hydrodealkylation process (HDA Process) in Class I problem. 
+The match pattern heuristic, shift approach and the heat load propagation technique are essential approach. 
+Six alternatives for the HDA process are redesign to be the resiliency networks for maintain target temperature and also reached maximum energy recovery (MER). 
+The Resiliency Parameters of resilient networks are required to compare and selected the best resilient network. 
+In order to receive resilient network, a trade-off between cost and resiliency may be needed. 
+The Auxiliary unit should be added in the network for cope safely with the variations and easy to design control structure to the network.

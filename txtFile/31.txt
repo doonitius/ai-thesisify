@@ -1,0 +1,7 @@
+Network management policy for overlapping between cabling and wireless networks in medicare system
+When the network utilization increased, congestion and delay problems occurred. 
+Then, the network cannot properly serve needs of users. 
+Since the Medicare system has significant applications transmitted within the system, these problems can be critically serious in some emergency cases. 
+Consequently, Overlap-network with policies model was proposed in this Thesis. 
+The results have shown that with the appropriate management of transmitted applications through a network policy as well as determining of resource allocation by installing a wireless network over the original wired network can efficiently enhance performance by relieving the congestion and delay problems. 
+Therefore, this research has successfully proved that Overlap-network with policies is the efficient solution with cost-effectiveness on the network management policy for the Medicare system.

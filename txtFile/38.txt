@@ -1,0 +1,8 @@
+MULTI-DOMAIN NETWORK DESIGN STRATEGY FOR SURVIVABLE LARGE-SCALE OPTICAL NETWORKS
+This thesis addresses two main issues of survivable multi-domain large-scale optical networks, namely domain privacy and scalability. 
+In principle, the physical network topology of each domain can be hidden from other domains by using an aggregation model to form a network of virtual domains, thereby satisfying domain privacy requirement. 
+First, we develop an improved aggregation model for p-cycle protection that ensures full protection against all single link failures and is more efficient than existing models. 
+To optimize for the spare capacity requirement, Integer Linear Programming (ILP) formulations are derived. 
+Second, we propose a new approach for multi-domain network design using shared-mesh protection where the backup capacity of intra-domain and inter-domain links can be shared more effectively. 
+The proposed approach also provides a three-step systematic design and optimization, which allows our proposed ILP formulation to resolve larger network problems compared to single-domain network design approach. 
+Several practical network design examples are given to illustrate the effectiveness of our proposed technique with respect to spare capacity requirement and network latency.

@@ -1,0 +1,15 @@
+COMPARATIVE PERFORMANCE EVALUATION OF CENTRALIZED IN-NETWORK CACHING POLICIES AND CONTENT VISIBILITY LEVELS IN INFORMATION CENTRIC NETWORK BY USING OPENFLOW TESTBED
+Performance is a key factor for designing Information Centric Network (ICN) under the support of Software Defined Networking (SDN). 
+Moreover, the implementation of centralized in-network caching policies and content visibility levels surely affects the performance. 
+This dissertation plans to evaluate the performance of ICN under SDN support when three different mechanisms of centralized in-network caching policy with content visibility level are applied by using OpenFlow testbed. 
+It also aims to study the effects of network topology on the network performance. 
+Those three mechanisms consist of non-cooperative in-network caching policy with individual content visibility mechanism, path cooperative in-network caching policy with path content visibility level mechanism and global cooperative in-network caching policy with global content visibility level mechanism. 
+To evaluate the performance; four performance metrics including server hit ratio, average hop count, message rate between control and data plane, and bottleneck link traffic were utilized. 
+The experiments were conducted in two experimental environments including PC-based OpenFlow testbed and emulation by Mininet. 
+In each environment, two different network topologies were tested. 
+The results show that each mechanism has its strengths and weaknesses. 
+Also, the network performance corresponding to each mechanism depends on the types of network topology. 
+While the network is simple, the global cooperative in-network caching policy with global content visibility level mechanism outperforms others. 
+But, when the network becomes larger, this mechanism shows some disadvantages in terms of message rate between control and data plane, and the bottleneck link traffic. 
+The non-cooperative in-network caching policy with individual content visibility mechanism performs the worst compared to others. 
+On the other hand, emulation by Mininet is recommended to use because it utilizes less resource and gives the same results as those in PC-based OpenFlow testbed environment.

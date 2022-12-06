@@ -1,0 +1,9 @@
+Design and development of central node and mobile node for tele-measurement sensor network
+The conventional environmental network does not provide the feedback ability and is not interesting for the non-scientific user. 
+So, we propose a personal sensor network for environmental monitoring and remote security system for company, organization and home user. 
+With its long-term data collection ability, the tele-measurement sensor network can be integrated in many research areas, especially in survey engineering, to collect the data with a very fine resolution comparing to the conventional method (human operator). 
+With its feedback ability, the network allows the end user for better monitoring and controlling their system more easily and reliably. 
+This network is easy to build and allows the end user to change the configuration and easy to update the system by using the modular technique and ability to set up new configuration from the center. 
+It can be used as indoor or outdoor network. 
+By choosing appropriate microchip technologies and algorithm, we can optimize the power consumption of the system. 
+In this thesis, we describe in detail about hardware and software needed for developing this network (central and mobile nodes).

@@ -1,0 +1,22 @@
+Asset pricing and network topology
+This dissertation provides new empirical evidence for the relationship between network structure and asset returns in US, international markets, and Thailand. 
+Previous studies find that a network of return correlations provides the meaningful economic taxonomy of the equity market. 
+This finding makes the network structure a suitable channel through which an idiosyncratic shock propagates. 
+This network feature can eliminate or amplify the idiosyncratic shock on the system-wide level. 
+Therefore, the diversifying argument of the capital asset pricing models is not always true as the idiosyncratic shock becomes more significant when interacting with the network measures. 
+Based on this idiosyncratic shock propagation concept, this dissertation incorporates the measures of interconnectedness and centrality into the asset pricing models. 
+In this dissertation, a stock network is constructed from the Pearson correlation matrix of stock returns that is filtered by a network algorithm. 
+Unlike the unfiltered matrix, the filtered one contains only the essential information about the interrelationships. 
+More importantly, it enables us to create a refined network of which many network characteristics can be quantified. 
+The important network characteristics used in this dissertation are network topology and stock centrality. 
+The network topology reflects the pattern of interconnections which may be integrated into a star-like network or even dispersing into a chain-like network. 
+Each pattern has different ability to facilitate the idiosyncratic shock propagation. 
+The stock centrality reflects the relative influence of the stock in two directions. 
+The first direction is the stock’s ability to influence the other stocks in the network while the other direction is its vulnerability to propagated shocks. 
+The key finding of this dissertation is that the measures of network structure are statistically significant to explain or predict asset returns. 
+In the US market, I study the stocks listed in S&P500 and find that the network topology, measured by diameter, works together with the idiosyncratic risk, measured by average stock variance, to predict returns on the market portfolio. 
+Furthermore, on the international financial markets, the network measures have power to predict the probability of extreme negative returns when working with the idiosyncratic risk measure which is average volatility of stock market returns. 
+Lastly, in Stock Exchange of Thailand, I find that the portfolios formed by the network criteria earn abnormal returns that cannot be explained by the capital asset pricing model. 
+The high systematic-important firms have lower returns than the low ones. 
+The firms with high fragility level have higher returns than the others. 
+Moreover, the network centrality may be useful in explaining the cross-sectional expected returns in Thailand.

@@ -1,0 +1,15 @@
+Mitigating sinkhole attack on low-power and lossy networks with traffic aware scheduling algorithm using dual parent mechanism
+Low-Power and Lossy Networks (LLN) are networks where all the routers and IoT devices are working on a limited power, memory, and computational energy. 
+Due to the constrained structures of LLN networks such as limited resources, lossy connection and lack of physical security, security attacks can occur when routing in an LLN network. 
+The Routing Protocol for Low-Power and Lossy Networks (RPL) was developed to meet the needs of multiple applications in the fields of Wireless Sensor Networks (WSN) and Internet of Things (IoT). 
+Some sensor nodes in a RPL network are not strong enough to withstand a variety of attacks, such as a sinkhole attack. 
+This type of attack can damage the network by itself or in conjunction with other attacks. 
+The attacker can easily create attacking behavior and can cause serious isolation from the network and loss of delivered packets of the network traffic.
+As the damage of sinkhole Attack in the RPL network is very big and it makes a high impact to the network, position of the attack node is very important in the network, and it can make a huge network isolation and loss the high percentage of traffic loss. 
+This thesis studies the damage of Sinkhole attack in RPL networks and proposed the simple and very effective way of defense mechanism to mitigate that sinkhole attack. 
+Our proposed method, making a dual-parent formation for each child node in the network when the topology is set up, is the effective way to defense the Sinkhole Attack. 
+This thesis also implements the traffic load balancing of the network by applying Traffic Aware Scheduling Algorithm (TASA). 
+Applying the TASA in the RPL network topology is a good way to concern the total traffic load of our data acquisition network, avoid the collision between child nodes and parent node transmission and reduce the time and delay of the network. 
+Results show that we can mitigate the sinkhole attack and fully deliver the total traffics of the network. 
+And this thesis compares the number of time slots and packets loss in both mechanisms, with and without dual parent, under sinkhole attack and details of time slots comparison of one attacking behavior to check the correctness of our proposed method and simulation. 
+Finally, we can conclude that our dual-parent sinkhole attack defense mechanism is worked well by checking the comparisons results.

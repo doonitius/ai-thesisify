@@ -1,0 +1,16 @@
+Connectivity analysis and its application to routing protocol in aviation ad hoc network
+Traveling by air has become popular in society nowadays. 
+The grid of flight routes covers widely all over world. 
+Satellite communication link is the unique medium for flights when they pass over remote area outside of ground stations' coverage area. 
+Applying ad hoc network to bypass high cost and long delay satellite links is a topic that is attracting many research. 
+High mobility, sparse space distribution, and long communication distance are challenges in order for aviation ad hoc network (AANET) to become true. 
+Network connectivity and communication reliability are targets of this dissertation. 
+At first, connectivity analytical model of a general one-dimensional ad hoc network was derived. 
+Then it was applied to present exactly the dependence of connectedness probability on system parameters of AANET on a flight path. 
+This model can be used in network design, and to evaluate network connectivity in various conditions. 
+It can also be used in network design. 
+The effect of connectivity on network performance was analyzed and formulated. 
+Employing AANET characteristic that aircraft in vicinity can know position and velocity of each other, novel link longevity based routing mechanisms were proposed to improve network communication reliability. 
+In study new routing mechanisms, we derived a new link longevity estimation model that can be applied flexibly in reality without neighbors' transmission range knowledge. 
+Network performance can be improved by the proper value of the threshold signal to inference and noise ratio parameter of this model. 
+We obtained the expected routing performance from the experiment of AANET within distance of $1000 Nm between the ground station and aircraft.
