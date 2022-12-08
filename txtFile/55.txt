@@ -1,0 +1,5 @@
+Quantum comparator circuit on superconducting quantum computer
+In this thesis, we present an optimised quantum comparator circuit based on Cuccaro's ripple-carry quantum adder using relative phase techniques from Maslov's multiple control Toffoli optimisation. 
+We extend the cost function from simply counting C-Not and Toffoli gate to Qiskit cost which defines arbitrary single qubit gate cost as unity and C-Not as the only two qubit gate cost as ten. 
+We report the comparison result between our comparator circuit with previous comparator circuits from literature using optimal Toffoli implementation with Qiskit cost, C-Not count, and circuit depth. 
+We also report our experiment of implementing a two-bit comparator on IBM QX devices.

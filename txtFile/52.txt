@@ -1,0 +1,12 @@
+Quantum theory of Josephson junction for a quantum bit
+Josephson junction is one of the promising devices to be used as a quantum bit or known as qubit in a quantum computer.
+The dynamics of current-bias Josephson junction can be described by using the Resistively and Capacitively Shunted Junction (RCSJ) model which is analogous to the classical motion of a particle in a tilted washboard potential. 
+In this work, quantum theory and approximation methods are used to calculate and explain quantum properties of the Josepson junction. 
+We found that the energy levels in the washboard potential can be quantum mechanically quantized, and thus used as a qubit in quantum computation.
+The tunneling rate from the n[superscript th] energy level exponentially increases with bias current and the first excited state is three orders of magnitude more than the ground state. 
+The wave function of the state in the potential well is relatively similar to the harmonic oscillator wave function because of the shape of the washboard potential.
+The transition rate between the energy levels due to an electromagnetic radiation depends on the amplitude and the frequency of microwave current.
+The period of the oscillation is in the order of nanoseconds. 
+Finally the decoherence time in Josephson junction can be observed by considering the Rabi's oscillation in the presence of current noise.
+The decoherence time depends on the magnitude of the current noise. 
+This result can be used to determine the feasibility of using Josephson Junction as a qubit.

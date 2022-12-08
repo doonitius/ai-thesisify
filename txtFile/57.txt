@@ -1,0 +1,13 @@
+Control of the number of dots in inas quantum dot molecules for quantum computing
+Self-assembled lateral InAs quantum dot molecules (QDMs) are grown by solid-source molecular beam epitaxy (MBE) technique using the thin-capping-and-regrowth MBE process. 
+Thin-capping of GaAs on as-grown InAs quantum dots (QDs) at low temperatures leads to nanohole templates. 
+The shape, size and depth of nanoholes are controlled by capping thickness. 
+Subsequent regrowth with 0.6 ML of InAs on the templates result in nano-propeller QDs with different blades' dimensions. 
+We found that the length of the propeller blades is controlled by either the capping temperature or the thickness of capping layer.
+When the amount of InAs regrowth layer increases from 0.6 to 1.2 and 1.5 ML, QDMs with different shapes are created. 
+The center dots are formed by filling up nanoholes at the beginning phase until the strain relaxation at center becomes minimized. 
+Later on, the rest of InAs regrowth material starts to form satellite dots along the blade of nano-propeller where remaining strain fields are still distributed at the perimeter of nano-propeller blades. 
+The dot uniformity and their dot size of all QDM samples are examined by photoluminescence (PL) measurements at 77 K. 
+Furthermore, the excitation power dependence of PL spectra of all samples is also conducted. 
+The PL results from some case of different QDMs also exhibit the shift of the PL peaks toward higher energies. 
+We believe that the coupling between center dot and satellite dots lead to the extending in their band structures.
